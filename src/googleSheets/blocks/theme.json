@@ -1,0 +1,135 @@
+{
+    "blockStyles": {
+        "Array_style": {
+            "colourPrimary": "#1f77b4",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Database_style": {
+            "colourPrimary": "#aec7e8",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Date_style": {
+            "colourPrimary": "#ff7f0e",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Engineering_style": {
+            "colourPrimary": "#ffbb78",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Filter_style": {
+            "colourPrimary": "#2ca02c",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Financial_style": {
+            "colourPrimary": "#98df8a",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Google_style": {
+            "colourPrimary": "#d62728",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Info_style": {
+            "colourPrimary": "#ff9896",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Logical_style": {
+            "colourPrimary": "#9467bd",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Lookup_style": {
+            "colourPrimary": "#c5b0d5",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Math_style": {
+            "colourPrimary": "#8c564b",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Operator_style": {
+            "colourPrimary": "#c49c94",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Parser_style": {
+            "colourPrimary": "#e377c2",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Statistical_style": {
+            "colourPrimary": "#f7b6d2",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Text_style": {
+            "colourPrimary": "#7f7f7f",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        },
+        "Web_style": {
+            "colourPrimary": "#c7c7c7",
+            "colourSecondary": "#AD7BE9",
+            "colourTertiary": "#CDB6E9"
+        }
+    },
+    "categoryStyles": {
+        "Array_category": {
+            "colour": "#1f77b4"
+        },
+        "Database_category": {
+            "colour": "#aec7e8"
+        },
+        "Date_category": {
+            "colour": "#ff7f0e"
+        },
+        "Engineering_category": {
+            "colour": "#ffbb78"
+        },
+        "Filter_category": {
+            "colour": "#2ca02c"
+        },
+        "Financial_category": {
+            "colour": "#98df8a"
+        },
+        "Google_category": {
+            "colour": "#d62728"
+        },
+        "Info_category": {
+            "colour": "#ff9896"
+        },
+        "Logical_category": {
+            "colour": "#9467bd"
+        },
+        "Lookup_category": {
+            "colour": "#c5b0d5"
+        },
+        "Math_category": {
+            "colour": "#8c564b"
+        },
+        "Operator_category": {
+            "colour": "#c49c94"
+        },
+        "Parser_category": {
+            "colour": "#e377c2"
+        },
+        "Statistical_category": {
+            "colour": "#f7b6d2"
+        },
+        "Text_category": {
+            "colour": "#7f7f7f"
+        },
+        "Web_category": {
+            "colour": "#c7c7c7"
+        }
+    },
+    "componentStyles": {}
+}

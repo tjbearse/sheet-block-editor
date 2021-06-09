@@ -1,0 +1,313 @@
+[
+    {
+        "type": "sheets_CHOOSE",
+        "message0": "*CHOOSE %1 index %2 choice1 %3 [choice2] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "CHOICE1"
+            },
+            {
+                "type": "input_value",
+                "name": "CHOICE2"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns an element from a list of choices based on index. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, CHOOSE(index, choice1, [choice2, ...])"
+    },
+    {
+        "type": "sheets_COLUMN",
+        "message0": "COLUMN %1 [cell reference] %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the column number of a specified cell, with `A=1`. Learn more"
+    },
+    {
+        "type": "sheets_COLUMNS",
+        "message0": "COLUMNS %1 range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the number of columns in a specified array or range. Learn more"
+    },
+    {
+        "type": "sheets_GETPIVOTDATA",
+        "message0": "*GETPIVOTDATA %1 value name %2 any pivot table cell %3 [original column] %4 [pivot item] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_NAME"
+            },
+            {
+                "type": "input_value",
+                "name": "ANY_PIVOT_TABLE_CELL"
+            },
+            {
+                "type": "input_value",
+                "name": "ORIGINAL_COLUMN"
+            },
+            {
+                "type": "input_value",
+                "name": "PIVOT_ITEM"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, GETPIVOTDATA(value_name, any_pivot_table_cell, [original_column, ...], [pivot_item, ...])"
+    },
+    {
+        "type": "sheets_HLOOKUP",
+        "message0": "HLOOKUP %1 search key %2 range %3 index %4 [is sorted] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_SORTED"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found. Learn more"
+    },
+    {
+        "type": "sheets_INDEX",
+        "message0": "INDEX %1 reference %2 [row] %3 [column] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "REFERENCE"
+            },
+            {
+                "type": "input_value",
+                "name": "ROW"
+            },
+            {
+                "type": "input_value",
+                "name": "COLUMN"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns the content of a cell, specified by row and column offset. Learn more"
+    },
+    {
+        "type": "sheets_INDIRECT",
+        "message0": "INDIRECT %1 cell reference as string %2 [is A1 notation] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE_AS_STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_A1_NOTATION"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns a cell reference specified by a string. Learn more"
+    },
+    {
+        "type": "sheets_LOOKUP",
+        "message0": "LOOKUP %1 search key %2 search range|search result array %3 [result range] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_RANGE|SEARCH_RESULT_ARRAY"
+            },
+            {
+                "type": "input_value",
+                "name": "RESULT_RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column. Learn more"
+    },
+    {
+        "type": "sheets_MATCH",
+        "message0": "MATCH %1 search key %2 range %3 [search type] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_TYPE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns the relative position of an item in a range that matches a specified value. Learn more"
+    },
+    {
+        "type": "sheets_OFFSET",
+        "message0": "OFFSET %1 cell reference %2 offset rows %3 offset columns %4 [height] %5 [width] %6",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE"
+            },
+            {
+                "type": "input_value",
+                "name": "OFFSET_ROWS"
+            },
+            {
+                "type": "input_value",
+                "name": "OFFSET_COLUMNS"
+            },
+            {
+                "type": "input_value",
+                "name": "HEIGHT"
+            },
+            {
+                "type": "input_value",
+                "name": "WIDTH"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns a range reference shifted a specified number of rows and columns from a starting cell reference. Learn more"
+    },
+    {
+        "type": "sheets_ROW",
+        "message0": "ROW %1 [cell reference] %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the row number of a specified cell. Learn more"
+    },
+    {
+        "type": "sheets_ROWS",
+        "message0": "ROWS %1 range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the number of rows in a specified array or range. Learn more"
+    },
+    {
+        "type": "sheets_VLOOKUP",
+        "message0": "VLOOKUP %1 search key %2 range %3 index %4 [is sorted] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_SORTED"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Vertical lookup. Searches down the first column of a range for a key and returns the value of a specified cell in the row found. Learn more"
+    }
+]

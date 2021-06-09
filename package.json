@@ -1,0 +1,41 @@
+{
+	"name": "sheet-block-editor",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"audit": "npm audit fix",
+		"update": "npm update",
+		"start": "webpack-dev-server --config webpack.dev.js",
+		"build": "webpack --config webpack.prod.js",
+		"build-size": "webpack --config webpack.prod.js --json > /tmp/webpackStats.json && sleep .1 | npx webpack-bundle-analyzer /tmp/webpackStats.json",
+		"test": "jest"
+	},
+	"dependencies": {
+		"blockly": "^3.20200924.1"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.14.4",
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"copy-webpack-plugin": "^9.0.0",
+		"jest": "^27.0.4",
+		"jison": "^0.4.18",
+		"webpack": "^4.42.1",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.11.2",
+		"webpack-merge": "^5.8.0"
+	},
+	"jest": {
+		"moduleFileExtensions": [
+			"js",
+			"jsx"
+		],
+		"moduleDirectories": [
+			"node_modules"
+		],
+		"moduleNameMapper": {
+			"\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+			"\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+		}
+	}
+}

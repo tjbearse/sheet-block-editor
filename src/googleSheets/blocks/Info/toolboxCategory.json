@@ -1,0 +1,75 @@
+{
+    "kind": "category",
+    "name": "Info",
+    "categoryStyle": "Info_category",
+    "contents": [
+        {
+            "kind": "block",
+            "type": "sheets_ERROR_TYPE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISBLANK"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISDATE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISEMAIL"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISERR"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISERROR"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISFORMULA"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISLOGICAL"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISNA"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISNONTEXT"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISNUMBER"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISREF"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISTEXT"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_N"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_NA"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_TYPE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_CELL"
+        }
+    ]
+}

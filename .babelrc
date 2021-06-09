@@ -1,0 +1,25 @@
+{
+	"presets": [
+		["env", {"modules": false}],
+		"@babel/preset-env"
+	],
+
+	"env": {
+		"test": {
+			"presets": [
+				"jest",
+				[
+					"env",
+					{
+						"debug": false,
+						"modules": "commonjs",
+						"targets": {
+							"node": "current"
+						},
+						"useBuiltIns": true
+					}
+				]
+			]
+		}
+	}
+}

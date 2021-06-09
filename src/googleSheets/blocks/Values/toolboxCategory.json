@@ -1,0 +1,10 @@
+{
+	"kind": "category",
+	"name": "Values",
+	"contents": [
+		{ "kind": "block", "type": "sheets_text" },
+		{ "kind": "block", "type": "sheets_number" },
+		{ "kind": "block", "type": "sheets_boolean" },
+		{ "kind": "block", "type": "sheets_cell" }
+	]
+}

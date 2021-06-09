@@ -1,0 +1,107 @@
+{
+    "kind": "category",
+    "name": "Date",
+    "categoryStyle": "Date_category",
+    "contents": [
+        {
+            "kind": "block",
+            "type": "sheets_DATE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_DATEDIF"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_DATEVALUE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_DAY"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_DAYS"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_DAYS360"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_EDATE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_EOMONTH"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_HOUR"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_ISOWEEKNUM"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_MINUTE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_MONTH"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_NETWORKDAYS"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_NETWORKDAYS_INTL"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_NOW"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_SECOND"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_TIME"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_TIMEVALUE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_TODAY"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_WEEKDAY"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_WEEKNUM"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_WORKDAY"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_WORKDAY_INTL"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_YEAR"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_YEARFRAC"
+        }
+    ]
+}

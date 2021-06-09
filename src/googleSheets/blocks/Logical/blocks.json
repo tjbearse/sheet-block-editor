@@ -1,0 +1,204 @@
+[
+    {
+        "type": "sheets_AND",
+        "message0": "*AND %1 logical expression1 %2 [logical expression2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION1"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION2"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns true if all of the provided arguments are logically true, and false if any of the provided arguments are logically false. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, AND(logical_expression1, [logical_expression2, ...])"
+    },
+    {
+        "type": "sheets_FALSE",
+        "message0": "FALSE",
+        "args0": [],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": true,
+        "tooltip": "Returns the logical value `FALSE`. Learn more"
+    },
+    {
+        "type": "sheets_IF",
+        "message0": "IF %1 logical expression %2 value if true %3 value if false %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_TRUE"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_FALSE"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns one value if a logical expression is `TRUE` and another if it is `FALSE`. Learn more"
+    },
+    {
+        "type": "sheets_IFERROR",
+        "message0": "IFERROR %1 value %2 [value if error] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_ERROR"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the first argument if it is not an error value, otherwise returns the second argument if present, or a blank if the second argument is absent.\u00a0Learn more"
+    },
+    {
+        "type": "sheets_IFNA",
+        "message0": "IFNA %1 value %2 value if na %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_NA"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Evaluates a value. If the value is an #N/A error, returns the specified value. Learn more."
+    },
+    {
+        "type": "sheets_IFS",
+        "message0": "*IFS %1 condition1 %2 value1 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CONDITION1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Evaluates multiple conditions and returns a value that corresponds to the first true condition. Learn more.\n*Implementation not complete",
+        "TODO": "dropped options multi, IFS(condition1, value1, [condition2, value2], \u2026)"
+    },
+    {
+        "type": "sheets_NOT",
+        "message0": "NOT %1 logical expression %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": true,
+        "tooltip": "Returns the opposite of a logical value - `NOT(TRUE)` returns `FALSE`; `NOT(FALSE)` returns `TRUE`. Learn more"
+    },
+    {
+        "type": "sheets_OR",
+        "message0": "*OR %1 logical expression1 %2 [logical expression2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION1"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION2"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns true if any of the provided arguments are logically true, and false if all of the provided arguments are logically false. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, OR(logical_expression1, [logical_expression2, ...])"
+    },
+    {
+        "type": "sheets_SWITCH",
+        "message0": "*SWITCH %1 expression %2 case1 %3 value1 %4 [default or case2 %5 value2] %6",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "EXPRESSION"
+            },
+            {
+                "type": "input_value",
+                "name": "CASE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "[DEFAULT OR CASE2"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2]"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Tests an expression against a list of cases and returns the corresponding value of the first matching case, with an optional default value if nothing else is met. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, SWITCH(expression, case1, value1, [default or case2, value2], \u2026)"
+    },
+    {
+        "type": "sheets_TRUE",
+        "message0": "TRUE",
+        "args0": [],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": true,
+        "tooltip": "Returns the logical value `TRUE`. Learn more"
+    }
+]

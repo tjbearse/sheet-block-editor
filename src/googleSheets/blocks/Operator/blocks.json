@@ -1,0 +1,288 @@
+[
+    {
+        "type": "sheets_ADD",
+        "message0": "ADD %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the sum of two numbers. Equivalent to the `+` operator. Learn more"
+    },
+    {
+        "type": "sheets_CONCAT",
+        "message0": "CONCAT %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the concatenation of two values. Equivalent to the `&` operator. Learn more"
+    },
+    {
+        "type": "sheets_DIVIDE",
+        "message0": "DIVIDE %1 dividend %2 divisor %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVIDEND"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVISOR"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns one number divided by another. Equivalent to the `/` operator. Learn more"
+    },
+    {
+        "type": "sheets_EQ",
+        "message0": "EQ %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if two specified values are equal and `FALSE` otherwise. Equivalent to the `=` operator. Learn more"
+    },
+    {
+        "type": "sheets_GT",
+        "message0": "GT %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is strictly greater than the second, and `FALSE` otherwise. Equivalent to the `>` operator. Learn more"
+    },
+    {
+        "type": "sheets_GTE",
+        "message0": "GTE %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is greater than or equal to the second, and `FALSE` otherwise. Equivalent to the `>=` operator. Learn more"
+    },
+    {
+        "type": "sheets_LT",
+        "message0": "LT %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is strictly less than the second, and `FALSE` otherwise. Equivalent to the `<` operator. Learn more"
+    },
+    {
+        "type": "sheets_LTE",
+        "message0": "LTE %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is less than or equal to the second, and `FALSE` otherwise. Equivalent to the `<=` operator. Learn more"
+    },
+    {
+        "type": "sheets_MINUS",
+        "message0": "MINUS %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the difference of two numbers. Equivalent to the `-` operator. Learn more"
+    },
+    {
+        "type": "sheets_MULTIPLY",
+        "message0": "MULTIPLY %1 factor1 %2 factor2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR1"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the product of two numbers. Equivalent to the `*` operator. Learn more"
+    },
+    {
+        "type": "sheets_NE",
+        "message0": "NE %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if two specified values are not equal and `FALSE` otherwise. Equivalent to the `<>` operator. Learn more"
+    },
+    {
+        "type": "sheets_POW",
+        "message0": "POW %1 base %2 exponent %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "BASE"
+            },
+            {
+                "type": "input_value",
+                "name": "EXPONENT"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns a number raised to a power. Learn more"
+    },
+    {
+        "type": "sheets_UMINUS",
+        "message0": "UMINUS %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": true,
+        "tooltip": "Returns a number with the sign reversed. Learn more"
+    },
+    {
+        "type": "sheets_UNARY_PERCENT",
+        "message0": "UNARY_PERCENT %1 percentage %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "PERCENTAGE"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": true,
+        "tooltip": "Returns a value interpreted as a percentage; that is, `UNARY_PERCENT(100)` equals `1`. Learn more"
+    }
+]

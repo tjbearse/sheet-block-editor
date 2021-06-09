@@ -1,0 +1,617 @@
+[
+    {
+        "type": "sheets_ARABIC",
+        "message0": "ARABIC %1 roman numeral %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "ROMAN_NUMERAL"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Computes the value of a Roman numeral. Learn more"
+    },
+    {
+        "type": "sheets_CLEAN",
+        "message0": "CLEAN %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Returns the text with the non-printable ASCII characters removed. Learn more"
+    },
+    {
+        "type": "sheets_CONCATENATE",
+        "message0": "*CONCATENATE %1 string1 %2 [string2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING1"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Appends strings to one another. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, CONCATENATE(string1, [string2, ...])"
+    },
+    {
+        "type": "sheets_DOLLAR",
+        "message0": "DOLLAR %1 number %2 [number of places] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_PLACES"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Formats a number into the locale-specific currency format. Learn more"
+    },
+    {
+        "type": "sheets_EXACT",
+        "message0": "EXACT %1 string1 %2 string2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING1"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Tests whether two strings are identical. Learn more"
+    },
+    {
+        "type": "sheets_FIND",
+        "message0": "FIND %1 search for %2 text to search %3 [starting at] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_FOR"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_SEARCH"
+            },
+            {
+                "type": "input_value",
+                "name": "STARTING_AT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns the position at which a string is first found within text. Learn more"
+    },
+    {
+        "type": "sheets_FIXED",
+        "message0": "FIXED %1 number %2 [number of places] %3 [suppress separator] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_PLACES"
+            },
+            {
+                "type": "input_value",
+                "name": "SUPPRESS_SEPARATOR"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Formats a number with a fixed number of decimal places. Learn more"
+    },
+    {
+        "type": "sheets_JOIN",
+        "message0": "*JOIN %1 delimiter %2 value or array1 %3 [value or array2] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DELIMITER"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_OR_ARRAY1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_OR_ARRAY2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Concatenates the elements of one or more one-dimensional arrays using a specified delimiter. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, JOIN(delimiter, value_or_array1, [value_or_array2, ...])"
+    },
+    {
+        "type": "sheets_LEFT",
+        "message0": "LEFT %1 string %2 [number of characters] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_CHARACTERS"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns a substring from the beginning of a specified string. Learn more"
+    },
+    {
+        "type": "sheets_LEN",
+        "message0": "LEN %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Returns the length of a string. Learn more"
+    },
+    {
+        "type": "sheets_LOWER",
+        "message0": "LOWER %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Converts a specified string to lowercase. Learn more"
+    },
+    {
+        "type": "sheets_MID",
+        "message0": "MID %1 string %2 starting at %3 extract length %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "STARTING_AT"
+            },
+            {
+                "type": "input_value",
+                "name": "EXTRACT_LENGTH"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns a segment of a string. Learn more"
+    },
+    {
+        "type": "sheets_PROPER",
+        "message0": "PROPER %1 text to capitalize %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_CAPITALIZE"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Capitalizes each word in a specified string. Learn more"
+    },
+    {
+        "type": "sheets_REGEXEXTRACT",
+        "message0": "REGEXEXTRACT %1 text %2 regular expression %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "REGULAR_EXPRESSION"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Extracts matching substrings according to a regular expression. Learn more"
+    },
+    {
+        "type": "sheets_REGEXMATCH",
+        "message0": "REGEXMATCH %1 text %2 regular expression %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "REGULAR_EXPRESSION"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Whether a piece of text matches a regular expression. Learn more"
+    },
+    {
+        "type": "sheets_REGEXREPLACE",
+        "message0": "REGEXREPLACE %1 text %2 regular expression %3 replacement %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "REGULAR_EXPRESSION"
+            },
+            {
+                "type": "input_value",
+                "name": "REPLACEMENT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Replaces part of a text string with a different text string using regular expressions. Learn more"
+    },
+    {
+        "type": "sheets_REPLACE",
+        "message0": "REPLACE %1 text %2 position %3 length %4 new text %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "POSITION"
+            },
+            {
+                "type": "input_value",
+                "name": "LENGTH"
+            },
+            {
+                "type": "input_value",
+                "name": "NEW_TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Replaces part of a text string with a different text string. Learn more"
+    },
+    {
+        "type": "sheets_REPT",
+        "message0": "REPT %1 text to repeat %2 number of repetitions %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_REPEAT"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_REPETITIONS"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns specified text repeated a number of times. Learn more"
+    },
+    {
+        "type": "sheets_RIGHT",
+        "message0": "RIGHT %1 string %2 [number of characters] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_CHARACTERS"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns a substring from the end of a specified string. Learn more"
+    },
+    {
+        "type": "sheets_ROMAN",
+        "message0": "ROMAN %1 number %2 [rule relaxation] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "RULE_RELAXATION"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Formats a number in Roman numerals. Learn more"
+    },
+    {
+        "type": "sheets_SEARCH",
+        "message0": "SEARCH %1 search for %2 text to search %3 [starting at] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_FOR"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_SEARCH"
+            },
+            {
+                "type": "input_value",
+                "name": "STARTING_AT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns the position at which a string is first found within text. Learn more"
+    },
+    {
+        "type": "sheets_SPLIT",
+        "message0": "SPLIT %1 text %2 delimiter %3 [split by each] %4 [remove empty text] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "DELIMITER"
+            },
+            {
+                "type": "input_value",
+                "name": "SPLIT_BY_EACH"
+            },
+            {
+                "type": "input_value",
+                "name": "REMOVE_EMPTY_TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Divides text around a specified character or string, and puts each fragment into a separate cell in the row. Learn more"
+    },
+    {
+        "type": "sheets_SUBSTITUTE",
+        "message0": "SUBSTITUTE %1 text to search %2 search for %3 replace with %4 [occurrence number] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_SEARCH"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_FOR"
+            },
+            {
+                "type": "input_value",
+                "name": "REPLACE_WITH"
+            },
+            {
+                "type": "input_value",
+                "name": "OCCURRENCE_NUMBER"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Replaces existing text with new text in a string. Learn more"
+    },
+    {
+        "type": "sheets_TEXT",
+        "message0": "TEXT %1 number %2 format %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "FORMAT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Converts a number into text according to a specified format. Learn more"
+    },
+    {
+        "type": "sheets_TEXTJOIN",
+        "message0": "*TEXTJOIN %1 delimiter %2 ignore empty %3 text1 %4 [text2] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DELIMITER"
+            },
+            {
+                "type": "input_value",
+                "name": "IGNORE_EMPTY"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT1"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Combines the text from multiple strings and/or arrays, with a specifiable delimiter separating the different texts. Learn more.\n*Implementation not complete",
+        "TODO": "dropped options variadic, TEXTJOIN(delimiter, ignore_empty, text1, [text2], \u2026)"
+    },
+    {
+        "type": "sheets_TRIM",
+        "message0": "TRIM %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Removes leading and trailing spaces in a specified string. Learn more"
+    },
+    {
+        "type": "sheets_UPPER",
+        "message0": "UPPER %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Converts a specified string to uppercase. Learn more"
+    },
+    {
+        "type": "sheets_VALUE",
+        "message0": "VALUE %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Converts a string in any of the date, time or number formats that Google Sheets understands into a number. Learn more"
+    }
+]

@@ -1,0 +1,63 @@
+{
+    "kind": "category",
+    "name": "Operator",
+    "categoryStyle": "Operator_category",
+    "contents": [
+        {
+            "kind": "block",
+            "type": "sheets_ADD"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_CONCAT"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_DIVIDE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_EQ"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_GT"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_GTE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_LT"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_LTE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_MINUS"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_MULTIPLY"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_NE"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_POW"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_UMINUS"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_UNARY_PERCENT"
+        }
+    ]
+}

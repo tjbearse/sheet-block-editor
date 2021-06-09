@@ -1,0 +1,493 @@
+Type	Name	Basic	Syntax	Description
+Array	ARRAY_CONSTRAIN		"ARRAY_CONSTRAIN(input_range, num_rows, num_cols)"	Constrains an array result to a specified size. Learn more
+Array	FLATTEN	1	"FLATTEN(range1,[range2,...])"	Flattens all the values from one or more ranges into a single column. Learn more
+Array	FREQUENCY		"FREQUENCY(data, classes)"	Calculates the frequency distribution of a one-column array into specified classes. Learn more
+Array	GROWTH		"GROWTH(known_data_y, [known_data_x], [new_data_x], [b])"	"Given partial data about an exponential growth trend, fits an ideal exponential growth trend and/or predicts further values. Learn more"
+Array	LINEST		"LINEST(known_data_y, [known_data_x], [calculate_b], [verbose])"	"Given partial data about a linear trend, calculates various parameters about the ideal linear trend using the least-squares method. Learn more"
+Array	LOGEST		"LOGEST(known_data_y, [known_data_x], [b], [verbose])"	"Given partial data about an exponential growth curve, calculates various parameters about the best fit ideal exponential growth curve. Learn more"
+Array	MDETERM		MDETERM(square_matrix)	Returns the matrix determinant of a square matrix specified as an array or range. Learn more
+Array	MINVERSE		MINVERSE(square_matrix)	Returns the multiplicative inverse of a square matrix specified as an array or range. Learn more
+Array	MMULT		"MMULT(matrix1, matrix2)"	Calculates the matrix product of two matrices specified as arrays or ranges. Learn more
+Array	SUMPRODUCT		"SUMPRODUCT(array1, [array2, ...])"	Calculates the sum of the products of corresponding entries in two equal-sized arrays or ranges. Learn more
+Array	SUMX2MY2		"SUMX2MY2(array_x, array_y)"	Calculates the sum of the differences of the squares of values in two arrays. Learn more
+Array	SUMX2PY2		"SUMX2PY2(array_x, array_y)"	Calculates the sum of the sums of the squares of values in two arrays. Learn more
+Array	SUMXMY2		"SUMXMY2(array_x, array_y)"	Calculates the sum of the squares of differences of values in two arrays. Learn more
+Array	TRANSPOSE	1	TRANSPOSE(array_or_range)	Transposes the rows and columns of an array or range of cells. Learn more
+Array	TREND		"TREND(known_data_y, [known_data_x], [new_data_x], [b])"	"Given partial data about a linear trend, fits an ideal linear trend using the least squares method and/or predicts further values. Learn more"
+Database	DAVERAGE		"DAVERAGE(database, field, criteria)"	Returns the average of a set of values selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DCOUNT		"DCOUNT(database, field, criteria)"	Counts numeric values selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DCOUNTA		"DCOUNTA(database, field, criteria)"	"Counts values, including text, selected from a database table-like array or range using a SQL-like query. Learn more"
+Database	DGET		"DGET(database, field, criteria)"	Returns a single value from a database table-like array or range using a SQL-like query. Learn more
+Database	DMAX		"DMAX(database, field, criteria)"	Returns the maximum value selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DMIN		"DMIN(database, field, criteria)"	Returns the minimum value selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DPRODUCT		"DPRODUCT(database, field, criteria)"	Returns the product of values selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DSTDEV		"DSTDEV(database, field, criteria)"	Returns the standard deviation of a population sample selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DSTDEVP		"DSTDEVP(database, field, criteria)"	Returns the standard deviation of an entire population selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DSUM		"DSUM(database, field, criteria)"	Returns the sum of values selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DVAR		"DVAR(database, field, criteria)"	Returns the variance of a population sample selected from a database table-like array or range using a SQL-like query. Learn more
+Database	DVARP		"DVARP(database, field, criteria)"	Returns the variance of an entire population selected from a database table-like array or range using a SQL-like query. Learn more
+Date	DATE	1	"DATE(year, month, day)"	"Converts a provided year, month, and day into a date. Learn more"
+Date	DATEDIF	1	"DATEDIF(start_date, end_date, unit)"	"Calculates the number of days, months, or years between two dates. Learn more"
+Date	DATEVALUE	1	DATEVALUE(date_string)	Converts a provided date string in a known format to a date value. Learn more
+Date	DAY	1	DAY(date)	"Returns the day of the month that a specific date falls on, in numeric format. Learn more"
+Date	DAYS	1	"DAYS(end_date, start_date)"	Returns the number of days between two dates. Learn more. 
+Date	DAYS360	1	"DAYS360(start_date, end_date, [method])"	Returns the difference between two days based on the 360 day year used in some financial interest calculations. Learn more
+Date	EDATE	1	"EDATE(start_date, months)"	Returns a date a specified number of months before or after another date. Learn more
+Date	EOMONTH	1	"EOMONTH(start_date, months)"	Returns a date representing the last day of a month which falls a specified number of months before or after another date. Learn more
+Date	HOUR	1	HOUR(time)	"Returns the hour component of a specific time, in numeric format. Learn more"
+Date	ISOWEEKNUM	1	ISOWEEKNUM(date)	Returns the number of the ISO week of the year where the provided date falls. Learn more
+Date	MINUTE	1	MINUTE(time)	"Returns the minute component of a specific time, in numeric format. Learn more"
+Date	MONTH	1	MONTH(date)	"Returns the month of the year a specific date falls in, in numeric format. Learn more"
+Date	NETWORKDAYS	1	"NETWORKDAYS(start_date, end_date, [holidays])"	Returns the number of net working days between two provided days. Learn more
+Date	NETWORKDAYS.INTL	1	"NETWORKDAYS.INTL(start_date, end_date, [weekend], [holidays])"	 Returns the number of net working days between two provided days excluding specified weekend days and holidays. Learn more
+Date	NOW	1	NOW()	Returns the current date and time as a date value. Learn more
+Date	SECOND	1	SECOND(time)	"Returns the second component of a specific time, in numeric format. Learn more"
+Date	TIME	1	"TIME(hour, minute, second)"	"Converts a provided hour, minute, and second into a time. Learn more"
+Date	TIMEVALUE	1	TIMEVALUE(time_string)	Returns the fraction of a 24-hour day the time represents. Learn more
+Date	TODAY	1	TODAY()	Returns the current date as a date value. Learn more
+Date	WEEKDAY	1	"WEEKDAY(date, [type])"	Returns a number representing the day of the week of the date provided. Learn more
+Date	WEEKNUM	1	"WEEKNUM(date, [type])"	Returns a number representing the week of the year where the provided date falls. Learn more
+Date	WORKDAY	1	"WORKDAY(start_date, num_days, [holidays])"	Calculates the end date after a specified number of working days. Learn more
+Date	WORKDAY.INTL	1	"WORKDAY.INTL(start_date, num_days, [weekend], [holidays])"	Calculates the date after a specified number of workdays excluding specified weekend days and holidays. Learn more
+Date	YEAR	1	YEAR(date)	Returns the year specified by a given date. Learn more
+Date	YEARFRAC	1	"YEARFRAC(start_date, end_date, [day_count_convention])"	"Returns the number of years, including fractional years, between two dates using a specified day count convention. Learn more"
+Engineering	BIN2DEC		BIN2DEC(signed_binary_number)	Converts a signed binary number to decimal format. Learn more
+Engineering	BIN2HEX		"BIN2HEX(signed_binary_number, [significant_digits])"	Converts a signed binary number to signed hexadecimal format. Learn more
+Engineering	BIN2OCT		"BIN2OCT(signed_binary_number, [significant_digits])"	Converts a signed binary number to signed octal format. Learn more
+Engineering	BITAND		"BITAND(value1, value2)"	Bitwise boolean AND of two numbers. Learn more. 
+Engineering	BITLSHIFT		"BITLSHIFT(value, shift_amount)"	Shifts the bits of the input a certain number of places to the left. Learn more. 
+Engineering	BITOR		"BITOR(value1, value2)"	Bitwise boolean OR of 2 numbers. Learn more.
+Engineering	BITRSHIFT		"BITRSHIFT(value, shift_amount)"	Shifts the bits of the input a certain number of places to the right. Learn more. 
+Engineering	BITXOR		"BITXOR(value1, value2)"	Bitwise XOR (exclusive OR) of 2 numbers. Learn more.
+Engineering	COMPLEX		"COMPLEX(real_part, imaginary_part, [suffix])"	Creates a complex number given real and imaginary coefficients. Learn more
+Engineering	DEC2BIN		"DEC2BIN(decimal_number, [significant_digits])"	Converts a decimal number to signed binary format. Learn more
+Engineering	DEC2HEX		"DEC2HEX(decimal_number, [significant_digits])"	Converts a decimal number to signed hexadecimal format. Learn more
+Engineering	DEC2OCT		"DEC2OCT(decimal_number, [significant_digits])"	Converts a decimal number to signed octal format. Learn more
+Engineering	DELTA		"DELTA(number1, [number2])"	"Compare two numeric values, returning 1 if they're equal. Learn more"
+Engineering	ERF		"ERF(lower_bound, [upper_bound])"	The ERF function returns the integral of the Gauss error function over an interval of values. Learn more.
+Engineering	ERF.PRECISE		"ERF.PRECISE(lower_bound, [upper_bound])"	See ERF 
+Engineering	GESTEP		"GESTEP(value, [step])"	Returns 1 if the rate is strictly greater than or equal to the provided step value or 0 otherwise. If no step value is provided then the default value of 0 will be used. Learn more.
+Engineering	HEX2BIN		"HEX2BIN(signed_hexadecimal_number, [significant_digits])"	Converts a signed hexadecimal number to signed binary format. Learn more
+Engineering	HEX2DEC		HEX2DEC(signed_hexadecimal_number)	Converts a signed hexadecimal number to decimal format. Learn more
+Engineering	HEX2OCT		"HEX2OCT(signed_hexadecimal_number, significant_digits)"	Converts a signed hexadecimal number to signed octal format. Learn more
+Engineering	IMABS		IMABS(number)	Returns absolute value of a complex number. Learn more
+Engineering	IMAGINARY		IMAGINARY(complex_number)	Returns the imaginary coefficient of a complex number. Learn more
+Engineering	IMARGUMENT		IMARGUMENT(number)	The IMARGUMENT function returns the angle (also known as the argument or \theta) of the given complex number in radians. Learn more.
+Engineering	IMCONJUGATE		IMCONJUGATE(number)	Returns the complex conjugate of a number. Learn more
+Engineering	IMCOS		IMCOS(number)	The IMCOS function returns the cosine of the given complex number. Learn more.
+Engineering	IMCOSH		IMCOSH(number)	"Returns the hyperbolic cosine of the given complex number. For example, a given complex number ""x+yi"" returns ""cosh(x+yi)."" Learn more."
+Engineering	IMCOT		IMCOT(number)	"Returns the cotangent of the given complex number. For example, a given complex number ""x+yi"" returns ""cot(x+yi)."" Learn more."
+Engineering	IMCOTH		IMCOTH(number)	"Returns the hyperbolic cotangent of the given complex number. For example, a given complex number ""x+yi"" returns ""coth(x+yi)."" Learn more."
+Engineering	IMCSC		IMCSC(number)	Returns the cosecant of the given complex number. Learn more.
+Engineering	IMCSCH		IMCSCH(number)	"Returns the hyperbolic cosecant of the given complex number. For example, a given complex number ""x+yi"" returns ""csch(x+yi)."" Learn more."
+Engineering	IMDIV		"IMDIV(dividend, divisor)"	Returns one complex number divided by another. Learn more
+Engineering	IMEXP		IMEXP(exponent)	"Returns Euler's number, e (~2.718) raised to a complex power. Learn more."
+Engineering	IMLOG		"IMLOG(value, base)"	Returns the logarithm of a complex number for a specified base. Learn more.
+Engineering	IMLOG10		IMLOG10(value)	Returns the logarithm of a complex number with base 10. Learn more.
+Engineering	IMLOG2		IMLOG2(value)	Returns the logarithm of a complex number with base 2. Learn more.
+Engineering	IMPRODUCT		"IMPRODUCT(factor1, [factor2, ...])"	Returns the result of multiplying a series of complex numbers together. Learn more
+Engineering	IMREAL		IMREAL(complex_number)	Returns the real coefficient of a complex number. Learn more
+Engineering	IMSEC		IMSEC(number)	"Returns the secant of the given complex number. For example, a given complex number ""x+yi"" returns ""sec(x+yi)."" Learn more."
+Engineering	IMSECH		IMSECH(number)	"Returns the hyperbolic secant of the given complex number. For example, a given complex number ""x+yi"" returns ""sech(x+yi)."" Learn more."
+Engineering	IMSIN		IMSIN (number)	Returns the sine of the given complex number. Learn more.
+Engineering	IMSINH		IMSINH(number)	"Returns the hyperbolic sine of the given complex number. For example, a given complex number ""x+yi"" returns ""sinh(x+yi)."" Learn more."
+Engineering	IMSUB		"IMSUB(first_number, second_number)"	Returns the difference between two complex numbers. Learn more
+Engineering	IMSUM		"IMSUM(value1, [value2, ...])"	Returns the sum of a series of complex numbers. Learn more
+Engineering	IMTAN		IMTAN(number)	Returns the tangent of the given complex number. Learn more.
+Engineering	IMTANH		IMTANH(number)	"Returns the hyperbolic tangent of the given complex number. For example, a given complex number ""x+yi"" returns ""tanh(x+yi)."" Learn more."
+Engineering	OCT2BIN		"OCT2BIN(signed_octal_number, [significant_digits])"	Converts a signed octal number to signed binary format. Learn more
+Engineering	OCT2DEC		OCT2DEC(signed_octal_number)	Converts a signed octal number to decimal format. Learn more
+Engineering	OCT2HEX		"OCT2HEX(signed_octal_number, [significant_digits])"	Converts a signed octal number to signed hexadecimal format. Learn more
+Filter	FILTER	1	"FILTER(range, condition1, [condition2])"	"Returns a filtered version of the source range, returning only rows or columns which meet the specified conditions. Learn more"
+Filter	SORT	1	"SORT(range, sort_column, is_ascending, [sort_column2], [is_ascending2])"	Sorts the rows of a given array or range by the values in one or more columns. Learn more
+Filter	SORTN	1	"SORTN(range, [n], [display_ties_mode], [sort_column1, is_ascending1], ...)"	Returns the first n items in a data set after performing a sort. Learn more
+Filter	UNIQUE	1	UNIQUE(range)	"Returns unique rows in the provided source range, discarding duplicates. Rows are returned in the order in which they first appear in the source range. Learn more"
+Financial	ACCRINT		"ACCRINT(issue, first_payment, settlement, rate, redemption, frequency, [day_count_convention])"	Calculates the accrued interest of a security that has periodic payments. Learn more
+Financial	ACCRINTM		"ACCRINTM(issue, maturity, rate, [redemption], [day_count_convention])"	Calculates the accrued interest of a security that pays interest at maturity. Learn more
+Financial	AMORLINC		"AMORLINC(cost, purchase_date, first_period_end, salvage, period, rate, [basis])"	"Returns the depreciation for an accounting period, or the prorated depreciation if the asset was purchased in the middle of a period. Learn more. "
+Financial	COUPDAYBS		"COUPDAYBS(settlement, maturity, frequency, [day_count_convention])"	"Calculates the number of days from the first coupon, or interest payment, until settlement. Learn more"
+Financial	COUPDAYS		"COUPDAYS(settlement, maturity, frequency, [day_count_convention])"	"Calculates the number of days in the coupon, or interest payment, period that contains the specified settlement date. Learn more"
+Financial	COUPDAYSNC		"COUPDAYSNC(settlement, maturity, frequency, [day_count_convention])"	" Calculates the number of days from the settlement date until the next coupon, or interest payment. Learn more"
+Financial	COUPNCD		"COUPNCD(settlement, maturity, frequency, [day_count_convention])"	"Calculates next coupon, or interest payment, date after the settlement date. Learn more"
+Financial	COUPNUM		"COUPNUM(settlement, maturity, frequency, [day_count_convention])"	"Calculates the number of coupons, or interest payments, between the settlement date and the maturity date of the investment. Learn more"
+Financial	COUPPCD		"COUPPCD(settlement, maturity, frequency, [day_count_convention])"	"Calculates last coupon, or interest payment, date before the settlement date. Learn more"
+Financial	CUMIPMT		"CUMIPMT(rate, number_of_periods, present_value, first_period, last_period, end_or_beginning)"	Calculates the cumulative interest over a range of payment periods for an investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	CUMPRINC		"CUMPRINC(rate, number_of_periods, present_value, first_period, last_period, end_or_beginning)"	Calculates the cumulative principal paid over a range of payment periods for an investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	DB		"DB(cost, salvage, life, period, [month])"	Calculates the depreciation of an asset for a specified period using the arithmetic declining balance method. Learn more
+Financial	DDB		"DDB(cost, salvage, life, period, [factor])"	Calculates the depreciation of an asset for a specified period using the double-declining balance method. Learn more
+Financial	DISC		"DISC(settlement, maturity, price, redemption, [day_count_convention])"	Calculates the discount rate of a security based on price. Learn more
+Financial	DOLLARDE		"DOLLARDE(fractional_price, unit)"	Converts a price quotation given as a decimal fraction into a decimal value. Learn more
+Financial	DOLLARFR		"DOLLARFR(decimal_price, unit)"	Converts a price quotation given as a decimal value into a decimal fraction. Learn more
+Financial	DURATION		"DURATION(settlement, maturity, rate, yield, frequency, [day_count_convention]) ."	Calculates the number of compounding periods required for an investment of a specified present value appreciating at a given rate to reach a target value. Learn more
+Financial	EFFECT		"EFFECT(nominal_rate, periods_per_year)"	Calculates the annual effective interest rate given the nominal rate and number of compounding periods per year. Learn more
+Financial	FV		"FV(rate, number_of_periods, payment_amount, [present_value], [end_or_beginning])"	Calculates the future value of an annuity investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	FVSCHEDULE		"FVSCHEDULE(principal, rate_schedule)"	Calculates the future value of some principal based on a specified series of potentially varying interest rates. Learn more
+Financial	INTRATE		"INTRATE(buy_date, sell_date, buy_price, sell_price, [day_count_convention])"	 Calculates the effective interest rate generated when an investment is purchased at one price and sold at another with no interest or dividends generated by the investment itself. Learn more
+Financial	IPMT		"IPMT(rate, period, number_of_periods, present_value, [future_value], [end_or_beginning])"	Calculates the payment on interest for an investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	IRR		"IRR(cashflow_amounts, [rate_guess])"	Calculates the internal rate of return on an investment based on a series of periodic cash flows. Learn more
+Financial	ISPMT		"ISPMT(rate, period, number_of_periods, present_value)"	The ISPMT function calculates the interest paid during a particular period of an investment. Learn more.
+Financial	MDURATION		"MDURATION(settlement, maturity, rate, yield, frequency, [day_count_convention])"	"Calculates the modified Macaulay duration of a security paying periodic interest, such as a US Treasury Bond, based on expected yield. Learn more"
+Financial	MIRR		"MIRR(cashflow_amounts, financing_rate, reinvestment_return_rate)"	Calculates the modified internal rate of return on an investment based on a series of periodic cash flows and the difference between the interest rate paid on financing versus the return received on reinvested income. Learn more
+Financial	NOMINAL		"NOMINAL(effective_rate, periods_per_year)"	Calculates the annual nominal interest rate given the effective rate and number of compounding periods per year. Learn more
+Financial	NPER		"NPER(rate, payment_amount, present_value, [future_value], [end_or_beginning])"	 Calculates the number of payment periods for an investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	NPV		"NPV(discount, cashflow1, [cashflow2, ...])"	Calculates the net present value of an investment based on a series of periodic cash flows and a discount rate. Learn more
+Financial	PDURATION		"PDURATION(rate, present_value, future_value)"	Returns the number of periods for an investment to reach a specific value at a given rate. Learn more.
+Financial	PMT		"PMT(rate, number_of_periods, present_value, [future_value], [end_or_beginning])"	Calculates the periodic payment for an annuity investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	PPMT		"PPMT(rate, period, number_of_periods, present_value, [future_value], [end_or_beginning])"	Calculates the payment on the principal of an investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	PRICE		"PRICE(settlement, maturity, rate, yield, redemption, frequency, [day_count_convention])"	"Calculates the price of a security paying periodic interest, such as a US Treasury Bond, based on expected yield. Learn more"
+Financial	PRICEDISC		"PRICEDISC(settlement, maturity, discount, redemption, [day_count_convention])"	"Calculates the price of a discount (non-interest-bearing) security, based on expected yield. Learn more"
+Financial	PRICEMAT		"PRICEMAT(settlement, maturity, issue, rate, yield, [day_count_convention])"	" Calculates the price of a security paying interest at maturity, based on expected yield. Learn more"
+Financial	PV		"PV(rate, number_of_periods, payment_amount, [future_value], [end_or_beginning])"	Calculates the present value of an annuity investment based on constant-amount periodic payments and a constant interest rate. Learn more
+Financial	RATE		"RATE(number_of_periods, payment_per_period, present_value, [future_value], [end_or_beginning], [rate_guess])"	Calculates the interest rate of an annuity investment based on constant-amount periodic payments and the assumption of a constant interest rate. Learn more
+Financial	RECEIVED		"RECEIVED(settlement, maturity, investment, discount, [day_count_convention])"	 Calculates the amount received at maturity for an investment in fixed-income securities purchased on a given date. Learn more
+Financial	RRI		"RRI(number_of_periods, present_value, future_value)"	Returns the interest rate needed for an investment to reach a specific value within a given number of periods. Learn more.
+Financial	SLN		"SLN(cost, salvage, life)"	Calculates the depreciation of an asset for one period using the straight-line method. Learn more
+Financial	SYD		"SYD(cost, salvage, life, period)"	Calculates the depreciation of an asset for a specified period using the sum of years digits method. Learn more
+Financial	TBILLEQ		"TBILLEQ(settlement, maturity, discount)"	Calculates the equivalent annualized rate of return of a US Treasury Bill based on discount rate. Learn more
+Financial	TBILLPRICE		"TBILLPRICE(settlement, maturity, discount)"	Calculates the price of a US Treasury Bill based on discount rate. Learn more
+Financial	TBILLYIELD		"TBILLYIELD(settlement, maturity, price)"	Calculates the yield of a US Treasury Bill based on price. Learn more
+Financial	VDB		"VDB(cost, salvage, life, start_period, end_period, [factor], [no_switch])"	Returns the depreciation of an asset for a particular period (or partial period). Learn more.
+Financial	XIRR		"XIRR(cashflow_amounts, cashflow_dates, [rate_guess])"	Calculates the internal rate of return of an investment based on a specified series of potentially irregularly spaced cash flows. Learn more
+Financial	XNPV		"XNPV(discount, cashflow_amounts, cashflow_dates)"	Calculates the net present value of an investment based on a specified series of potentially irregularly spaced cash flows and a discount rate. Learn more
+Financial	YIELD		"YIELD(settlement, maturity, rate, price, redemption, frequency, [day_count_convention])"	"Calculates the annual yield of a security paying periodic interest, such as a US Treasury Bond, based on price. Learn more"
+Financial	YIELDDISC		"YIELDDISC(settlement, maturity, price, redemption, [day_count_convention])"	" Calculates the annual yield of a discount (non-interest-bearing) security, based on price. Learn more"
+Financial	YIELDMAT		"YIELDMAT(settlement, maturity, issue, rate, price, [day_count_convention])"	"Calculates the annual yield of a security paying interest at maturity, based on price. Learn more"
+Google	ARRAYFORMULA	1	ARRAYFORMULA(array_formula)	Enables the display of values returned from an array formula into multiple rows and/or columns and the use of non-array functions with arrays. Learn more
+Google	DETECTLANGUAGE		DETECTLANGUAGE(text_or_range)	Identifies the language used in text within the specified range. Learn more
+Google	GOOGLEFINANCE		"GOOGLEFINANCE(ticker, [attribute], [start_date], [end_date|num_days], [interval])"	Fetches current or historical securities information from Google Finance. Learn more
+Google	GOOGLETRANSLATE		"GOOGLETRANSLATE(text, [source_language], [target_language])"	Translates text from one language into another Learn more
+Google	IMAGE		"IMAGE(url, [mode], [height], [width])"	Inserts an image into a cell. Learn more
+Google	QUERY	1	"QUERY(data, query, [headers])"	Runs a Google Visualization API Query Language query across data. Learn more
+Google	SPARKLINE	1	"SPARKLINE(data, [options])"	Creates a miniature chart contained within a single cell. Learn more
+Info	ERROR.TYPE	1	ERROR.TYPE(reference)	Returns a number corresponding to the error value in a different cell. Learn more
+Info	ISBLANK	1	ISBLANK(value)	Checks whether the referenced cell is empty. Learn more
+Info	ISDATE	1	ISDATE(value)	Returns whether a value is a date. Learn more. 
+Info	ISEMAIL	1	ISEMAIL(value)	Checks whether a value is a valid email address. Learn more
+Info	ISERR	1	ISERR(value)	Checks whether a value is an error other than `#N/A`. Learn more
+Info	ISERROR	1	ISERROR(value)	Checks whether a value is an error. Learn more
+Info	ISFORMULA	1	ISFORMULA(cell)	Checks whether a formula is in the referenced cell. Learn more
+Info	ISLOGICAL	1	ISLOGICAL(value)	Checks whether a value is `TRUE` or `FALSE`. Learn more
+Info	ISNA	1	ISNA(value)	Checks whether a value is the error `#N/A`. Learn more
+Info	ISNONTEXT	1	ISNONTEXT(value)	Checks whether a value is non-textual. Learn more
+Info	ISNUMBER	1	ISNUMBER(value)	Checks whether a value is a number. Learn more
+Info	ISREF	1	ISREF(value)	Checks whether a value is a valid cell reference. Learn more
+Info	ISTEXT	1	ISTEXT(value)	Checks whether a value is text. Learn more
+Info	N	1	N(value)	Returns the argument provided as a number. Learn more
+Info	NA	1	NA()	"Returns the ""value not available"" error, `#N/A`. Learn more"
+Info	TYPE	1	TYPE(value)	Returns a number associated with the type of data passed into the function. Learn more
+Info	CELL	1	"CELL(info_type, reference)"	Returns the requested information about the specified cell. Learn more
+Logical	AND	1	"AND(logical_expression1, [logical_expression2, ...])"	"Returns true if all of the provided arguments are logically true, and false if any of the provided arguments are logically false. Learn more"
+Logical	FALSE	1	FALSE()	Returns the logical value `FALSE`. Learn more
+Logical	IF	1	"IF(logical_expression, value_if_true, value_if_false)"	Returns one value if a logical expression is `TRUE` and another if it is `FALSE`. Learn more
+Logical	IFERROR	1	"IFERROR(value, [value_if_error])"	"Returns the first argument if it is not an error value, otherwise returns the second argument if present, or a blank if the second argument is absent. Learn more"
+Logical	IFNA	1	"IFNA(value, value_if_na)"	"Evaluates a value. If the value is an #N/A error, returns the specified value. Learn more."
+Logical	IFS	1	"IFS(condition1, value1, [condition2, value2], …)"	Evaluates multiple conditions and returns a value that corresponds to the first true condition. Learn more.
+Logical	NOT	1	NOT(logical_expression)	Returns the opposite of a logical value - `NOT(TRUE)` returns `FALSE`; `NOT(FALSE)` returns `TRUE`. Learn more
+Logical	OR	1	"OR(logical_expression1, [logical_expression2, ...])"	"Returns true if any of the provided arguments are logically true, and false if all of the provided arguments are logically false. Learn more"
+Logical	SWITCH	1	"SWITCH(expression, case1, value1, [default or case2, value2], …)"	"Tests an expression against a list of cases and returns the corresponding value of the first matching case, with an optional default value if nothing else is met. Learn more"
+Logical	TRUE	1	TRUE()	Returns the logical value `TRUE`. Learn more
+Logical	XOR		"XOR(logical_expression1, [logical_expression2, ...])"	"The XOR function performs an exclusive or of 2 numbers that returns a 1 if the numbers are different, and a 0 otherwise. Learn more."
+Lookup	ADDRESS		"ADDRESS(row, column, [absolute_relative_mode], [use_a1_notation], [sheet])"	Returns a cell reference as a string. Learn more
+Lookup	CHOOSE	1	"CHOOSE(index, choice1, [choice2, ...])"	Returns an element from a list of choices based on index. Learn more
+Lookup	COLUMN	1	COLUMN([cell_reference])	"Returns the column number of a specified cell, with `A=1`. Learn more"
+Lookup	COLUMNS	1	COLUMNS(range)	Returns the number of columns in a specified array or range. Learn more
+Lookup	FORMULATEXT		FORMULATEXT(cell)	Returns the formula as a string. Learn more.
+Lookup	GETPIVOTDATA	1	"GETPIVOTDATA(value_name, any_pivot_table_cell, [original_column, ...], [pivot_item, ...])"	Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings. Learn more
+Lookup	HLOOKUP	1	"HLOOKUP(search_key, range, index, [is_sorted])"	Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found. Learn more
+Lookup	INDEX	1	"INDEX(reference, [row], [column])"	"Returns the content of a cell, specified by row and column offset. Learn more"
+Lookup	INDIRECT	1	"INDIRECT(cell_reference_as_string, [is_A1_notation])"	Returns a cell reference specified by a string. Learn more
+Lookup	LOOKUP	1	"LOOKUP(search_key, search_range|search_result_array, [result_range])"	Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column. Learn more
+Lookup	MATCH	1	"MATCH(search_key, range, [search_type])"	Returns the relative position of an item in a range that matches a specified value. Learn more
+Lookup	OFFSET	1	"OFFSET(cell_reference, offset_rows, offset_columns, [height], [width])"	Returns a range reference shifted a specified number of rows and columns from a starting cell reference. Learn more
+Lookup	ROW	1	ROW([cell_reference])	Returns the row number of a specified cell. Learn more
+Lookup	ROWS	1	ROWS(range)	Returns the number of rows in a specified array or range. Learn more
+Lookup	VLOOKUP	1	"VLOOKUP(search_key, range, index, [is_sorted])"	Vertical lookup. Searches down the first column of a range for a key and returns the value of a specified cell in the row found. Learn more
+Math	ABS	1	ABS(value)	Returns the absolute value of a number. Learn more
+Math	ACOS		ACOS(value)	"Returns the inverse cosine of a value, in radians. Learn more"
+Math	ACOSH		ACOSH(value)	Returns the inverse hyperbolic cosine of a number. Learn more
+Math	ACOT		ACOT(value)	"Returns the inverse cotangent of a value, in radians. Learn more."
+Math	ACOTH		ACOTH(value)	"Returns the inverse hyperbolic cotangent of a value, in radians. Must not be between -1 and 1, inclusive. Learn more."
+Math	ASIN		ASIN(value)	"Returns the inverse sine of a value, in radians. Learn more"
+Math	ASINH		ASINH(value)	Returns the inverse hyperbolic sine of a number. Learn more
+Math	ATAN		ATAN(value)	"Returns the inverse tangent of a value, in radians. Learn more"
+Math	ATAN2		"ATAN2(x, y)"	"Returns the angle between the x-axis and a line segment from the origin (0,0) to specified coordinate pair (`x`,`y`), in radians. Learn more"
+Math	ATANH		ATANH(value)	Returns the inverse hyperbolic tangent of a number. Learn more
+Math	BASE		"BASE(value, base, [min_length])"	"Converts a number into a text representation in another base, for example, base 2 for binary. Learn more."
+Math	CEILING	1	"CEILING(value, [factor])"	Rounds a number up to the nearest integer multiple of specified significance. Learn more
+Math	CEILING.MATH		"CEILING.MATH(number, [significance], [mode])"	"Rounds a number up to the nearest integer multiple of specified significance, with negative numbers rounding toward or away from 0 depending on the mode. Learn more."
+Math	CEILING.PRECISE		"CEILING.PRECISE(number, [significance])"	"Rounds a number up to the nearest integer multiple of specified significance. If the number is positive or negative, it is rounded up. Learn more. "
+Math	COMBIN		"COMBIN(n, k)"	Returns the number of ways to choose some number of objects from a pool of a given size of objects. Learn more
+Math	COMBINA		"COMBINA(n, k)"	"Returns the number of ways to choose some number of objects from a pool of a given size of objects, including ways that choose the same object multiple times. Learn more."
+Math	COS		COS(angle)	Returns the cosine of an angle provided in radians. Learn more
+Math	COSH		COSH(value)	Returns the hyperbolic cosine of any real number. Learn more
+Math	COT		COT(angle)	Cotangent of an angle provided in radians. Learn more.
+Math	COTH		COTH(value)	Returns the hyperbolic cotangent of any real number. Learn more.
+Math	COUNTBLANK	1	COUNTBLANK(range)	Returns the number of empty cells in a given range. Learn more
+Math	COUNTIF	1	"COUNTIF(range, criterion)"	Returns a conditional count across a range. Learn more
+Math	COUNTIFS	1	"COUNTIFS(criteria_range1, criterion1, [criteria_range2, criterion2, ...])"	Returns the count of a range depending on multiple criteria. Learn more
+Math	COUNTUNIQUE	1	"COUNTUNIQUE(value1, [value2, ...])"	Counts the number of unique values in a list of specified values and ranges. Learn more
+Math	CSC		CSC(angle)	Returns the cosecant of an angle provided in radians. Learn more.
+Math	CSCH		CSCH(value)	The CSCH function returns the hyperbolic cosecant of any real number. Learn more.
+Math	DECIMAL		"DECIMAL(value, base)"	"The DECIMAL function converts the text representation of a number in another base, to base 10 (decimal). Learn more."
+Math	DEGREES		DEGREES(angle)	Converts an angle value in radians to degrees. Learn more
+Math	ERFC		ERFC(z)	Returns the complementary Gauss error function of a value. Learn more
+Math	ERFC.PRECISE		ERFC.PRECISE(z)	See ERFC 
+Math	EVEN	1	EVEN(value)	Rounds a number up to the nearest even integer. Learn more
+Math	EXP		EXP(exponent)	"Returns Euler's number, e (~2.718) raised to a power. Learn more"
+Math	FACT		FACT(value)	Returns the factorial of a number. Learn more
+Math	FACTDOUBLE		FACTDOUBLE(value)	"Returns the ""double factorial"" of a number. Learn more"
+Math	FLOOR	1	"FLOOR(value, [factor])"	Rounds a number down to the nearest integer multiple of specified significance. Learn more
+Math	FLOOR.MATH		"FLOOR.MATH(number, [significance], [mode])"	"Rounds a number down to the nearest integer multiple of specified significance, with negative numbers rounding toward or away from 0 depending on the mode. Learn more."
+Math	FLOOR.PRECISE		"FLOOR.PRECISE(number, [significance])"	The FLOOR.PRECISE function rounds a number down to the nearest integer or multiple of specified significance. Learn more.
+Math	GAMMALN		GAMMALN(value)	"Returns the the logarithm of a specified Gamma function, base e (Euler's number). Learn more"
+Math	GAMMALN.PRECISE		GAMMALN.PRECISE(value)	See GAMMALN 
+Math	GCD		"GCD(value1, value2)"	Returns the greatest common divisor of one or more integers. Learn more
+Math	IMLN		IMLN(complex_value)	"Returns the logarithm of a complex number, base e (Euler's number). Learn more"
+Math	IMPOWER		"IMPOWER(complex_base, exponent)"	Returns a complex number raised to a power. Learn more
+Math	IMSQRT		IMSQRT(complex_number)	Computes the square root of a complex number. Learn more
+Math	INT	1	INT(value)	Rounds a number down to the nearest integer that is less than or equal to it. Learn more
+Math	ISEVEN	1	ISEVEN(value)	Checks whether the provided value is even. Learn more
+Math	ISO.CEILING		"ISO.CEILING(number, [significance])"	See CEILING.PRECISE 
+Math	ISODD	1	ISODD(value)	Checks whether the provided value is odd. Learn more
+Math	LCM		"LCM(value1, value2)"	Returns the least common multiple of one or more integers. Learn more
+Math	LN		LN(value)	"Returns the the logarithm of a number, base e (Euler's number). Learn more"
+Math	LOG		"LOG(value, base)"	Returns the the logarithm of a number given a base. Learn more
+Math	LOG10		LOG10(value)	"Returns the the logarithm of a number, base 10. Learn more"
+Math	MOD	1	"MOD(dividend, divisor)"	"Returns the result of the modulo operator, the remainder after a division operation. Learn more"
+Math	MROUND		"MROUND(value, factor)"	Rounds one number to the nearest integer multiple of another. Learn more
+Math	MULTINOMIAL		"MULTINOMIAL(value1, value2)"	Returns the factorial of the sum of values divided by the product of the values' factorials. Learn more
+Math	MUNIT		MUNIT(dimension)	Returns a unit matrix of size dimension x dimension. Learn more.
+Math	ODD	1	ODD(value)	Rounds a number up to the nearest odd integer. Learn more
+Math	PI		PI()	Returns the value of Pi to 14 decimal places. Learn more
+Math	POWER	1	"POWER(base, exponent)"	Returns a number raised to a power. Learn more
+Math	PRODUCT	1	"PRODUCT(factor1, [factor2, ...])"	Returns the result of multiplying a series of numbers together. Learn more
+Math	QUOTIENT	1	"QUOTIENT(dividend, divisor)"	Returns one number divided by another. Learn more
+Math	RADIANS		RADIANS(angle)	Converts an angle value in degrees to radians. Learn more
+Math	RAND	1	RAND()	Returns a random number between 0 inclusive and 1 exclusive. Learn more
+Math	RANDARRAY	1	"RANDARRAY(rows, columns)"	Generates an array of random numbers between 0 and 1. Learn more.
+Math	RANDBETWEEN	1	"RANDBETWEEN(low, high)"	"Returns a uniformly random integer between two values, inclusive. Learn more"
+Math	ROUND	1	"ROUND(value, [places])"	Rounds a number to a certain number of decimal places according to standard rules. Learn more
+Math	ROUNDDOWN	1	"ROUNDDOWN(value, [places])"	"Rounds a number to a certain number of decimal places, always rounding down to the next valid increment. Learn more"
+Math	ROUNDUP	1	"ROUNDUP(value, [places])"	"Rounds a number to a certain number of decimal places, always rounding up to the next valid increment. Learn more"
+Math	SEC		SEC(angle)	"The SEC function returns the secant of an angle, measured in radians. Learn more."
+Math	SECH		SECH(value)	The SECH function returns the hyperbolic secant of an angle. Learn more
+Math	SEQUENCE		"SEQUENCE(rows, columns, start, step)"	"Returns an array of sequential numbers, such as 1, 2, 3, 4. Learn more."
+Math	SERIESSUM		"SERIESSUM(x, n, m, a)"	"Given parameters x, n, m, and a, returns the power series sum a1xn + a2x(n+m) + ... + aix(n+(i-1)m), where i is the number of entries in range `a`. Learn more"
+Math	SIGN	1	SIGN(value)	"Given an input number, returns `-1` if it is negative, `1` if positive, and `0` if it is zero. Learn more"
+Math	SIN		SIN(angle)	Returns the sine of an angle provided in radians. Learn more
+Math	SINH		SINH(value)	Returns the hyperbolic sine of any real number. Learn more
+Math	SQRT		SQRT(value)	Returns the positive square root of a positive number. Learn more
+Math	SQRTPI		SQRTPI(value)	Returns the positive square root of the product of Pi and the given positive number. Learn more
+Math	SUBTOTAL		"SUBTOTAL(function_code, range1, [range2, ...])"	Returns a subtotal for a vertical range of cells using a specified aggregation function. Learn more
+Math	SUM	1	"SUM(value1, [value2, ...])"	Returns the sum of a series of numbers and/or cells. Learn more
+Math	SUMIF	1	"SUMIF(range, criterion, [sum_range])"	Returns a conditional sum across a range. Learn more
+Math	SUMIFS	1	"SUMIFS(sum_range, criteria_range1, criterion1, [criteria_range2, criterion2, ...])"	Returns the sum of a range depending on multiple criteria. Learn more
+Math	SUMSQ		"SUMSQ(value1, [value2, ...])"	Returns the sum of the squares of a series of numbers and/or cells. Learn more
+Math	TAN		TAN(angle)	Returns the tangent of an angle provided in radians. Learn more
+Math	TANH		TANH(value)	Returns the hyperbolic tangent of any real number. Learn more
+Math	TRUNC		"TRUNC(value, [places])"	Truncates a number to a certain number of significant digits by omitting less significant digits. Learn more
+Operator	ADD	1	"ADD(value1, value2)"	Returns the sum of two numbers. Equivalent to the `+` operator. Learn more
+Operator	CONCAT	1	"CONCAT(value1, value2)"	Returns the concatenation of two values. Equivalent to the `&` operator. Learn more
+Operator	DIVIDE	1	"DIVIDE(dividend, divisor)"	Returns one number divided by another. Equivalent to the `/` operator. Learn more
+Operator	EQ	1	"EQ(value1, value2)"	Returns `TRUE` if two specified values are equal and `FALSE` otherwise. Equivalent to the `=` operator. Learn more
+Operator	GT	1	"GT(value1, value2)"	"Returns `TRUE` if the first argument is strictly greater than the second, and `FALSE` otherwise. Equivalent to the `>` operator. Learn more"
+Operator	GTE	1	"GTE(value1, value2)"	"Returns `TRUE` if the first argument is greater than or equal to the second, and `FALSE` otherwise. Equivalent to the `>=` operator. Learn more"
+Operator	LT	1	"LT(value1, value2)"	"Returns `TRUE` if the first argument is strictly less than the second, and `FALSE` otherwise. Equivalent to the `<` operator. Learn more"
+Operator	LTE	1	"LTE(value1, value2)"	"Returns `TRUE` if the first argument is less than or equal to the second, and `FALSE` otherwise. Equivalent to the `<=` operator. Learn more"
+Operator	MINUS	1	"MINUS(value1, value2)"	Returns the difference of two numbers. Equivalent to the `-` operator. Learn more
+Operator	MULTIPLY	1	"MULTIPLY(factor1, factor2)"	Returns the product of two numbers. Equivalent to the `*` operator. Learn more
+Operator	NE	1	"NE(value1, value2)"	Returns `TRUE` if two specified values are not equal and `FALSE` otherwise. Equivalent to the `<>` operator. Learn more
+Operator	POW	1	"POW(base, exponent)"	Returns a number raised to a power. Learn more
+Operator	UMINUS	1	UMINUS(value)	Returns a number with the sign reversed. Learn more
+Operator	UNARY_PERCENT	1	UNARY_PERCENT(percentage)	"Returns a value interpreted as a percentage; that is, `UNARY_PERCENT(100)` equals `1`. Learn more"
+Operator	UPLUS		UPLUS(value)	"Returns a specified number, unchanged. Learn more"
+Parser	CONVERT		"CONVERT(value, start_unit, end_unit)"	Converts a numeric value to a different unit of measure. Learn more
+Parser	TO_DATE		TO_DATE(value)	Converts a provided number to a date. Learn more
+Parser	TO_DOLLARS		TO_DOLLARS(value)	Converts a provided number to a dollar value. Learn more
+Parser	TO_PERCENT		TO_PERCENT(value)	Converts a provided number to a percentage. Learn more
+Parser	TO_PURE_NUMBER		TO_PURE_NUMBER(value)	"Converts a provided date/time, percentage, currency or other formatted numeric value to a pure number without formatting. Learn more"
+Parser	TO_TEXT		TO_TEXT(value)	Converts a provided numeric value to a text value. Learn more
+Statistical	AVEDEV		"AVEDEV(value1, [value2, ...])"	Calculates the average of the magnitudes of deviations of data from a dataset's mean. Learn more
+Statistical	AVERAGE	1	"AVERAGE(value1, [value2, ...])"	"Returns the numerical average value in a dataset, ignoring text. Learn more"
+Statistical	AVERAGE.WEIGHTED	1	"AVERAGE.WEIGHTED(values, weights, [additional values], [additional weights])"	"Finds the weighted average of a set of values, given the values and the corresponding weights. Learn more."
+Statistical	AVERAGEA		"AVERAGEA(value1, [value2, ...])"	Returns the numerical average value in a dataset. Learn more
+Statistical	AVERAGEIF		"AVERAGEIF(criteria_range, criterion, [average_range])"	Returns the average of a range depending on criteria. Learn more
+Statistical	AVERAGEIFS		"AVERAGEIFS(average_range, criteria_range1, criterion1, [criteria_range2, criterion2, ...])"	Returns the average of a range depending on multiple criteria. Learn more
+Statistical	BETA.DIST		"BETA.DIST(value, alpha, beta, cumulative, lower_bound, upper_bound)"	Returns the probability of a given value as defined by the beta distribution function. Learn more.
+Statistical	BETA.INV		"BETA.INV(probability, alpha, beta, lower_bound, upper_bound)"	Returns the value of the inverse beta distribution function for a given probability. Learn more. 
+Statistical	BETADIST		"BETADIST(value, alpha, beta, lower_bound, upper_bound)"	See BETA.DIST.
+Statistical	BETAINV		"BETAINV(probability, alpha, beta, lower_bound, upper_bound)"	 See BETA.INV 
+Statistical	BINOM.DIST		"BINOM.DIST(num_successes, num_trials, prob_success, cumulative)"	See BINOMDIST 
+Statistical	BINOM.INV		"BINOM.INV(num_trials, prob_success, target_prob)"	See CRITBINOM
+Statistical	BINOMDIST		"BINOMDIST(num_successes, num_trials, prob_success, cumulative)"	"Calculates the probability of drawing a certain number of successes (or a maximum number of successes) in a certain number of tries given a population of a certain size containing a certain number of successes, with replacement of draws. Learn more"
+Statistical	CHIDIST		"CHIDIST(x, degrees_freedom)"	"Calculates the right-tailed chi-squared distribution, often used in hypothesis testing. Learn more"
+Statistical	CHIINV		"CHIINV(probability, degrees_freedom)"	Calculates the inverse of the right-tailed chi-squared distribution. Learn more
+Statistical	CHISQ.DIST		"CHISQ.DIST(x, degrees_freedom, cumulative)"	"Calculates the left-tailed chi-squared distribution, often used in hypothesis testing. Learn more"
+Statistical	CHISQ.DIST.RT		"CHISQ.DIST.RT(x, degrees_freedom)"	"Calculates the right-tailed chi-squared distribution, which is commonly used in hypothesis testing. Learn more"
+Statistical	CHISQ.INV		"CHISQ.INV(probability, degrees_freedom)"	Calculates the inverse of the left-tailed chi-squared distribution. Learn more
+Statistical	CHISQ.INV.RT		"CHISQ.INV.RT(probability, degrees_freedom)"	Calculates the inverse of the right-tailed chi-squared distribution. Learn more
+Statistical	CHISQ.TEST		"CHISQ.TEST(observed_range, expected_range)"	See CHITEST
+Statistical	CHITEST		"CHITEST(observed_range, expected_range)"	Returns the probability associated with a Pearson’s chi-squared test on the two ranges of data. Determines the likelihood that the observed categorical data is drawn from an expected distribution. Learn more
+Statistical	CONFIDENCE		"CONFIDENCE(alpha, standard_deviation, pop_size)"	See CONFIDENCE.NORM
+Statistical	CONFIDENCE.NORM		"CONFIDENCE.NORM(alpha, standard_deviation, pop_size)"	Calculates the width of half the confidence interval for a normal distribution. Learn more.
+Statistical	CONFIDENCE.T		"CONFIDENCE.T(alpha, standard_deviation, size)"	Calculates the width of half the confidence interval for a Student’s t-distribution. Learn more.
+Statistical	CORREL		"CORREL(data_y, data_x)"	"Calculates r, the Pearson product-moment correlation coefficient of a dataset. Learn more"
+Statistical	COUNT	1	"COUNT(value1, [value2, ...])"	Returns a count of the number of numeric values in a dataset. Learn more
+Statistical	COUNTA	1	"COUNTA(value1, [value2, ...])"	Returns a count of the number of values in a dataset. Learn more
+Statistical	COVAR		"COVAR(data_y, data_x)"	Calculates the covariance of a dataset. Learn more
+Statistical	COVARIANCE.P		"COVARIANCE.P(data_y, data_x)"	See COVAR
+Statistical	COVARIANCE.S		"COVARIANCE.S(data_y, data_x)"	"Calculates the covariance of a dataset, where the dataset is a sample of the total population. Learn more."
+Statistical	CRITBINOM		"CRITBINOM(num_trials, prob_success, target_prob)"	Calculates the smallest value for which the cumulative binomial distribution is greater than or equal to a specified criteria. Learn more
+Statistical	DEVSQ		"DEVSQ(value1, value2)"	Calculates the sum of squares of deviations based on a sample. Learn more
+Statistical	EXPON.DIST		"EXPON.DIST(x, lambda, cumulative)"	Returns the value of the exponential distribution function with a specified lambda at a specified value. Learn more. 
+Statistical	EXPONDIST		"EXPONDIST(x, lambda, cumulative)"	See EXPON.DIST
+Statistical	F.DIST		"F.DIST(x, degrees_freedom1, degrees_freedom2, cumulative)"	Calculates the left-tailed F probability distribution (degree of diversity) for two data sets with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F distribution. Learn more
+Statistical	F.DIST.RT		"F.DIST.RT(x, degrees_freedom1, degrees_freedom2)"	Calculates the right-tailed F probability distribution (degree of diversity) for two data sets with given input x. Alternately called Fisher-Snedecor distribution or Snedecor's F distribution. Learn more
+Statistical	F.INV		"F.INV(probability, degrees_freedom1, degrees_freedom2)"	Calculates the inverse of the left-tailed F probability distribution. Also called the Fisher-Snedecor distribution or Snedecor’s F distribution. Learn more
+Statistical	F.INV.RT		"F.INV.RT(probability, degrees_freedom1, degrees_freedom2)"	Calculates the inverse of the right-tailed F probability distribution. Also called the Fisher-Snedecor distribution or Snedecor’s F distribution. Learn more
+Statistical	F.TEST		"F.TEST(range1, range2)"	See FTEST.
+Statistical	FDIST		"FDIST(x, degrees_freedom1, degrees_freedom2)"	See F.DIST.RT.
+Statistical	FINV		"FINV(probability, degrees_freedom1, degrees_freedom2)"	See F.INV.RT
+Statistical	FISHER		FISHER(value)	Returns the Fisher transformation of a specified value. Learn more
+Statistical	FISHERINV		FISHERINV(value)	Returns the inverse Fisher transformation of a specified value. Learn more
+Statistical	FORECAST		"FORECAST(x, data_y, data_x)"	Calculates the expected y-value for a specified x based on a linear regression of a dataset. Learn more
+Statistical	FORECAST.LINEAR		"FORECAST.LINEAR(x, data_y, data_x)"	See FORECAST 
+Statistical	FTEST		"FTEST(range1, range2)"	Returns the probability associated with an F-test for equality of variances. Determines whether two samples are likely to have come from populations with the same variance. Learn more
+Statistical	GAMMA		GAMMA(number)	Returns the Gamma function evaluated at the specified value. Learn more.
+Statistical	GAMMA.DIST		"GAMMA.DIST(x, alpha, beta, cumulative)"	"Calculates the gamma distribution, a two-parameter continuous probability distribution. Learn more"
+Statistical	GAMMA.INV		"GAMMA.INV(probability, alpha, beta)"	The GAMMA.INV function returns the value of the inverse gamma cumulative distribution function for the specified probability and alpha and beta parameters. Learn more.
+Statistical	GAMMADIST		"GAMMADIST(x, alpha, beta, cumulative)"	See GAMMA.DIST 
+Statistical	GAMMAINV		"GAMMAINV(probability, alpha, beta)"	See GAMMA.INV.
+Statistical	GAUSS		GAUSS(z)	"The GAUSS function returns the probability that a random variable, drawn from a normal distribution, will be between the mean and z standard deviations above (or below) the mean. Learn more."
+Statistical	GEOMEAN		"GEOMEAN(value1, value2)"	Calculates the geometric mean of a dataset. Learn more
+Statistical	HARMEAN		"HARMEAN(value1, value2)"	Calculates the harmonic mean of a dataset. Learn more
+Statistical	HYPGEOM.DIST		"HYPGEOM.DIST(num_successes, num_draws, successes_in_pop, pop_size)"	See HYPGEOMDIST 
+Statistical	HYPGEOMDIST		"HYPGEOMDIST(num_successes, num_draws, successes_in_pop, pop_size)"	" Calculates the probability of drawing a certain number of successes in a certain number of tries given a population of a certain size containing a certain number of successes, without replacement of draws. Learn more"
+Statistical	INTERCEPT		"INTERCEPT(data_y, data_x)"	Calculates the y-value at which the line resulting from linear regression of a dataset will intersect the y-axis (x=0). Learn more
+Statistical	KURT		"KURT(value1, value2)"	"Calculates the kurtosis of a dataset, which describes the shape, and in particular the ""peakedness"" of that dataset. Learn more"
+Statistical	LARGE		"LARGE(data, n)"	"Returns the nth largest element from a data set, where n is user-defined. Learn more"
+Statistical	LOGINV		"LOGINV(x, mean, standard_deviation)"	Returns the value of the inverse log-normal cumulative distribution with given mean and standard deviation at a specified value. Learn more
+Statistical	LOGNORM.DIST		"LOGNORM.DIST(x, mean, standard_deviation)"	See LOGNORMDIST
+Statistical	LOGNORM.INV		"LOGNORM.INV(x, mean, standard_deviation)"	See LOGINV
+Statistical	LOGNORMDIST		"LOGNORMDIST(x, mean, standard_deviation)"	Returns the value of the log-normal cumulative distribution with given mean and standard deviation at a specified value. Learn more
+Statistical	MAX	1	"MAX(value1, [value2, ...])"	Returns the maximum value in a numeric dataset. Learn more
+Statistical	MAXA	1	"MAXA(value1, value2)"	Returns the maximum numeric value in a dataset. Learn more
+Statistical	MAXIFS	1	"MAXIFS(range, criteria_range1, criterion1, [criteria_range2, criterion2], …)"	"Returns the maximum value in a range of cells, filtered by a set of criteria. Learn more."
+Statistical	MEDIAN	1	"MEDIAN(value1, [value2, ...])"	Returns the median value in a numeric dataset. Learn more
+Statistical	MIN	1	"MIN(value1, [value2, ...])"	Returns the minimum value in a numeric dataset. Learn more
+Statistical	MINA	1	"MINA(value1, value2)"	Returns the minimum numeric value in a dataset. Learn more
+Statistical	MINIFS	1	"MINIFS(range, criteria_range1, criterion1, [criteria_range2, criterion2], …)"	"Returns the minimum value in a range of cells, filtered by a set of criteria. Learn more."
+Statistical	MODE	1	"MODE(value1, [value2, ...])"	Returns the most commonly occurring value in a dataset. Learn more
+Statistical	MODE.MULT		"MODE.MULT(value1, value2)"	Returns the most commonly occurring values in a dataset. Learn more.
+Statistical	MODE.SNGL		"MODE.SNGL(value1, [value2, ...])"	See MODE 
+Statistical	NEGBINOM.DIST		"NEGBINOM.DIST(num_failures, num_successes, prob_success)"	See NEGBINOMDIST 
+Statistical	NEGBINOMDIST		"NEGBINOMDIST(num_failures, num_successes, prob_success)"	Calculates the probability of drawing a certain number of failures before a certain number of successes given a probability of success in independent trials. Learn more
+Statistical	NORM.DIST		"NORM.DIST(x, mean, standard_deviation, cumulative)"	See NORMDIST 
+Statistical	NORM.INV		"NORM.INV(x, mean, standard_deviation)"	See NORMINV 
+Statistical	NORM.S.DIST		NORM.S.DIST(x)	See NORMSDIST
+Statistical	NORM.S.INV		NORM.S.INV(x)	See NORMSINV
+Statistical	NORMDIST		"NORMDIST(x, mean, standard_deviation, cumulative)"	"Returns the value of the normal distribution function (or normal cumulative distribution function) for a specified value, mean, and standard deviation. Learn more"
+Statistical	NORMINV		"NORMINV(x, mean, standard_deviation)"	"Returns the value of the inverse normal distribution function for a specified value, mean, and standard deviation. Learn more"
+Statistical	NORMSDIST		NORMSDIST(x)	Returns the value of the standard normal cumulative distribution function for a specified value. Learn more
+Statistical	NORMSINV		NORMSINV(x)	Returns the value of the inverse standard normal distribution function for a specified value. Learn more
+Statistical	PEARSON		"PEARSON(data_y, data_x)"	"Calculates r, the Pearson product-moment correlation coefficient of a dataset. Learn more"
+Statistical	PERCENTILE	1	"PERCENTILE(data, percentile)"	Returns the value at a given percentile of a dataset. Learn more
+Statistical	PERCENTILE.EXC		"PERCENTILE.EXC(data, percentile)"	"Returns the value at a given percentile of a dataset, exclusive of 0 and 1. Learn more."
+Statistical	PERCENTILE.INC		"PERCENTILE.INC(data, percentile)"	See PERCENTILE
+Statistical	PERCENTRANK		"PERCENTRANK(data, value, [significant_digits])"	Returns the percentage rank (percentile) of a specified value in a dataset. Learn more
+Statistical	PERCENTRANK.EXC		"PERCENTRANK.EXC(data, value, [significant_digits])"	Returns the percentage rank (percentile) from 0 to 1 exclusive of a specified value in a dataset. Learn more
+Statistical	PERCENTRANK.INC		"PERCENTRANK.INC(data, value, [significant_digits])"	Returns the percentage rank (percentile) from 0 to 1 inclusive of a specified value in a dataset. Learn more
+Statistical	PERMUTATIONA		"PERMUTATIONA(number, number_chosen)"	Returns the number of permutations for selecting a group of objects (with replacement) from a total number of objects. Learn more.
+Statistical	PERMUT		"PERMUT(n, k)"	"Returns the number of ways to choose some number of objects from a pool of a given size of objects, considering order. Learn more"
+Statistical	PHI		PHI(x)	The PHI function returns the value of the normal distribution with mean 0 and standard deviation 1. Learn more.
+Statistical	POISSON		"POISSON(x, mean, cumulative)"	See POISSON.DIST
+Statistical	POISSON.DIST		"POISSON.DIST(x, mean, [cumulative])"	Returns the value of the Poisson distribution function (or Poisson cumulative distribution function) for a specified value and mean. Learn more. 
+Statistical	PROB		"PROB(data, probabilities, low_limit, [high_limit])"	"Given a set of values and corresponding probabilities, calculates the probability that a value chosen at random falls between two limits. Learn more"
+Statistical	QUARTILE	1	"QUARTILE(data, quartile_number)"	Returns a value nearest to a specified quartile of a dataset. Learn more
+Statistical	QUARTILE.EXC		"QUARTILE.EXC(data, quartile_number)"	"Returns value nearest to a given quartile of a dataset, exclusive of 0 and 4. Learn more."
+Statistical	QUARTILE.INC		"QUARTILE.INC(data, quartile_number)"	See QUARTILE
+Statistical	RANK	1	"RANK(value, data, [is_ascending])"	Returns the rank of a specified value in a dataset. Learn more
+Statistical	RANK.AVG	1	"RANK.AVG(value, data, [is_ascending])"	"Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned. Learn more"
+Statistical	RANK.EQ		"RANK.EQ(value, data, [is_ascending])"	"Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the top rank of the entries will be returned. Learn more"
+Statistical	RSQ		"RSQ(data_y, data_x)"	"Calculates the square of r, the Pearson product-moment correlation coefficient of a dataset. Learn more"
+Statistical	SKEW		"SKEW(value1, value2)"	"Calculates the skewness of a dataset, which describes the symmetry of that dataset about the mean. Learn more"
+Statistical	SKEW.P		"SKEW.P(value1, value2)"	Calculates the skewness of a dataset that represents the entire population. Learn more.
+Statistical	SLOPE		"SLOPE(data_y, data_x)"	Calculates the slope of the line resulting from linear regression of a dataset. Learn more
+Statistical	SMALL		"SMALL(data, n)"	"Returns the nth smallest element from a data set, where n is user-defined. Learn more"
+Statistical	STANDARDIZE		"STANDARDIZE(value, mean, standard_deviation)"	Calculates the normalized equivalent of a random variable given mean and standard deviation of the distribution. Learn more
+Statistical	STDEV	1	"STDEV(value1, [value2, ...])"	Calculates the standard deviation based on a sample. Learn more
+Statistical	STDEV.P		"STDEV.P(value1, [value2, ...])"	See STDEVP
+Statistical	STDEV.S		"STDEV.S(value1, [value2, ...])"	See STDEV
+Statistical	STDEVA		"STDEVA(value1, value2)"	"Calculates the standard deviation based on a sample, setting text to the value `0`. Learn more"
+Statistical	STDEVP		"STDEVP(value1, value2)"	Calculates the standard deviation based on an entire population. Learn more
+Statistical	STDEVPA		"STDEVPA(value1, value2)"	"Calculates the standard deviation based on an entire population, setting text to the value `0`. Learn more"
+Statistical	STEYX		"STEYX(data_y, data_x)"	Calculates the standard error of the predicted y-value for each x in the regression of a dataset. Learn more
+Statistical	T.DIST		"T.DIST(x, degrees_freedom, cumulative)"	Returns the right tailed Student distribution for a value x. Learn more.
+Statistical	T.DIST.2T		"T.DIST.2T(x, degrees_freedom)"	Returns the two tailed Student distribution for a value x. Learn more.
+Statistical	T.DIST.RT		"T.DIST.RT(x, degrees_freedom)"	Returns the right tailed Student distribution for a value x. Learn more.
+Statistical	T.INV		"T.INV(probability, degrees_freedom)"	Calculates the negative inverse of the one-tailed TDIST function. Learn more
+Statistical	T.INV.2T		"T.INV.2T(probability, degrees_freedom)"	Calculates the inverse of the two-tailed TDIST function. Learn more
+Statistical	T.TEST		"T.TEST(range1, range2, tails, type)"	Returns the probability associated with Student's t-test. Determines whether two samples are likely to have come from the same two underlying populations that have the same mean. Learn more. 
+Statistical	TDIST		"TDIST(x, degrees_freedom, tails)"	Calculates the probability for Student's t-distribution with a given input (x). Learn more
+Statistical	TINV		"TINV(probability, degrees_freedom)"	See T.INV.2T
+Statistical	TRIMMEAN		"TRIMMEAN(data, exclude_proportion)"	Calculates the mean of a dataset excluding some proportion of data from the high and low ends of the dataset. Learn more
+Statistical	TTEST		"TTEST(range1, range2, tails, type)"	See T.TEST.
+Statistical	VAR	1	"VAR(value1, [value2, ...])"	Calculates the variance based on a sample. Learn more
+Statistical	VAR.P		"VAR.P(value1, [value2, ...])"	See VARP
+Statistical	VAR.S		"VAR.S(value1, [value2, ...])"	See VAR
+Statistical	VARA		"VARA(value1, value2)"	"Calculates an estimate of variance based on a sample, setting text to the value `0`. Learn more"
+Statistical	VARP		"VARP(value1, value2)"	Calculates the variance based on an entire population. Learn more
+Statistical	VARPA		"VARPA(value1, value2,...)"	"Calculates the variance based on an entire population, setting text to the value `0`. Learn more"
+Statistical	WEIBULL		"WEIBULL(x, shape, scale, cumulative)"	Returns the value of the Weibull distribution function (or Weibull cumulative distribution function) for a specified shape and scale. Learn more
+Statistical	WEIBULL.DIST		"WEIBULL.DIST(x, shape, scale, cumulative)"	See WEIBULL
+Statistical	Z.TEST		"Z.TEST(data, value, [standard_deviation])"	Returns the one-tailed P-value of a Z-test with standard distribution. Learn more. 
+Statistical	ZTEST		"ZTEST(data, value, [standard_deviation])"	See Z.TEST.
+Text	ARABIC	1	ARABIC(roman_numeral)	Computes the value of a Roman numeral. Learn more
+Text	ASC		ASC(text)	Converts full-width ASCII and katakana characters to their half-width counterparts. All standard-width characters will remain unchanged. Learn more. 
+Text	CHAR		CHAR(table_number)	Convert a number into a character according to the current Unicode table. Learn more
+Text	CLEAN	1	CLEAN(text)	Returns the text with the non-printable ASCII characters removed. Learn more
+Text	CODE		CODE(string)	Returns the numeric Unicode map value of the first character in the string provided. Learn more
+Text	CONCATENATE	1	"CONCATENATE(string1, [string2, ...])"	Appends strings to one another. Learn more
+Text	DOLLAR	1	"DOLLAR(number, [number_of_places])"	Formats a number into the locale-specific currency format. Learn more
+Text	EXACT	1	"EXACT(string1, string2)"	Tests whether two strings are identical. Learn more
+Text	FIND	1	"FIND(search_for, text_to_search, [starting_at])"	Returns the position at which a string is first found within text. Learn more
+Text	FINDB		"FINDB(search_for, text_to_search, [starting_at])"	Returns the position at which a string is first found within text counting each double-character as 2. Learn more
+Text	FIXED	1	"FIXED(number, [number_of_places], [suppress_separator])"	Formats a number with a fixed number of decimal places. Learn more
+Text	JOIN	1	"JOIN(delimiter, value_or_array1, [value_or_array2, ...])"	Concatenates the elements of one or more one-dimensional arrays using a specified delimiter. Learn more
+Text	LEFT	1	"LEFT(string, [number_of_characters])"	Returns a substring from the beginning of a specified string. Learn more
+Text	LEFTB		"LEFTB(string, num_of_bytes)"	Returns the left portion of a string up to a certain number of bytes. Learn more.
+Text	LEN	1	LEN(text)	Returns the length of a string. Learn more
+Text	LENB		LENB(string)	"Returns the length of a string in bytes."" Learn more."
+Text	LOWER	1	LOWER(text)	Converts a specified string to lowercase. Learn more
+Text	MID	1	"MID(string, starting_at, extract_length)"	Returns a segment of a string. Learn more
+Text	MIDB		MIDB(string)	Returns a section of a string starting at a given character and up to a specified number of bytes. Learn more.
+Text	PROPER	1	PROPER(text_to_capitalize)	Capitalizes each word in a specified string. Learn more
+Text	REGEXEXTRACT	1	"REGEXEXTRACT(text, regular_expression)"	Extracts matching substrings according to a regular expression. Learn more
+Text	REGEXMATCH	1	"REGEXMATCH(text, regular_expression)"	Whether a piece of text matches a regular expression. Learn more
+Text	REGEXREPLACE	1	"REGEXREPLACE(text, regular_expression, replacement)"	Replaces part of a text string with a different text string using regular expressions. Learn more
+Text	REPLACE	1	"REPLACE(text, position, length, new_text)"	Replaces part of a text string with a different text string. Learn more
+Text	REPLACEB		"REPLACEB(text, position, num_bytes, new_text)"	"Replaces part of a text string, based on a number of bytes, with a different text string. Learn more."
+Text	REPT	1	"REPT(text_to_repeat, number_of_repetitions)"	Returns specified text repeated a number of times. Learn more
+Text	RIGHT	1	"RIGHT(string, [number_of_characters])"	Returns a substring from the end of a specified string. Learn more
+Text	RIGHTB		"RIGHTB(string, num_of_bytes)"	Returns the right portion of a string up to a certain number of bytes. Learn more.
+Text	ROMAN	1	"ROMAN(number, [rule_relaxation])"	Formats a number in Roman numerals. Learn more
+Text	SEARCH	1	"SEARCH(search_for, text_to_search, [starting_at])"	Returns the position at which a string is first found within text. Learn more
+Text	SEARCHB		"SEARCHB(search_for, text_to_search, [starting_at])"	Returns the position at which a string is first found within text counting each double-character as 2. Learn more
+Text	SPLIT	1	"SPLIT(text, delimiter, [split_by_each], [remove_empty_text])"	"Divides text around a specified character or string, and puts each fragment into a separate cell in the row. Learn more"
+Text	SUBSTITUTE	1	"SUBSTITUTE(text_to_search, search_for, replace_with, [occurrence_number])"	Replaces existing text with new text in a string. Learn more
+Text	T		T(value)	Returns string arguments as text. Learn more
+Text	TEXT	1	"TEXT(number, format)"	Converts a number into text according to a specified format. Learn more
+Text	TEXTJOIN	1	"TEXTJOIN(delimiter, ignore_empty, text1, [text2], …)"	"Combines the text from multiple strings and/or arrays, with a specifiable delimiter separating the different texts. Learn more."
+Text	TRIM	1	TRIM(text)	Removes leading and trailing spaces in a specified string. Learn more
+Text	UNICHAR		UNICHAR(number)	Returns the Unicode character for a number. Learn more.
+Text	UNICODE		UNICODE(text)	Returns the decimal Unicode value of the first character of the text. Learn more.
+Text	UPPER	1	UPPER(text)	Converts a specified string to uppercase. Learn more
+Text	VALUE	1	VALUE(text)	"Converts a string in any of the date, time or number formats that Google Sheets understands into a number. Learn more"
+Web	ENCODEURL	1	ENCODEURL(text)	Encodes a string of text for the purpose of using in a URL query. Learn more.
+Web	HYPERLINK	1	"HYPERLINK(url, [link_label])"	Creates a hyperlink inside a cell. Learn more
+Web	IMPORTDATA	1	IMPORTDATA(url)	Imports data at a given url in .csv (comma-separated value) or .tsv (tab-separated value) format. Learn more
+Web	IMPORTFEED	1	"IMPORTFEED(url, [query], [headers], [num_items])"	Imports a RSS or ATOM feed. Learn more
+Web	IMPORTHTML	1	"IMPORTHTML(url, query, index)"	Imports data from a table or list within an HTML page. Learn more
+Web	IMPORTRANGE	1	"IMPORTRANGE(spreadsheet_url, range_string)"	Imports a range of cells from a specified spreadsheet. Learn more
+Web	IMPORTXML	1	"IMPORTXML(url, xpath_query)"	"Imports data from any of various structured data types including XML, HTML, CSV, TSV, and RSS and ATOM XML feeds. Learn more"
+Web	ISURL	1	ISURL(value)	Checks whether a value is a valid URL. Learn more

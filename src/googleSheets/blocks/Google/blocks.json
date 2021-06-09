@@ -1,0 +1,65 @@
+[
+    {
+        "type": "sheets_ARRAYFORMULA",
+        "message0": "ARRAYFORMULA %1 array formula %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "ARRAY_FORMULA"
+            }
+        ],
+        "output": null,
+        "style": "Google_style",
+        "inputsInline": true,
+        "tooltip": "Enables the display of values returned from an array formula into multiple rows and/or columns and the use of non-array functions with arrays. Learn more"
+    },
+    {
+        "type": "sheets_QUERY",
+        "message0": "QUERY %1 data %2 query %3 [headers] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "QUERY"
+            },
+            {
+                "type": "input_value",
+                "name": "HEADERS"
+            }
+        ],
+        "output": null,
+        "style": "Google_style",
+        "inputsInline": false,
+        "tooltip": "Runs a Google Visualization API Query Language query across data. Learn more"
+    },
+    {
+        "type": "sheets_SPARKLINE",
+        "message0": "SPARKLINE %1 data %2 [options] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "OPTIONS"
+            }
+        ],
+        "output": null,
+        "style": "Google_style",
+        "inputsInline": false,
+        "tooltip": "Creates a miniature chart contained within a single cell. Learn more"
+    }
+]

@@ -5,10 +5,15 @@ Known issues:
 	submit
 - media is not included in appscript bundle
 - Appscript setup / permissions
+- Formula parse errors are not surfaced in any way
 
 
 wishlist
-- inline js to html automatically
+- automate deployments
+	- clasp integration
+	- build package as used by appscript
+	  - rename files
+	  - inline js to html automatically / use include syntax
 - Could we load "advanced" functions dynamically if requested?
 	 Generate "advanced" into a separate bundle
 	 Load advanced dynamically

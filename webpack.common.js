@@ -23,14 +23,15 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 
-module.exports = {
+module.exports = [
+{
+	name: 'webapp',
 	target: 'web',
 	entry: {
 		generator: './src/generator.js',
-		appscript: './src/appscript.js',
 	},
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, 'build/webapp'),
 		filename: '[name].js'
 	},
 	resolve: {
@@ -42,18 +43,52 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.optimize.ModuleConcatenationPlugin(),
-		new CopyPlugin([
-			{
-				from: path.resolve(__dirname, 'public'),
-				to: path.resolve(__dirname, 'build')
-			}
-		]),
-		// Copy over media resources from the Blockly package
-		new CopyPlugin([
-			{
-				from: path.resolve(__dirname, './node_modules/blockly/media'),
-				to: path.resolve(__dirname, 'build/media')
-			}
-		])
+		new CopyPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, 'public/generator.html'),
+					to: path.resolve(__dirname, 'build/webapp/index.html')
+				},
+				{
+					// Copy over media resources from the Blockly package
+					from: path.resolve(__dirname, './node_modules/blockly/media'),
+					to: path.resolve(__dirname, 'build/webapp/media')
+				}
+			]
+		})
 	],
-};
+}, {
+	name: 'googleapp',
+	target: 'web',
+	entry: {
+		appscript: './src/appscript/appscript.js',
+	},
+	output: {
+		path: path.resolve(__dirname, 'build/appscript'),
+		filename: '[name].js'
+	},
+	resolve: {
+		alias: {
+			// 'blockly' is a kitchen sink module that we don't want
+			// use our minimal import instead
+			blockly$: path.resolve(__dirname, "./src/blockly.js"),
+		},
+	},
+	plugins: [
+		new webpack.optimize.ModuleConcatenationPlugin(),
+		new CopyPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, 'public/appscript.html'),
+					to: path.resolve(__dirname, 'build/appscript/index.html')
+				},
+				{
+					// Copy over media resources from the Blockly package
+					from: path.resolve(__dirname, './node_modules/blockly/media'),
+					to: path.resolve(__dirname, 'build/appscript/media')
+				}
+			]
+		}),
+	],
+}
+];

@@ -2,6 +2,8 @@ const { merge } = require('webpack-merge');
 
 const common = require('./webpack.common.js');
 
-module.exports = merge(common, {
+const update = {
 	mode: 'production',
-});
+};
+// common is an array of configs
+module.exports = common.map(x => merge(x, update));

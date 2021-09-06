@@ -1,4 +1,5 @@
 import { parser } from './formula.js'
+import './treePrint.js'
 
 export const mkValue = (v) => ({
 	kind: 'value',
@@ -16,96 +17,235 @@ export const mkFunc = (n, arg) => ({
 	args: arg,
 })
 
+export const mkBinary = (symb, left, right) => ({
+	kind: 'binaryOp',
+	symb,
+	left,
+	right,
+})
+export const mkUnary = (symb, right) => ({
+	kind: 'unaryOp',
+	symb,
+	right,
+})
 
 // values
 test('parses number values', () => {
-	expect(parser.parse('=1')).toEqual([mkValue(1)])
-	expect(parser.parse('=-1')).toEqual([mkValue(-1)])
-	expect(parser.parse('=1.2')).toEqual([mkValue(1.2)])
+	expect(parser.parse('=1')).toTreeEqual(mkValue(1))
+	// FIXME there is a conflict between unary operator and negative number values
+	// I have not been able to define a grammar that allows both to exist
+	// maybe allow only 1 symbol in front of a number?
+	// or post process in builder to consolidate
+	expect(parser.parse('=-1')).toTreeEqual(mkValue(-1))
+	expect(parser.parse('=+1')).toTreeEqual(mkValue(1))
+	expect(parser.parse('=1.2')).toTreeEqual(mkValue(1.2))
 })
 
 test('parses percentage values', () => {
-	expect(parser.parse('=10%')).toEqual([mkValue(.1)])
+	expect(parser.parse('=10%')).toTreeEqual(mkValue(.1))
 })
 
 test('parses string values', () => {
-	expect(parser.parse('="1"')).toEqual([mkValue("1")])
-	expect(parser.parse('=""')).toEqual([mkValue("")])
+	expect(parser.parse('="1"')).toTreeEqual(mkValue("1"))
+	expect(parser.parse('=""')).toTreeEqual(mkValue(""))
 })
 
 test('parses bool values', () => {
-	expect(parser.parse('=TRUE')).toEqual([mkValue(true)])
-	expect(parser.parse('=true')).toEqual([mkValue(true)])
-	expect(parser.parse('=FALSE')).toEqual([mkValue(false)])
-	expect(parser.parse('=false')).toEqual([mkValue(false)])
+	expect(parser.parse('=TRUE')).toTreeEqual(mkValue(true))
+	expect(parser.parse('=true')).toTreeEqual(mkValue(true))
+	expect(parser.parse('=FALSE')).toTreeEqual(mkValue(false))
+	expect(parser.parse('=false')).toTreeEqual(mkValue(false))
 })
 
 test('parses cell ranges', () => {
-	expect(parser.parse('=A1')).toEqual([mkRange('A1')])
-	expect(parser.parse('=AZ123')).toEqual([mkRange('AZ123')])
-	expect(parser.parse('=A1:B2')).toEqual([mkRange('A1:B2')])
-	expect(parser.parse('=B:B')).toEqual([mkRange('B:B')])
-	expect(parser.parse('=B:A1')).toEqual([mkRange('B:A1')])
-	expect(parser.parse('=A1:B')).toEqual([mkRange('A1:B')])
+	expect(parser.parse('=A1')).toTreeEqual(mkRange('A1'))
+	expect(parser.parse('=AZ123')).toTreeEqual(mkRange('AZ123'))
+	expect(parser.parse('=A1:B2')).toTreeEqual(mkRange('A1:B2'))
+	expect(parser.parse('=B:B')).toTreeEqual(mkRange('B:B'))
+	expect(parser.parse('=B:A1')).toTreeEqual(mkRange('B:A1'))
+	expect(parser.parse('=A1:B')).toTreeEqual(mkRange('A1:B'))
 })
+
+test.skip('parses array literals', () => {
+	expect(false).toTreeEqual(true)
+});
 
 // Single Function
 test('it parses a function without arguments', () => {
-	expect(parser.parse('=NOW()')).toEqual([mkFunc('NOW', [])])
-	expect(parser.parse('=nOw()')).toEqual([mkFunc('NOW', [])])
-	expect(parser.parse('=now()')).toEqual([mkFunc('NOW', [])])
-	expect(parser.parse('=now(  )')).toEqual([mkFunc('NOW', [])])
-	expect(parser.parse('= now() ')).toEqual([mkFunc('NOW', [])])
+	expect(parser.parse('=NOW()')).toTreeEqual(mkFunc('NOW', []))
+	expect(parser.parse('=nOw()')).toTreeEqual(mkFunc('NOW', []))
+	expect(parser.parse('=now()')).toTreeEqual(mkFunc('NOW', []))
+	expect(parser.parse('=now(  )')).toTreeEqual(mkFunc('NOW', []))
+	expect(parser.parse('= now() ')).toTreeEqual(mkFunc('NOW', []))
 })
 
 
 test('parses a function with arguments', () => {
-	expect(parser.parse('=ABS(-1)')).toEqual([mkFunc('ABS', [mkValue(-1)])])
+	expect(parser.parse('=ABS(-1)')).toTreeEqual(mkFunc('ABS', [mkValue(-1)]))
 	expect(parser.parse('=Max(1, -1)'))
-		.toEqual([mkFunc('MAX', [mkValue(1), mkValue(-1)])])
+		.toTreeEqual(mkFunc('MAX', [mkValue(1), mkValue(-1)]))
 
 	expect(parser.parse('=Max(1, -1)'))
-		.toEqual([mkFunc('MAX', [mkValue(1), mkValue(-1)])])
+		.toTreeEqual(mkFunc('MAX', [mkValue(1), mkValue(-1)]))
 
 	expect(parser.parse('=Max(1,    -1   , 2)'))
-		.toEqual([mkFunc('MAX', [mkValue(1), mkValue(-1), mkValue(2)])])
+		.toTreeEqual(mkFunc('MAX', [mkValue(1), mkValue(-1), mkValue(2)]))
 
 	expect(parser.parse('=Max(1,)'))
-		.toEqual([mkFunc('MAX', [mkValue(1), null])])
+		.toTreeEqual(mkFunc('MAX', [mkValue(1), null]))
 
 	expect(parser.parse('=Max(1, ,2)'))
-		.toEqual([mkFunc('MAX', [mkValue(1), null, mkValue(2)])])
+		.toTreeEqual(mkFunc('MAX', [mkValue(1), null, mkValue(2)]))
 
 	expect(parser.parse('=Max(1,-1)'))
-		.toEqual([mkFunc('MAX', [mkValue(1), mkValue(-1)])])
+		.toTreeEqual(mkFunc('MAX', [mkValue(1), mkValue(-1)]))
 
 	expect(parser.parse('=CONCAT(",", "1")'))
-		.toEqual([mkFunc('CONCAT', [mkValue(","), mkValue("1")])])
+		.toTreeEqual(mkFunc('CONCAT', [mkValue(","), mkValue("1")]))
 
 	expect(parser.parse('=MAX(,)'))
-		.toEqual([mkFunc('MAX', [null, null])])
+		.toTreeEqual(mkFunc('MAX', [null, null]))
 })
 
 // composition
 test('parses composed functions', () => {
 	expect(parser.parse('=ABS(Max(1, 2))'))
-		.toEqual([
+		.toTreeEqual(
 			mkFunc('ABS', [
-			mkFunc('MAX', [mkValue(1), mkValue(2)])
+				mkFunc('MAX', [mkValue(1), mkValue(2)])
 			])
-		])
+		)
 	expect(parser.parse('=MAX(ABS(1), ABS(2))'))
-		.toEqual([
+		.toTreeEqual(
 			mkFunc('MAX', [
-			mkFunc('ABS', [mkValue(1)]),
-			mkFunc('ABS', [mkValue(2)]),
+				mkFunc('ABS', [mkValue(1)]),
+				mkFunc('ABS', [mkValue(2)]),
 			])
-		])
+		)
 })
 
-// binary operators
-// TODO flesh out test cases
-test.skip('parses binary operators', () => {
-	expect(parser.parse('="a" & "b"')).toEqual([/* TODO */])
+// Operators
+test('parses binary operators', () => {
+	expect(parser.parse('="a" & "b"')).toTreeEqual( mkBinary('&', mkValue('a'), mkValue('b')) )
+	expect(parser.parse('=1 + 2')).toTreeEqual( mkBinary('+', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 - 2')).toTreeEqual( mkBinary('-', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 * 2')).toTreeEqual( mkBinary('*', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 / 2')).toTreeEqual( mkBinary('/', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 ^ 2')).toTreeEqual( mkBinary('^', mkValue(1), mkValue(2)) )
+
+	expect(parser.parse('=1 > 2')).toTreeEqual( mkBinary('>', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 >= 2')).toTreeEqual( mkBinary('>=', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 = 2')).toTreeEqual( mkBinary('=', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 <> 2')).toTreeEqual( mkBinary('<>', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 <= 2')).toTreeEqual( mkBinary('<=', mkValue(1), mkValue(2)) )
+	expect(parser.parse('=1 < 2')).toTreeEqual( mkBinary('<', mkValue(1), mkValue(2)) )
 })
 
+test('parses unary operators', () => {
+	expect(parser.parse('=-(1+2)')).toTreeEqual(
+		mkUnary('-',
+			mkBinary('+',
+				mkValue(1),
+				mkValue(2),
+			)
+		)
+	)
+	// + operator is elided because I assume it never does anything meaningful
+	expect(parser.parse('=+(1)')).toTreeEqual( mkValue(1) )
+})
+
+test('parses operator precedence', () => {
+	expect(parser.parse('=1 + 2 * 3')).toTreeEqual(
+		mkBinary('+',
+			mkValue(1),
+			mkBinary('*', mkValue(2), mkValue(3))
+		)
+	)
+	expect(parser.parse('=1 * 2 + 3')).toTreeEqual(
+		mkBinary('+',
+			mkBinary('*', mkValue(1), mkValue(2)),
+			mkValue(3),
+		)
+	)
+	expect(parser.parse('=1 * 2 * 3')).toTreeEqual(
+		mkBinary('*',
+			mkBinary('*', mkValue(1), mkValue(2)),
+			mkValue(3),
+		)
+	)
+	expect(parser.parse('=-1 * -2 ^ -3')).toTreeEqual(
+		mkBinary('*',
+			mkValue(-1),
+			mkBinary('^', mkValue(-2), mkValue(-3)),
+		)
+	)
+	expect(parser.parse('=1 * 2 / 3 * 4')).toTreeEqual(
+		mkBinary('*',
+			mkBinary('/',
+				mkBinary('*', mkValue(1), mkValue(2)),
+				mkValue(3),
+			),
+			mkValue(4)
+		)
+	)
+
+	expect(parser.parse('=1 ^ 2 / 3')).toTreeEqual(
+		mkBinary('/',
+			mkBinary('^', mkValue(1), mkValue(2)),
+			mkValue(3),
+		)
+	)
+
+	expect(parser.parse('=1 + 2 ^ 3 + 4')).toTreeEqual(
+		mkBinary('+',
+			mkBinary('+',
+				mkValue(1),
+				mkBinary('^', mkValue(2), mkValue(3)),
+			),
+			mkValue(4),
+		)
+	)
+
+	expect(parser.parse('=1 * 2 ^ 3 * 4')).toTreeEqual(
+		mkBinary('*',
+			mkBinary('*',
+				mkValue(1),
+				mkBinary('^', mkValue(2), mkValue(3)),
+			),
+			mkValue(4),
+		)
+	)
+
+	expect(parser.parse('= 1 * 2 > 3 * 4')).toTreeEqual(
+		mkBinary('>',
+			mkBinary('*',
+				mkValue(1),
+				mkValue(2)
+			),
+			mkBinary('*',
+				mkValue(3),
+				mkValue(4)
+			),
+		)
+	)
+
+	expect(parser.parse('= 1 > 2 = 3 < 4')).toTreeEqual(
+		mkBinary('<',
+			mkBinary('=',
+				mkBinary('>',
+					mkValue(1),
+					mkValue(2)
+				),
+				mkValue(3),
+			),
+			mkValue(4),
+		),
+	)
+
+	expect(parser.parse('=1 * (2 + 3)')).toTreeEqual(
+		mkBinary('*',
+			mkValue(1),
+			mkBinary('+', mkValue(2), mkValue(3)),
+		)
+	)
+})

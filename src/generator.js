@@ -11,13 +11,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const formulaText = document.getElementById('formulaText');
 
     toCode.addEventListener('click', function () {
-        const code = blockly[lang].workspaceToCode(workspace);
-		formulaText.value = code;
+		// debug
+		// var xml = blockly.Xml.workspaceToDom(workspace);
+		// console.log(blockly.Xml.domToPrettyText(xml))
+
+		try {
+			const code = blockly[lang].workspaceToCode(workspace);
+			formulaText.value = code;
+		} catch(e) {
+			alert(e)
+		}
     })
     toBlocks.addEventListener('click', function () {
 		const formula = formulaText.value;
 		workspace.clear()
-		parseAndBuild(formula, workspace)
-		workspace.cleanUp()
+		try {
+			parseAndBuild(formula, workspace)
+			workspace.cleanUp()
+		} catch(e) {
+			alert(e)
+		}
     })
 });

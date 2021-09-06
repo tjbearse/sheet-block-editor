@@ -44,3 +44,10 @@ LANG['sheets_TEXTJOIN'] = getBlockFn('TEXTJOIN', ["DELIMITER", "IGNORE_EMPTY", "
 LANG['sheets_TRIM'] = getBlockFn('TRIM', ["TEXT"])
 LANG['sheets_UPPER'] = getBlockFn('UPPER', ["TEXT"])
 LANG['sheets_VALUE'] = getBlockFn('VALUE', ["TEXT"])
+
+LANG['sheets_join'] = function(block) {
+	// FIXME precedence
+	const value_a = LANG.valueToCode(block, 'A', LANG.ORDER_ATOMIC);
+	const value_b = LANG.valueToCode(block, 'B', LANG.ORDER_ATOMIC);
+	return [`${value_a} & ${value_b}`, LANG.ORDER_NONE]
+}

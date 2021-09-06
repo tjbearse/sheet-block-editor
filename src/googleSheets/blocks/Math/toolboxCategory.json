@@ -5,6 +5,14 @@
     "contents": [
         {
             "kind": "block",
+            "type": "sheets_arithmetic"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_negate"
+        },
+        {
+            "kind": "block",
             "type": "sheets_ABS"
         },
         {

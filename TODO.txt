@@ -3,7 +3,6 @@ Known issues:
 - loading / status indicator
 	load
 	submit
-- media is not included in appscript bundle
 - Appscript setup / permissions
 - Formula parse errors are not surfaced in any way
 
@@ -14,6 +13,7 @@ wishlist
 	- build package as used by appscript
 	  - rename files
 	  - inline js to html automatically / use include syntax
+- Idea: formulas as a single block with mutator that searches for formulas and then takes definition
 - Could we load "advanced" functions dynamically if requested?
 	 Generate "advanced" into a separate bundle
 	 Load advanced dynamically
@@ -23,10 +23,6 @@ wishlist
 - implement the variadic & paired optional arg functions with notes in the TODO field
 	I did a quick and broad simplification of arguments to remove these features until they are properly done
 	look at mutators like the list mutator https://github.com/google/blockly/blob/master/blocks/lists.js#L119-L273
-- binary operators (+-*/j
-	&
-	comparison
-	math: +-*/^
 - dedup / simplify / shorten the generated generator code
 - input & output types
 - add N/A to values as well

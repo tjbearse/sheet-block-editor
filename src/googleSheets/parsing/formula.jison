@@ -14,8 +14,18 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 "("                       return 'OPEN_PAREN'
 ")"                       return 'CLOSE_PAREN'
 ","                       return 'COMMA'
+"<>"                      return 'NOTEQUALS'
+"<="                      return 'LE'
+">="                      return 'GE'
+"<"                       return 'LT'
 "="                       return 'EQUALS'
+">"                       return 'GT'
 "-"						  return 'MINUS'
+"+"						  return 'PLUS'
+"&"						  return 'AMPERSAND'
+"*"						  return 'MULT'
+"^"						  return 'EXPONENT'
+"/"						  return 'DIVIDE'
 "%"						  return 'PCT'
 ":"						  return 'COLON'
 [Tt][Rr][Uu][Ee]		  return 'TRUE'
@@ -28,29 +38,33 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 
 /lex
 
-%left UMINUS
+%left LT LE EQUALS NOTEQUALS GE GT
+%left AMPERSAND
+%left PLUS MINUS
+%left MULT DIVIDE
+%left EXPONENT
+%left UMINUS UPLUS
+%left UNMINUS
 
 %%
 start:
-  expressions
+  formula
   { return $1 }
   ;
 
-expressions
-  : expressions expression -> $1.concat($2)
-  | expression $
+formula
+  : EQUALS exp -> $2
   ;
 
-expression
-  : EQUALS e -> [$2]
-  ;
-
-e 
-	: function
-	| number -> { kind: 'value', value: $1 }
+exp 
+	: number
+	| function
 	| STRING -> { kind: 'value', value: $1 }
+	| OPEN_PAREN exp CLOSE_PAREN -> $2
 	| boolean
-	| range -> { kind: 'range', range: $1 }
+	| range
+	| binop
+	| unop
 	;
 
 function
@@ -61,15 +75,18 @@ function
 	;
 
 arguments
-	: arguments COMMA e -> [...$1, $3]
+	: arguments COMMA exp -> [...$1, $3]
 	| arguments COMMA -> [...$1, null] /* blank args */
-	| e -> [$1]
+	| exp -> [$1]
 	| COMMA -> [null, null]
 	;
 
 number
-	: MINUS number %prec UMINUS -> -$2
-	| NUMBER PCT -> Number($1) / 100
+	: n -> { kind: 'value', value: $1 }
+	;
+
+n
+	: NUMBER PCT -> Number($1) / 100
 	| NUMBER -> Number($1)
 	;
 
@@ -79,7 +96,10 @@ boolean
 	;
 
 range
-	/* TOOD arrow rule is kinda ugly, fix? */
+	: r -> { kind: 'range', range: $1 }
+	;
+
+r
 	: COLUMN COLON CELL -> $1 + $2 + $3
 	| CELL COLON COLUMN -> $1 + $2 + $3
 	| COLUMN COLON COLUMN -> $1 + $2 + $3
@@ -88,4 +108,24 @@ range
 	| ROW COLON CELL -> $1 + $2 + $3
 	| CELL COLON CELL -> $1 + $2 + $3
 	| CELL
+	;
+
+binop
+	: exp NOTEQUALS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp LT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp LE exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp EQUALS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp GE exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp GT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp MINUS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp PLUS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp AMPERSAND exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp MULT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp DIVIDE exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp EXPONENT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	;
+
+unop
+	: MINUS exp %prec UMINUS -> ($2.kind === 'value' ? { kind: 'value', value: -$2.value } : { kind: 'unaryOp', symb: '-', right: $2 })
+	| PLUS exp %prec UPLUS -> $2
 	;

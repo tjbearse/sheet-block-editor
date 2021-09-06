@@ -5,6 +5,10 @@
     "contents": [
         {
             "kind": "block",
+            "type": "sheets_compare"
+        },
+        {
+            "kind": "block",
             "type": "sheets_AND"
         },
         {

@@ -12,7 +12,7 @@ Blockly.GoogleSheets['sheets_text'] = function(block) {
 };
 
 Blockly.GoogleSheets['sheets_boolean'] = function(block) {
-	const code = block.getFieldValue('BOOL') || 'FALSE'
+	const code = block.getFieldValue('BOOL')
 	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
 };
 

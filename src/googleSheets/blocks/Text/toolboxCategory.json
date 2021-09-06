@@ -5,6 +5,10 @@
     "contents": [
         {
             "kind": "block",
+            "type": "sheets_join"
+        },
+        {
+            "kind": "block",
             "type": "sheets_ARABIC"
         },
         {

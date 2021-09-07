@@ -8,7 +8,8 @@
 		"start": "webpack-dev-server --config webpack.dev.js",
 		"build": "webpack --config webpack.prod.js",
 		"build-size": "webpack --config webpack.prod.js --json > /tmp/webpackStats.json && sleep .1 | npx webpack-bundle-analyzer /tmp/webpackStats.json",
-		"test": "jest"
+		"test": "jest",
+		"pages": "webpack --config webpack.prod.js --config-name webapp && gh-pages -d build/webapp"
 	},
 	"dependencies": {
 		"blockly": "^3.20200924.1"
@@ -18,6 +19,7 @@
 		"babel-core": "^6.26.3",
 		"babel-preset-env": "^1.7.0",
 		"copy-webpack-plugin": "^6.3.2",
+		"gh-pages": "^3.2.3",
 		"jest": "^27.0.4",
 		"jison": "^0.4.18",
 		"webpack": "^4.42.1",

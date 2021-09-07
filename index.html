@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blockly - Loading with Webpack</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #blocklyDiv {
+            height: 100%;
+        }
+
+        #formulaText {
+			min-width: 800px;
+        }
+		.row {
+			display: flex;
+			flex-direction: row;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <button id="toCode">&lt;&lt;&lt; to code</button>
+		<input value="" id="formulaText"/>
+        <button id="toBlocks">&gt;&gt;&gt; to blocks</button>
+    </div>
+    <div id='blocklyDiv'>
+    </div>
+
+    <script type='text/javascript' src='./generator.js'></script>
+</body>
+
+</html>

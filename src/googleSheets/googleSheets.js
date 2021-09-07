@@ -212,33 +212,9 @@ Blockly.GoogleSheets.multiline_quote_ = function(string) {
  * @protected
  */
 Blockly.GoogleSheets.scrub_ = function(block, code, opt_thisOnly) {
-  var commentCode = '';
-  // Only collect comments for blocks that aren't inline.
-  if (!block.outputConnection || !block.outputConnection.targetConnection) {
-    // Collect comment for this block.
-    var comment = block.getCommentText();
-    if (comment) {
-      comment = Blockly.utils.string.wrap(comment,
-          Blockly.GoogleSheets.COMMENT_WRAP - 3);
-      commentCode += Blockly.GoogleSheets.prefixLines(comment + '\n', '# ');
-    }
-    // Collect comments for all value arguments.
-    // Don't collect comments for nested statements.
-    for (var i = 0; i < block.inputList.length; i++) {
-      if (block.inputList[i].type == Blockly.INPUT_VALUE) {
-        var childBlock = block.inputList[i].connection.targetBlock();
-        if (childBlock) {
-          comment = Blockly.GoogleSheets.allNestedComments(childBlock);
-          if (comment) {
-            commentCode += Blockly.GoogleSheets.prefixLines(comment, '# ');
-          }
-        }
-      }
-    }
-  }
   var nextBlock = block.nextConnection && block.nextConnection.targetBlock();
   var nextCode = opt_thisOnly ? '' : Blockly.GoogleSheets.blockToCode(nextBlock);
-  return commentCode + code + nextCode;
+  return code + nextCode;
 };
 
 /**

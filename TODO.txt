@@ -1,13 +1,12 @@
-Known issues:
-- split / truncate formulas if there are multiple top level blocks
+KNOWN ISSUES:
+- multiple formulas. Multiple can be generated from blocks but cannot be put back into blocks
 - loading / status indicator
 	load
 	submit
 - Appscript setup / permissions
-- Formula parse errors are not surfaced in any way
 
 
-wishlist
+WISHLIST
 - automate deployments
 	- clasp integration
 	- build package as used by appscript

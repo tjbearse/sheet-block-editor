@@ -8,27 +8,52 @@
         body {
             height: 100%;
             margin: 0;
+			font-family: Verdana, Arial, Helvetica, sans-serif;
         }
+		.monospace {
+			font-family: "Lucida Console", Courier, monospace;
+		}
 
         #blocklyDiv {
             height: 100%;
         }
 
         #formulaText {
-			min-width: 800px;
-        }
+			margin: 4px;
+			border-radius: 5px;
+			border-style: solid;
+			border-color: #ccc;
+			padding: 8px;
+			font-size: medium;
+			flex-grow: 1;
+		}
+
+		#toCode, #toBlocks {
+			padding: 4px 8px;
+			margin: 4px;
+			font-size: medium;
+		}
+
 		.row {
 			display: flex;
 			flex-direction: row;
+		}
+
+		.icon {
+			font-weight: bold;
+			font-size: 1.25em;
+			margin: 0 8px;
 		}
     </style>
 </head>
 
 <body>
-    <div class="row">
-        <button id="toCode">&lt;&lt;&lt; to code</button>
-		<input value="" id="formulaText"/>
-        <button id="toBlocks">&gt;&gt;&gt; to blocks</button>
+
+	<div class="row">
+        
+		<button id="toCode"><span class="icon">&#8625;</span> Blocks to Formula <span class="icon">&#8625;</span></button>
+		<input value="" class=".monospace" id="formulaText" placeholder="=abs(1)">
+		<button id="toBlocks"><span class="icon">&#8628;</span> Formula to Blocks <span class="icon">&#8628;</span></button>
     </div>
     <div id='blocklyDiv'>
     </div>

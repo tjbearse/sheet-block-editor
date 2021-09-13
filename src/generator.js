@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
     })
     toBlocks.addEventListener('click', function () {
-		const formula = formulaText.value;
+		const formula = formulaText.value || formulaText.placeholder;
 		workspace.clear()
 		try {
 			parseAndBuild(formula, workspace)

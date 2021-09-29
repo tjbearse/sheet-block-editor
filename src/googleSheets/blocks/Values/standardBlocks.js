@@ -16,7 +16,7 @@ Blockly.defineBlocksWithJsonArray([
 			"value": 0
 		}],
 		"output": "Number",
-		"style": "value_blocks",
+		"style": "Value_style",
 	}, {
 		// removed the quote image extension
 		"type": "sheets_text",
@@ -27,7 +27,7 @@ Blockly.defineBlocksWithJsonArray([
 			"text": ""
 		}],
 		"output": "String",
-		"style": "value_blocks",
+		"style": "Value_style",
 	}, {
 		// blockly/logic/logic_boolean
 		"type": "sheets_boolean",
@@ -43,6 +43,6 @@ Blockly.defineBlocksWithJsonArray([
 			}
 		],
 		"output": "Boolean",
-		"style": "value_blocks",
+		"style": "Value_style",
 	},
 ])

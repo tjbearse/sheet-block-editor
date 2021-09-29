@@ -1,6 +1,7 @@
 {
 	"kind": "category",
 	"name": "Values",
+	"categoryStyle": "Values_category",
 	"contents": [
 		{ "kind": "block", "type": "sheets_text" },
 		{ "kind": "block", "type": "sheets_number" },

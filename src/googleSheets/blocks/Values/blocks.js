@@ -16,7 +16,7 @@ Blockly.defineBlocksWithJsonArray([
 			}
 		],
 		"output": "Cell",
-		"style": "value_blocks",
+		"style": "Value_style",
 		"tooltip": "A cell, range of cells, or named range",
 		"helpUrl": ""
 	},

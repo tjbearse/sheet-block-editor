@@ -137,6 +137,23 @@
         "tooltip": "Rounds a number up to the nearest even integer. Learn more"
     },
     {
+        "type": "sheets_FACT",
+        "message0": "FACT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the factorial of a number. Learn more"
+    },
+    {
         "type": "sheets_FLOOR",
         "message0": "FLOOR %1 value %2 [factor] %3",
         "args0": [
@@ -245,6 +262,15 @@
         "style": "Math_style",
         "inputsInline": true,
         "tooltip": "Rounds a number up to the nearest odd integer. Learn more"
+    },
+    {
+        "type": "sheets_PI",
+        "message0": "PI",
+        "args0": [],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the value of Pi to 14 decimal places. Learn more"
     },
     {
         "type": "sheets_POWER",
@@ -440,6 +466,23 @@
         "style": "Math_style",
         "inputsInline": true,
         "tooltip": "Given an input number, returns `-1` if it is negative, `1` if positive, and `0` if it is zero. Learn more"
+    },
+    {
+        "type": "sheets_SQRT",
+        "message0": "SQRT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the positive square root of a positive number. Learn more"
     },
     {
         "type": "sheets_SUM",

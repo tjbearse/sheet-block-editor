@@ -41,6 +41,10 @@
         },
         {
             "kind": "block",
+            "type": "sheets_FACT"
+        },
+        {
+            "kind": "block",
             "type": "sheets_FLOOR"
         },
         {
@@ -62,6 +66,10 @@
         {
             "kind": "block",
             "type": "sheets_ODD"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_PI"
         },
         {
             "kind": "block",
@@ -102,6 +110,10 @@
         {
             "kind": "block",
             "type": "sheets_SIGN"
+        },
+        {
+            "kind": "block",
+            "type": "sheets_SQRT"
         },
         {
             "kind": "block",

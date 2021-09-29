@@ -15,6 +15,7 @@ import statistical from './blocks/Statistical/toolboxCategory.json'
 import text from './blocks/Text/toolboxCategory.json'
 import values from './blocks/Values/toolboxCategory.json'
 import web from './blocks/Web/toolboxCategory.json'
+import demo from './blocks/demoToolboxCategory.js'
 
 const toolbox = {
 	"kind": "categoryToolbox",
@@ -35,7 +36,11 @@ const toolbox = {
 		statistical,
 		text,
 		web,
-		values
+		values,
+		{
+			"kind": "sep",
+		},
+		demo
 	].filter(x => x) // some of these might be empty if we are filtering
 }
 export default toolbox

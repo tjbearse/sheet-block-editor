@@ -234,7 +234,7 @@ Math	ERFC		ERFC(z)	Returns the complementary Gauss error function of a value. Le
 Math	ERFC.PRECISE		ERFC.PRECISE(z)	See ERFC 
 Math	EVEN	1	EVEN(value)	Rounds a number up to the nearest even integer. Learn more
 Math	EXP		EXP(exponent)	"Returns Euler's number, e (~2.718) raised to a power. Learn more"
-Math	FACT		FACT(value)	Returns the factorial of a number. Learn more
+Math	FACT	1	FACT(value)	Returns the factorial of a number. Learn more
 Math	FACTDOUBLE		FACTDOUBLE(value)	"Returns the ""double factorial"" of a number. Learn more"
 Math	FLOOR	1	"FLOOR(value, [factor])"	Rounds a number down to the nearest integer multiple of specified significance. Learn more
 Math	FLOOR.MATH		"FLOOR.MATH(number, [significance], [mode])"	"Rounds a number down to the nearest integer multiple of specified significance, with negative numbers rounding toward or away from 0 depending on the mode. Learn more."
@@ -258,7 +258,7 @@ Math	MROUND		"MROUND(value, factor)"	Rounds one number to the nearest integer mu
 Math	MULTINOMIAL		"MULTINOMIAL(value1, value2)"	Returns the factorial of the sum of values divided by the product of the values' factorials. Learn more
 Math	MUNIT		MUNIT(dimension)	Returns a unit matrix of size dimension x dimension. Learn more.
 Math	ODD	1	ODD(value)	Rounds a number up to the nearest odd integer. Learn more
-Math	PI		PI()	Returns the value of Pi to 14 decimal places. Learn more
+Math	PI	1	PI()	Returns the value of Pi to 14 decimal places. Learn more
 Math	POWER	1	"POWER(base, exponent)"	Returns a number raised to a power. Learn more
 Math	PRODUCT	1	"PRODUCT(factor1, [factor2, ...])"	Returns the result of multiplying a series of numbers together. Learn more
 Math	QUOTIENT	1	"QUOTIENT(dividend, divisor)"	Returns one number divided by another. Learn more
@@ -276,7 +276,7 @@ Math	SERIESSUM		"SERIESSUM(x, n, m, a)"	"Given parameters x, n, m, and a, return
 Math	SIGN	1	SIGN(value)	"Given an input number, returns `-1` if it is negative, `1` if positive, and `0` if it is zero. Learn more"
 Math	SIN		SIN(angle)	Returns the sine of an angle provided in radians. Learn more
 Math	SINH		SINH(value)	Returns the hyperbolic sine of any real number. Learn more
-Math	SQRT		SQRT(value)	Returns the positive square root of a positive number. Learn more
+Math	SQRT	1	SQRT(value)	Returns the positive square root of a positive number. Learn more
 Math	SQRTPI		SQRTPI(value)	Returns the positive square root of the product of Pi and the given positive number. Learn more
 Math	SUBTOTAL		"SUBTOTAL(function_code, range1, [range2, ...])"	Returns a subtotal for a vertical range of cells using a specified aggregation function. Learn more
 Math	SUM	1	"SUM(value1, [value2, ...])"	Returns the sum of a series of numbers and/or cells. Learn more

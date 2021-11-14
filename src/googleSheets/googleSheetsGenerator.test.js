@@ -40,6 +40,66 @@ describe('math code generator', () => {
 		expect(code).toBe('=1')
 	})
 
+	describe('formula', () => {
+		test('no arguments', () => {
+			addXML(`
+				<block type="sheets_ABS" id="root">
+				</block>
+			`)
+			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=ABS()')
+		})
+		test('one argument', () => {
+			addXML(`
+				<block type="sheets_ABS" id="root">
+					<value name="VALUE">
+						<block type="sheets_number" id="2">
+							<field name="NUM">2</field>
+						</block>
+					</value>
+				</block>
+			`)
+			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=ABS(2)')
+		})
+		test('two arguments', () => {
+			addXML(`
+				<block type="sheets_CONCAT" id="root">
+					<value name="VALUE1">
+						<block type="sheets_text" id="2">
+							<field name="TEXT">a</field>
+						</block>
+					</value>
+					<value name="VALUE2">
+						<block type="sheets_text" id="2">
+							<field name="TEXT">b</field>
+						</block>
+					</value>
+				</block>
+			`)
+			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=CONCAT("a", "b")')
+		})
+		test('two arguments with order reversed', () => {
+			addXML(`
+				<block type="sheets_CONCAT" id="root">
+					<value name="VALUE2">
+						<block type="sheets_text" id="2">
+							<field name="TEXT">b</field>
+						</block>
+					</value>
+					<value name="VALUE1">
+						<block type="sheets_text" id="2">
+							<field name="TEXT">a</field>
+						</block>
+					</value>
+				</block>
+			`)
+			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=CONCAT("a", "b")')
+		})
+	})
+
 	// TODO precedence
 	describe.skip('precedence', () => {
 		test('multiplication over addition paren', () => {

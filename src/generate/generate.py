@@ -10,31 +10,6 @@ import matplotlib.pyplot as plt
 import re
 import sys
 
-GeneratorPreamble = """
-import Blockly from 'blockly'
-
-var LANG = Blockly.GoogleSheets
-
-function getListVariables(block, args) {
-    return args.map(function(a) {
-        return LANG.valueToCode(block, a, LANG.ORDER_NONE);
-    })
-}
-function getBlockFn(name, args) {
-    return function(block) {
-        var value_vars = getListVariables(block, args)
-        var code = name + '(' + value_vars.join(', ') + ')'
-        return [code, LANG.ORDER_NONE]
-    }
-}
-
-"""
-
-def buildGeneratorStub(typeName, fnName, args):
-    jsonArgs = json.dumps(list(map(lambda x: x[1], args)))
-    js = f"LANG['{typeName}'] = getBlockFn('{fnName}', {jsonArgs})"
-    return js
-
 variadicRegex = r"(\.\.\.|…)"
 def isVariadic(signature):
     return bool(re.search(variadicRegex, signature))
@@ -164,18 +139,15 @@ def main():
     parser.add_argument('--blocks', action='store_true')
     parser.add_argument('--toolbox', action='store_true')
     parser.add_argument('--theme', action='store_true')
-    parser.add_argument('--generator', action='store_true')
     options = parser.parse_args()
     if options.all:
         options.blocks = True
         options.toolbox = True
         options.theme = True
-        options.generator = True
     elif not any([
             options.blocks,
             options.toolbox,
             options.theme,
-            options.generator
         ]):
         parser.print_help(sys.stderr)
         exit(2)
@@ -186,14 +158,12 @@ def main():
         next(reader)
         categories = defaultdict(list)
         blocks = defaultdict(list)
-        code = defaultdict(list)
         success = 0
         total = 0
         for category, name, basic, signature, descr in reader:
             if not basic:
                 # touch category so it exists
                 blocks[category]
-                code[category]
                 categories[category]
                 continue
             typeName= "sheets_" + name.replace(".", "_")
@@ -214,8 +184,6 @@ def main():
             )
             categories[category].append(typeName)
 
-            code[category].append(buildGeneratorStub(typeName, name, args))
-
         genPath = Path("../googleSheets/blocks")
         if options.blocks:
             for category, blockList in blocks.items():
@@ -232,14 +200,6 @@ def main():
                 fp = cp / "toolboxCategory.json"
                 with fp.open(mode='w') as tf:
                     json.dump(formatCategory(category, blocks), tf, indent=4)
-
-        if options.generator:
-            for category, codeList in code.items():
-                cp = genPath / category
-                cp.mkdir(parents=True, exist_ok=True)
-                fp = cp / 'generator.js'
-                with fp.open(mode='w') as tf:
-                    tf.write(GeneratorPreamble + "\n".join(codeList))
 
         if options.theme:
             p = genPath / 'theme.json'

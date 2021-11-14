@@ -20,7 +20,7 @@ const createFunctionGenerators = (blocks) => {
 		const formulaGenerator = (block) => {
 			var value_vars = args.map(arg => LANG.valueToCode(block, arg, LANG.ORDER_NONE))
 			var code = formulaName + '(' + value_vars.join(', ') + ')'
-			return [code, LANG.ORDER_NONE]
+			return [code, LANG.ORDER_ATOMIC]
 		}
 		LANG[blockDef.type] = formulaGenerator
 	})

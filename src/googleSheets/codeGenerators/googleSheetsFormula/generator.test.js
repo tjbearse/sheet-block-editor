@@ -100,8 +100,32 @@ describe('math code generator', () => {
 		})
 	})
 
-	// TODO precedence
-	describe.skip('precedence', () => {
+	describe('precedence', () => {
+		test('formula with addition', () => {
+			addXML(`
+			<block type="sheets_arithmetic" id="root">
+				<field name="OP">ADD</field>
+				<value name="A">
+					<block type="sheets_ABS" id="root">
+						<value name="VALUE">
+							<block type="sheets_number" id="2">
+								<field name="NUM">2</field>
+							</block>
+						</value>
+					</block>
+				</value>
+				<value name="B">
+					<block type="sheets_number" id="3">
+						<field name="NUM">3</field>
+					</block>
+				</value>
+			</block>
+			`)
+
+			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=ABS(2) + 3')
+		})
+
 		test('multiplication over addition paren', () => {
 			addXML(`
 			<block type="sheets_arithmetic" id="root">
@@ -184,7 +208,7 @@ describe('math code generator', () => {
 			expect(code).toBe('=1 * 2 + 3 * 4')
 		})
 
-		test('addition alongside addition', () => {
+		test.skip('addition alongside addition', () => {
 			addXML(`
 			<block type="sheets_arithmetic" id="root">
 				<field name="OP">ADD</field>

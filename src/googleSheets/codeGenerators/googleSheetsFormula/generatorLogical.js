@@ -3,9 +3,8 @@ import Blockly from 'blockly'
 const LANG = Blockly.GoogleSheets
 
 LANG['sheets_compare'] = function(block) {
-	// FIXME precedence
-	const value_a = LANG.valueToCode(block, 'A', LANG.ORDER_ATOMIC);
-	const value_b = LANG.valueToCode(block, 'B', LANG.ORDER_ATOMIC);
+	const value_a = LANG.valueToCode(block, 'A', LANG.ORDER_RELATIONAL);
+	const value_b = LANG.valueToCode(block, 'B', LANG.ORDER_RELATIONAL);
 	const value_op = block.getFieldValue('OP');
 	let op;
 	switch(value_op) {
@@ -19,5 +18,5 @@ LANG['sheets_compare'] = function(block) {
 			throw new Error(`unknown operator ${value_op}`)
 	}
 	
-	return [`${value_a} ${op} ${value_b}`, LANG.ORDER_NONE]
+	return [`${value_a} ${op} ${value_b}`, LANG.ORDER_RELATIONAL]
 }

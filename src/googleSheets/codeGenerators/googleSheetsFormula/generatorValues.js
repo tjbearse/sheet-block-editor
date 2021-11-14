@@ -1,4 +1,5 @@
 import Blockly from 'blockly'
+import quote from './quote'
 
 // generators for built ins
 Blockly.GoogleSheets['sheets_number'] = function(block) {
@@ -7,7 +8,7 @@ Blockly.GoogleSheets['sheets_number'] = function(block) {
 };
 
 Blockly.GoogleSheets['sheets_text'] = function(block) {
-	const code = Blockly.GoogleSheets.quote_(block.getFieldValue('TEXT'));
+	const code = quote(block.getFieldValue('TEXT'));
 	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
 };
 

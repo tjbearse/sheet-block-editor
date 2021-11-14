@@ -1,0 +1,773 @@
+{
+    "kind": "categoryToolbox",
+    "contents": [
+        {
+            "kind": "category",
+            "name": "Array",
+            "categoryStyle": "Array_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_FLATTEN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TRANSPOSE"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Date",
+            "categoryStyle": "Date_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_DATE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DATEDIF"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DATEVALUE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DAY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DAYS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DAYS360"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_EDATE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_EOMONTH"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_HOUR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISOWEEKNUM"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MINUTE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MONTH"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_NETWORKDAYS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_NETWORKDAYS_INTL"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_NOW"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SECOND"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TIME"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TIMEVALUE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TODAY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_WEEKDAY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_WEEKNUM"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_WORKDAY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_WORKDAY_INTL"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_YEAR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_YEARFRAC"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Filter",
+            "categoryStyle": "Filter_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_FILTER"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SORT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SORTN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_UNIQUE"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Google",
+            "categoryStyle": "Google_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_ARRAYFORMULA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_QUERY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SPARKLINE"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Info",
+            "categoryStyle": "Info_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_ERROR_TYPE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISBLANK"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISDATE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISEMAIL"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISERR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISERROR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISFORMULA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISLOGICAL"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISNA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISNONTEXT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISNUMBER"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISREF"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISTEXT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_N"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_NA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TYPE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_CELL"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Logical",
+            "categoryStyle": "Logical_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_AND"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_FALSE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IF"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IFERROR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IFNA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IFS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_NOT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_OR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SWITCH"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TRUE"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Lookup",
+            "categoryStyle": "Lookup_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_CHOOSE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COLUMN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COLUMNS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_GETPIVOTDATA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_HLOOKUP"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_INDEX"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_INDIRECT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_LOOKUP"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MATCH"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_OFFSET"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ROW"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ROWS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_VLOOKUP"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Math",
+            "categoryStyle": "Math_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_ABS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_CEILING"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COUNTBLANK"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COUNTIF"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COUNTIFS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COUNTUNIQUE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_EVEN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_FACT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_FLOOR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_INT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISEVEN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISODD"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MOD"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ODD"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_PI"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_POWER"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_PRODUCT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_QUOTIENT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_RAND"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_RANDARRAY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_RANDBETWEEN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ROUND"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ROUNDDOWN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ROUNDUP"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SIGN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SQRT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SUM"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SUMIF"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SUMIFS"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Operator",
+            "categoryStyle": "Operator_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_ADD"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_CONCAT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DIVIDE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_EQ"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_GT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_GTE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_LT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_LTE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MINUS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MULTIPLY"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_NE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_POW"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_UMINUS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_UNARY_PERCENT"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Statistical",
+            "categoryStyle": "Statistical_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_AVERAGE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_AVERAGE_WEIGHTED"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COUNT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_COUNTA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MAX"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MAXA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MAXIFS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MEDIAN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MIN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MINA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MINIFS"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MODE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_PERCENTILE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_QUARTILE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_RANK"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_RANK_AVG"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_STDEV"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_VAR"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Text",
+            "categoryStyle": "Text_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_ARABIC"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_CLEAN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_CONCATENATE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_DOLLAR"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_EXACT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_FIND"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_FIXED"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_JOIN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_LEFT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_LEN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_LOWER"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_MID"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_PROPER"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_REGEXEXTRACT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_REGEXMATCH"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_REGEXREPLACE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_REPLACE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_REPT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_RIGHT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ROMAN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SEARCH"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SPLIT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_SUBSTITUTE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TEXT"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TEXTJOIN"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_TRIM"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_UPPER"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_VALUE"
+                }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Web",
+            "categoryStyle": "Web_category",
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "sheets_ENCODEURL"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_HYPERLINK"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IMPORTDATA"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IMPORTFEED"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IMPORTHTML"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IMPORTRANGE"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_IMPORTXML"
+                },
+                {
+                    "kind": "block",
+                    "type": "sheets_ISURL"
+                }
+            ]
+        }
+    ]
+}

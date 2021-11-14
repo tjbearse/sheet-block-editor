@@ -1,4 +1,3 @@
-import './googleSheets'
+import './codeGenerators/googleSheetsFormula'
 import './blocks'
-import './googleSheetsGenerator'
 export { parseAndBuild } from './parsing/parseAndBuild'

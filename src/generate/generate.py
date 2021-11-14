@@ -97,7 +97,11 @@ def formatCategory(name, blocks):
     }
 
 def formatAsToolbox(categories):
-    contents = list(map(lambda x: formatCategory(*x), categories.items()))
+    contents = [
+        formatCategory(name, blocks)
+        for name, blocks in categories.items()
+        if blocks
+    ]
     return {
         "kind": "categoryToolbox",
         "contents": contents
@@ -157,13 +161,12 @@ def main():
         # throw out the header
         next(reader)
         categories = defaultdict(list)
-        blocks = defaultdict(list)
+        blocks = list()
         success = 0
         total = 0
         for category, name, basic, signature, descr in reader:
             if not basic:
                 # touch category so it exists
-                blocks[category]
                 categories[category]
                 continue
             typeName= "sheets_" + name.replace(".", "_")
@@ -179,27 +182,28 @@ def main():
                 todoNote = signature
                 args = []
 
-            blocks[category].append(
+            blocks.append(
                 buildConfig(typeName, name, style, args, descr, todoNote)
             )
             categories[category].append(typeName)
 
-        genPath = Path("../googleSheets/blocks")
+        genPath = Path("../googleSheets/blocks/generated")
+        if any([
+                options.blocks,
+                options.toolbox,
+                options.theme
+        ]):
+            genPath.mkdir(parents=True, exist_ok=True)
+
         if options.blocks:
-            for category, blockList in blocks.items():
-                cp = genPath / category
-                cp.mkdir(parents=True, exist_ok=True)
-                fp = cp / "blocks.json"
-                with fp.open(mode='w') as bf:
-                    json.dump(blockList, bf, indent=4)
+            fp = genPath / "blocks.json"
+            with fp.open(mode='w') as bf:
+                json.dump(blocks, bf, indent=4)
 
         if options.toolbox:
-            for category, blocks in categories.items():
-                cp = genPath / category
-                cp.mkdir(parents=True, exist_ok=True)
-                fp = cp / "toolboxCategory.json"
-                with fp.open(mode='w') as tf:
-                    json.dump(formatCategory(category, blocks), tf, indent=4)
+            fp = genPath / "toolbox.json"
+            with fp.open(mode='w') as tf:
+                json.dump(formatAsToolbox(categories), tf, indent=4)
 
         if options.theme:
             p = genPath / 'theme.json'

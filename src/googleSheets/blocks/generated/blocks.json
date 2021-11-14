@@ -1,0 +1,3552 @@
+[
+    {
+        "type": "sheets_FLATTEN",
+        "message0": "*FLATTEN %1 range1 %2 [range2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE1"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE2"
+            }
+        ],
+        "output": null,
+        "style": "Array_style",
+        "inputsInline": false,
+        "tooltip": "Flattens all the values from one or more ranges into a single column. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, FLATTEN(range1,[range2,...])"
+    },
+    {
+        "type": "sheets_TRANSPOSE",
+        "message0": "TRANSPOSE %1 array or range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "ARRAY_OR_RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Array_style",
+        "inputsInline": true,
+        "tooltip": "Transposes the rows and columns of an array or range of cells. Learn more"
+    },
+    {
+        "type": "sheets_DATE",
+        "message0": "DATE %1 year %2 month %3 day %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "YEAR"
+            },
+            {
+                "type": "input_value",
+                "name": "MONTH"
+            },
+            {
+                "type": "input_value",
+                "name": "DAY"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Converts a provided year, month, and day into a date. Learn more"
+    },
+    {
+        "type": "sheets_DATEDIF",
+        "message0": "DATEDIF %1 start date %2 end date %3 unit %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "END_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "UNIT"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Calculates the number of days, months, or years between two dates. Learn more"
+    },
+    {
+        "type": "sheets_DATEVALUE",
+        "message0": "DATEVALUE %1 date string %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE_STRING"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Converts a provided date string in a known format to a date value. Learn more"
+    },
+    {
+        "type": "sheets_DAY",
+        "message0": "DAY %1 date %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the day of the month that a specific date falls on, in numeric format. Learn more"
+    },
+    {
+        "type": "sheets_DAYS",
+        "message0": "DAYS %1 end date %2 start date %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "END_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns the number of days between two dates. Learn more.\u00a0"
+    },
+    {
+        "type": "sheets_DAYS360",
+        "message0": "DAYS360 %1 start date %2 end date %3 [method] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "END_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "METHOD"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns the difference between two days based on the 360 day year used in some financial interest calculations. Learn more"
+    },
+    {
+        "type": "sheets_EDATE",
+        "message0": "EDATE %1 start date %2 months %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "MONTHS"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns a date a specified number of months before or after another date. Learn more"
+    },
+    {
+        "type": "sheets_EOMONTH",
+        "message0": "EOMONTH %1 start date %2 months %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "MONTHS"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns a date representing the last day of a month which falls a specified number of months before or after another date. Learn more"
+    },
+    {
+        "type": "sheets_HOUR",
+        "message0": "HOUR %1 time %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TIME"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the hour component of a specific time, in numeric format. Learn more"
+    },
+    {
+        "type": "sheets_ISOWEEKNUM",
+        "message0": "ISOWEEKNUM %1 date %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the number of the ISO week of the year where the provided date falls. Learn more"
+    },
+    {
+        "type": "sheets_MINUTE",
+        "message0": "MINUTE %1 time %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TIME"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the minute component of a specific time, in numeric format. Learn more"
+    },
+    {
+        "type": "sheets_MONTH",
+        "message0": "MONTH %1 date %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the month of the year a specific date falls in, in numeric format. Learn more"
+    },
+    {
+        "type": "sheets_NETWORKDAYS",
+        "message0": "NETWORKDAYS %1 start date %2 end date %3 [holidays] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "END_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "HOLIDAYS"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns the number of net working days between two provided days. Learn more"
+    },
+    {
+        "type": "sheets_NETWORKDAYS_INTL",
+        "message0": "NETWORKDAYS.INTL %1 start date %2 end date %3 [weekend] %4 [holidays] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "END_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "WEEKEND"
+            },
+            {
+                "type": "input_value",
+                "name": "HOLIDAYS"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "\u00a0Returns the number of net working days between two provided days excluding specified weekend days and holidays. Learn more"
+    },
+    {
+        "type": "sheets_NOW",
+        "message0": "NOW",
+        "args0": [],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the current date and time as a date value. Learn more"
+    },
+    {
+        "type": "sheets_SECOND",
+        "message0": "SECOND %1 time %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TIME"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the second component of a specific time, in numeric format. Learn more"
+    },
+    {
+        "type": "sheets_TIME",
+        "message0": "TIME %1 hour %2 minute %3 second %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "HOUR"
+            },
+            {
+                "type": "input_value",
+                "name": "MINUTE"
+            },
+            {
+                "type": "input_value",
+                "name": "SECOND"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Converts a provided hour, minute, and second into a time. Learn more"
+    },
+    {
+        "type": "sheets_TIMEVALUE",
+        "message0": "TIMEVALUE %1 time string %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TIME_STRING"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the fraction of a 24-hour day the time represents. Learn more"
+    },
+    {
+        "type": "sheets_TODAY",
+        "message0": "TODAY",
+        "args0": [],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the current date as a date value. Learn more"
+    },
+    {
+        "type": "sheets_WEEKDAY",
+        "message0": "WEEKDAY %1 date %2 [type] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "TYPE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns a number representing the day of the week of the date provided. Learn more"
+    },
+    {
+        "type": "sheets_WEEKNUM",
+        "message0": "WEEKNUM %1 date %2 [type] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "TYPE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns a number representing the week of the year where the provided date falls. Learn more"
+    },
+    {
+        "type": "sheets_WORKDAY",
+        "message0": "WORKDAY %1 start date %2 num days %3 [holidays] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "NUM_DAYS"
+            },
+            {
+                "type": "input_value",
+                "name": "HOLIDAYS"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Calculates the end date after a specified number of working days. Learn more"
+    },
+    {
+        "type": "sheets_WORKDAY_INTL",
+        "message0": "WORKDAY.INTL %1 start date %2 num days %3 [weekend] %4 [holidays] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "NUM_DAYS"
+            },
+            {
+                "type": "input_value",
+                "name": "WEEKEND"
+            },
+            {
+                "type": "input_value",
+                "name": "HOLIDAYS"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Calculates the date after a specified number of workdays excluding specified weekend days and holidays. Learn more"
+    },
+    {
+        "type": "sheets_YEAR",
+        "message0": "YEAR %1 date %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATE"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": true,
+        "tooltip": "Returns the year specified by a given date. Learn more"
+    },
+    {
+        "type": "sheets_YEARFRAC",
+        "message0": "YEARFRAC %1 start date %2 end date %3 [day count convention] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "START_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "END_DATE"
+            },
+            {
+                "type": "input_value",
+                "name": "DAY_COUNT_CONVENTION"
+            }
+        ],
+        "output": null,
+        "style": "Date_style",
+        "inputsInline": false,
+        "tooltip": "Returns the number of years, including fractional years, between two dates using a specified day count convention. Learn more"
+    },
+    {
+        "type": "sheets_FILTER",
+        "message0": "FILTER %1 range %2 condition1 %3 [condition2] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "CONDITION1"
+            },
+            {
+                "type": "input_value",
+                "name": "CONDITION2"
+            }
+        ],
+        "output": null,
+        "style": "Filter_style",
+        "inputsInline": false,
+        "tooltip": "Returns a filtered version of the source range, returning only rows or columns which meet the specified conditions. Learn more"
+    },
+    {
+        "type": "sheets_SORT",
+        "message0": "SORT %1 range %2 sort column %3 is ascending %4 [sort column2] %5 [is ascending2] %6",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "SORT_COLUMN"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_ASCENDING"
+            },
+            {
+                "type": "input_value",
+                "name": "SORT_COLUMN2"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_ASCENDING2"
+            }
+        ],
+        "output": null,
+        "style": "Filter_style",
+        "inputsInline": false,
+        "tooltip": "Sorts the rows of a given array or range by the values in one or more columns. Learn more"
+    },
+    {
+        "type": "sheets_SORTN",
+        "message0": "*SORTN %1 range %2 [n] %3 [display ties mode] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "N"
+            },
+            {
+                "type": "input_value",
+                "name": "DISPLAY_TIES_MODE"
+            }
+        ],
+        "output": null,
+        "style": "Filter_style",
+        "inputsInline": false,
+        "tooltip": "Returns the first n items in a data set after performing a sort. Learn more\n*Implementation not complete",
+        "TODO": "dropped options multi, SORTN(range, [n], [display_ties_mode], [sort_column1, is_ascending1], ...)"
+    },
+    {
+        "type": "sheets_UNIQUE",
+        "message0": "UNIQUE %1 range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Filter_style",
+        "inputsInline": true,
+        "tooltip": "Returns unique rows in the provided source range, discarding duplicates. Rows are returned in the order in which they first appear in the source range. Learn more"
+    },
+    {
+        "type": "sheets_ARRAYFORMULA",
+        "message0": "ARRAYFORMULA %1 array formula %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "ARRAY_FORMULA"
+            }
+        ],
+        "output": null,
+        "style": "Google_style",
+        "inputsInline": true,
+        "tooltip": "Enables the display of values returned from an array formula into multiple rows and/or columns and the use of non-array functions with arrays. Learn more"
+    },
+    {
+        "type": "sheets_QUERY",
+        "message0": "QUERY %1 data %2 query %3 [headers] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "QUERY"
+            },
+            {
+                "type": "input_value",
+                "name": "HEADERS"
+            }
+        ],
+        "output": null,
+        "style": "Google_style",
+        "inputsInline": false,
+        "tooltip": "Runs a Google Visualization API Query Language query across data. Learn more"
+    },
+    {
+        "type": "sheets_SPARKLINE",
+        "message0": "SPARKLINE %1 data %2 [options] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "OPTIONS"
+            }
+        ],
+        "output": null,
+        "style": "Google_style",
+        "inputsInline": false,
+        "tooltip": "Creates a miniature chart contained within a single cell. Learn more"
+    },
+    {
+        "type": "sheets_ERROR_TYPE",
+        "message0": "ERROR.TYPE %1 reference %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "REFERENCE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Returns a number corresponding to the error value in a different cell. Learn more"
+    },
+    {
+        "type": "sheets_ISBLANK",
+        "message0": "ISBLANK %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether the referenced cell is empty. Learn more"
+    },
+    {
+        "type": "sheets_ISDATE",
+        "message0": "ISDATE %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Returns whether a value is a date. Learn more.\u00a0"
+    },
+    {
+        "type": "sheets_ISEMAIL",
+        "message0": "ISEMAIL %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is a valid email address. Learn more"
+    },
+    {
+        "type": "sheets_ISERR",
+        "message0": "ISERR %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is an error other than `#N/A`. Learn more"
+    },
+    {
+        "type": "sheets_ISERROR",
+        "message0": "ISERROR %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is an error. Learn more"
+    },
+    {
+        "type": "sheets_ISFORMULA",
+        "message0": "ISFORMULA %1 cell %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a formula is in the referenced cell. Learn more"
+    },
+    {
+        "type": "sheets_ISLOGICAL",
+        "message0": "ISLOGICAL %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is `TRUE` or `FALSE`. Learn more"
+    },
+    {
+        "type": "sheets_ISNA",
+        "message0": "ISNA %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is the error `#N/A`. Learn more"
+    },
+    {
+        "type": "sheets_ISNONTEXT",
+        "message0": "ISNONTEXT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is non-textual. Learn more"
+    },
+    {
+        "type": "sheets_ISNUMBER",
+        "message0": "ISNUMBER %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is a number. Learn more"
+    },
+    {
+        "type": "sheets_ISREF",
+        "message0": "ISREF %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is a valid cell reference. Learn more"
+    },
+    {
+        "type": "sheets_ISTEXT",
+        "message0": "ISTEXT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is text. Learn more"
+    },
+    {
+        "type": "sheets_N",
+        "message0": "N %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Returns the argument provided as a number. Learn more"
+    },
+    {
+        "type": "sheets_NA",
+        "message0": "NA",
+        "args0": [],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Returns the \"value not available\" error, `#N/A`. Learn more"
+    },
+    {
+        "type": "sheets_TYPE",
+        "message0": "TYPE %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": true,
+        "tooltip": "Returns a number associated with the type of data passed into the function. Learn more"
+    },
+    {
+        "type": "sheets_CELL",
+        "message0": "CELL %1 info type %2 reference %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "INFO_TYPE"
+            },
+            {
+                "type": "input_value",
+                "name": "REFERENCE"
+            }
+        ],
+        "output": null,
+        "style": "Info_style",
+        "inputsInline": false,
+        "tooltip": "Returns the requested information about the specified cell. Learn more"
+    },
+    {
+        "type": "sheets_AND",
+        "message0": "*AND %1 logical expression1 %2 [logical expression2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION1"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION2"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns true if all of the provided arguments are logically true, and false if any of the provided arguments are logically false. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, AND(logical_expression1, [logical_expression2, ...])"
+    },
+    {
+        "type": "sheets_FALSE",
+        "message0": "FALSE",
+        "args0": [],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": true,
+        "tooltip": "Returns the logical value `FALSE`. Learn more"
+    },
+    {
+        "type": "sheets_IF",
+        "message0": "IF %1 logical expression %2 value if true %3 value if false %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_TRUE"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_FALSE"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns one value if a logical expression is `TRUE` and another if it is `FALSE`. Learn more"
+    },
+    {
+        "type": "sheets_IFERROR",
+        "message0": "IFERROR %1 value %2 [value if error] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_ERROR"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the first argument if it is not an error value, otherwise returns the second argument if present, or a blank if the second argument is absent.\u00a0Learn more"
+    },
+    {
+        "type": "sheets_IFNA",
+        "message0": "IFNA %1 value %2 value if na %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_IF_NA"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Evaluates a value. If the value is an #N/A error, returns the specified value. Learn more."
+    },
+    {
+        "type": "sheets_IFS",
+        "message0": "*IFS %1 condition1 %2 value1 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CONDITION1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Evaluates multiple conditions and returns a value that corresponds to the first true condition. Learn more.\n*Implementation not complete",
+        "TODO": "dropped options multi, IFS(condition1, value1, [condition2, value2], \u2026)"
+    },
+    {
+        "type": "sheets_NOT",
+        "message0": "NOT %1 logical expression %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": true,
+        "tooltip": "Returns the opposite of a logical value - `NOT(TRUE)` returns `FALSE`; `NOT(FALSE)` returns `TRUE`. Learn more"
+    },
+    {
+        "type": "sheets_OR",
+        "message0": "*OR %1 logical expression1 %2 [logical expression2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION1"
+            },
+            {
+                "type": "input_value",
+                "name": "LOGICAL_EXPRESSION2"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Returns true if any of the provided arguments are logically true, and false if all of the provided arguments are logically false. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, OR(logical_expression1, [logical_expression2, ...])"
+    },
+    {
+        "type": "sheets_SWITCH",
+        "message0": "*SWITCH %1 expression %2 case1 %3 value1 %4 [default or case2 %5 value2] %6",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "EXPRESSION"
+            },
+            {
+                "type": "input_value",
+                "name": "CASE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "[DEFAULT OR CASE2"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2]"
+            }
+        ],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": false,
+        "tooltip": "Tests an expression against a list of cases and returns the corresponding value of the first matching case, with an optional default value if nothing else is met. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, SWITCH(expression, case1, value1, [default or case2, value2], \u2026)"
+    },
+    {
+        "type": "sheets_TRUE",
+        "message0": "TRUE",
+        "args0": [],
+        "output": null,
+        "style": "Logical_style",
+        "inputsInline": true,
+        "tooltip": "Returns the logical value `TRUE`. Learn more"
+    },
+    {
+        "type": "sheets_CHOOSE",
+        "message0": "*CHOOSE %1 index %2 choice1 %3 [choice2] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "CHOICE1"
+            },
+            {
+                "type": "input_value",
+                "name": "CHOICE2"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns an element from a list of choices based on index. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, CHOOSE(index, choice1, [choice2, ...])"
+    },
+    {
+        "type": "sheets_COLUMN",
+        "message0": "COLUMN %1 [cell reference] %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the column number of a specified cell, with `A=1`. Learn more"
+    },
+    {
+        "type": "sheets_COLUMNS",
+        "message0": "COLUMNS %1 range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the number of columns in a specified array or range. Learn more"
+    },
+    {
+        "type": "sheets_GETPIVOTDATA",
+        "message0": "*GETPIVOTDATA %1 value name %2 any pivot table cell %3 [original column] %4 [pivot item] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_NAME"
+            },
+            {
+                "type": "input_value",
+                "name": "ANY_PIVOT_TABLE_CELL"
+            },
+            {
+                "type": "input_value",
+                "name": "ORIGINAL_COLUMN"
+            },
+            {
+                "type": "input_value",
+                "name": "PIVOT_ITEM"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Extracts an aggregated value from a pivot table that corresponds to the specified row and column headings. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, GETPIVOTDATA(value_name, any_pivot_table_cell, [original_column, ...], [pivot_item, ...])"
+    },
+    {
+        "type": "sheets_HLOOKUP",
+        "message0": "HLOOKUP %1 search key %2 range %3 index %4 [is sorted] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_SORTED"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Horizontal lookup. Searches across the first row of a range for a key and returns the value of a specified cell in the column found. Learn more"
+    },
+    {
+        "type": "sheets_INDEX",
+        "message0": "INDEX %1 reference %2 [row] %3 [column] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "REFERENCE"
+            },
+            {
+                "type": "input_value",
+                "name": "ROW"
+            },
+            {
+                "type": "input_value",
+                "name": "COLUMN"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns the content of a cell, specified by row and column offset. Learn more"
+    },
+    {
+        "type": "sheets_INDIRECT",
+        "message0": "INDIRECT %1 cell reference as string %2 [is A1 notation] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE_AS_STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_A1_NOTATION"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns a cell reference specified by a string. Learn more"
+    },
+    {
+        "type": "sheets_LOOKUP",
+        "message0": "LOOKUP %1 search key %2 search range|search result array %3 [result range] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_RANGE|SEARCH_RESULT_ARRAY"
+            },
+            {
+                "type": "input_value",
+                "name": "RESULT_RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Looks through a row or column for a key and returns the value of the cell in a result range located in the same position as the search row or column. Learn more"
+    },
+    {
+        "type": "sheets_MATCH",
+        "message0": "MATCH %1 search key %2 range %3 [search type] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_TYPE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns the relative position of an item in a range that matches a specified value. Learn more"
+    },
+    {
+        "type": "sheets_OFFSET",
+        "message0": "OFFSET %1 cell reference %2 offset rows %3 offset columns %4 [height] %5 [width] %6",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE"
+            },
+            {
+                "type": "input_value",
+                "name": "OFFSET_ROWS"
+            },
+            {
+                "type": "input_value",
+                "name": "OFFSET_COLUMNS"
+            },
+            {
+                "type": "input_value",
+                "name": "HEIGHT"
+            },
+            {
+                "type": "input_value",
+                "name": "WIDTH"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Returns a range reference shifted a specified number of rows and columns from a starting cell reference. Learn more"
+    },
+    {
+        "type": "sheets_ROW",
+        "message0": "ROW %1 [cell reference] %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CELL_REFERENCE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the row number of a specified cell. Learn more"
+    },
+    {
+        "type": "sheets_ROWS",
+        "message0": "ROWS %1 range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": true,
+        "tooltip": "Returns the number of rows in a specified array or range. Learn more"
+    },
+    {
+        "type": "sheets_VLOOKUP",
+        "message0": "VLOOKUP %1 search key %2 range %3 index %4 [is sorted] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_KEY"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_SORTED"
+            }
+        ],
+        "output": null,
+        "style": "Lookup_style",
+        "inputsInline": false,
+        "tooltip": "Vertical lookup. Searches down the first column of a range for a key and returns the value of a specified cell in the row found. Learn more"
+    },
+    {
+        "type": "sheets_ABS",
+        "message0": "ABS %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the absolute value of a number. Learn more"
+    },
+    {
+        "type": "sheets_CEILING",
+        "message0": "CEILING %1 value %2 [factor] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Rounds a number up to the nearest integer multiple of specified significance. Learn more"
+    },
+    {
+        "type": "sheets_COUNTBLANK",
+        "message0": "COUNTBLANK %1 range %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the number of empty cells in a given range. Learn more"
+    },
+    {
+        "type": "sheets_COUNTIF",
+        "message0": "COUNTIF %1 range %2 criterion %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERION"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns a conditional count across a range. Learn more"
+    },
+    {
+        "type": "sheets_COUNTIFS",
+        "message0": "*COUNTIFS %1 criteria range1 %2 criterion1 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERIA_RANGE1"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERION1"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns the count of a range depending on multiple criteria. Learn more\n*Implementation not complete",
+        "TODO": "dropped options multi, COUNTIFS(criteria_range1, criterion1, [criteria_range2, criterion2, ...])"
+    },
+    {
+        "type": "sheets_COUNTUNIQUE",
+        "message0": "*COUNTUNIQUE %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Counts the number of unique values in a list of specified values and ranges. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, COUNTUNIQUE(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_EVEN",
+        "message0": "EVEN %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Rounds a number up to the nearest even integer. Learn more"
+    },
+    {
+        "type": "sheets_FACT",
+        "message0": "FACT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the factorial of a number. Learn more"
+    },
+    {
+        "type": "sheets_FLOOR",
+        "message0": "FLOOR %1 value %2 [factor] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Rounds a number down to the nearest integer multiple of specified significance. Learn more"
+    },
+    {
+        "type": "sheets_INT",
+        "message0": "INT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Rounds a number down to the nearest integer that is less than or equal to it. Learn more"
+    },
+    {
+        "type": "sheets_ISEVEN",
+        "message0": "ISEVEN %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether the provided value is even. Learn more"
+    },
+    {
+        "type": "sheets_ISODD",
+        "message0": "ISODD %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether the provided value is odd. Learn more"
+    },
+    {
+        "type": "sheets_MOD",
+        "message0": "MOD %1 dividend %2 divisor %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVIDEND"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVISOR"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns the result of the modulo operator, the remainder after a division operation. Learn more"
+    },
+    {
+        "type": "sheets_ODD",
+        "message0": "ODD %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Rounds a number up to the nearest odd integer. Learn more"
+    },
+    {
+        "type": "sheets_PI",
+        "message0": "PI",
+        "args0": [],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the value of Pi to 14 decimal places. Learn more"
+    },
+    {
+        "type": "sheets_POWER",
+        "message0": "POWER %1 base %2 exponent %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "BASE"
+            },
+            {
+                "type": "input_value",
+                "name": "EXPONENT"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns a number raised to a power. Learn more"
+    },
+    {
+        "type": "sheets_PRODUCT",
+        "message0": "*PRODUCT %1 factor1 %2 [factor2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR1"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR2"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns the result of multiplying a series of numbers together. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, PRODUCT(factor1, [factor2, ...])"
+    },
+    {
+        "type": "sheets_QUOTIENT",
+        "message0": "QUOTIENT %1 dividend %2 divisor %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVIDEND"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVISOR"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns one number divided by another. Learn more"
+    },
+    {
+        "type": "sheets_RAND",
+        "message0": "RAND",
+        "args0": [],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns a random number between 0 inclusive and 1 exclusive. Learn more"
+    },
+    {
+        "type": "sheets_RANDARRAY",
+        "message0": "RANDARRAY %1 rows %2 columns %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "ROWS"
+            },
+            {
+                "type": "input_value",
+                "name": "COLUMNS"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Generates an array of random numbers between 0 and 1.\u00a0Learn more."
+    },
+    {
+        "type": "sheets_RANDBETWEEN",
+        "message0": "RANDBETWEEN %1 low %2 high %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "LOW"
+            },
+            {
+                "type": "input_value",
+                "name": "HIGH"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns a uniformly random integer between two values, inclusive. Learn more"
+    },
+    {
+        "type": "sheets_ROUND",
+        "message0": "ROUND %1 value %2 [places] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "PLACES"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Rounds a number to a certain number of decimal places according to standard rules. Learn more"
+    },
+    {
+        "type": "sheets_ROUNDDOWN",
+        "message0": "ROUNDDOWN %1 value %2 [places] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "PLACES"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Rounds a number to a certain number of decimal places, always rounding down to the next valid increment. Learn more"
+    },
+    {
+        "type": "sheets_ROUNDUP",
+        "message0": "ROUNDUP %1 value %2 [places] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "PLACES"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Rounds a number to a certain number of decimal places, always rounding up to the next valid increment. Learn more"
+    },
+    {
+        "type": "sheets_SIGN",
+        "message0": "SIGN %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Given an input number, returns `-1` if it is negative, `1` if positive, and `0` if it is zero. Learn more"
+    },
+    {
+        "type": "sheets_SQRT",
+        "message0": "SQRT %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": true,
+        "tooltip": "Returns the positive square root of a positive number. Learn more"
+    },
+    {
+        "type": "sheets_SUM",
+        "message0": "*SUM %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns the sum of a series of numbers and/or cells. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, SUM(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_SUMIF",
+        "message0": "SUMIF %1 range %2 criterion %3 [sum range] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERION"
+            },
+            {
+                "type": "input_value",
+                "name": "SUM_RANGE"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns a conditional sum across a range.\u00a0Learn more"
+    },
+    {
+        "type": "sheets_SUMIFS",
+        "message0": "*SUMIFS %1 sum range %2 criteria range1 %3 criterion1 %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SUM_RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERIA_RANGE1"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERION1"
+            }
+        ],
+        "output": null,
+        "style": "Math_style",
+        "inputsInline": false,
+        "tooltip": "Returns the sum of a range depending on multiple criteria. Learn more\n*Implementation not complete",
+        "TODO": "dropped options multi, SUMIFS(sum_range, criteria_range1, criterion1, [criteria_range2, criterion2, ...])"
+    },
+    {
+        "type": "sheets_ADD",
+        "message0": "ADD %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the sum of two numbers. Equivalent to the `+` operator. Learn more"
+    },
+    {
+        "type": "sheets_CONCAT",
+        "message0": "CONCAT %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the concatenation of two values. Equivalent to the `&` operator. Learn more"
+    },
+    {
+        "type": "sheets_DIVIDE",
+        "message0": "DIVIDE %1 dividend %2 divisor %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVIDEND"
+            },
+            {
+                "type": "input_value",
+                "name": "DIVISOR"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns one number divided by another. Equivalent to the `/` operator. Learn more"
+    },
+    {
+        "type": "sheets_EQ",
+        "message0": "EQ %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if two specified values are equal and `FALSE` otherwise. Equivalent to the `=` operator. Learn more"
+    },
+    {
+        "type": "sheets_GT",
+        "message0": "GT %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is strictly greater than the second, and `FALSE` otherwise. Equivalent to the `>` operator. Learn more"
+    },
+    {
+        "type": "sheets_GTE",
+        "message0": "GTE %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is greater than or equal to the second, and `FALSE` otherwise. Equivalent to the `>=` operator. Learn more"
+    },
+    {
+        "type": "sheets_LT",
+        "message0": "LT %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is strictly less than the second, and `FALSE` otherwise. Equivalent to the `<` operator. Learn more"
+    },
+    {
+        "type": "sheets_LTE",
+        "message0": "LTE %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if the first argument is less than or equal to the second, and `FALSE` otherwise. Equivalent to the `<=` operator. Learn more"
+    },
+    {
+        "type": "sheets_MINUS",
+        "message0": "MINUS %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the difference of two numbers. Equivalent to the `-` operator. Learn more"
+    },
+    {
+        "type": "sheets_MULTIPLY",
+        "message0": "MULTIPLY %1 factor1 %2 factor2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR1"
+            },
+            {
+                "type": "input_value",
+                "name": "FACTOR2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns the product of two numbers. Equivalent to the `*` operator. Learn more"
+    },
+    {
+        "type": "sheets_NE",
+        "message0": "NE %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns `TRUE` if two specified values are not equal and `FALSE` otherwise. Equivalent to the `<>` operator. Learn more"
+    },
+    {
+        "type": "sheets_POW",
+        "message0": "POW %1 base %2 exponent %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "BASE"
+            },
+            {
+                "type": "input_value",
+                "name": "EXPONENT"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": false,
+        "tooltip": "Returns a number raised to a power. Learn more"
+    },
+    {
+        "type": "sheets_UMINUS",
+        "message0": "UMINUS %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": true,
+        "tooltip": "Returns a number with the sign reversed. Learn more"
+    },
+    {
+        "type": "sheets_UNARY_PERCENT",
+        "message0": "UNARY_PERCENT %1 percentage %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "PERCENTAGE"
+            }
+        ],
+        "output": null,
+        "style": "Operator_style",
+        "inputsInline": true,
+        "tooltip": "Returns a value interpreted as a percentage; that is, `UNARY_PERCENT(100)` equals `1`. Learn more"
+    },
+    {
+        "type": "sheets_AVERAGE",
+        "message0": "*AVERAGE %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the numerical average value in a dataset, ignoring text. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, AVERAGE(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_AVERAGE_WEIGHTED",
+        "message0": "AVERAGE.WEIGHTED %1 values %2 weights %3 [additional values] %4 [additional weights] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUES"
+            },
+            {
+                "type": "input_value",
+                "name": "WEIGHTS"
+            },
+            {
+                "type": "input_value",
+                "name": "ADDITIONAL VALUES"
+            },
+            {
+                "type": "input_value",
+                "name": "ADDITIONAL WEIGHTS"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Finds the weighted average of a set of values, given the values and the corresponding weights. Learn more."
+    },
+    {
+        "type": "sheets_COUNT",
+        "message0": "*COUNT %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns a count of the number of numeric values in a dataset. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, COUNT(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_COUNTA",
+        "message0": "*COUNTA %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns a count of the number of values in a dataset. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, COUNTA(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_MAX",
+        "message0": "*MAX %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the maximum value in a numeric dataset. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, MAX(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_MAXA",
+        "message0": "MAXA %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the maximum numeric value in a dataset. Learn more"
+    },
+    {
+        "type": "sheets_MAXIFS",
+        "message0": "*MAXIFS %1 range %2 criteria range1 %3 criterion1 %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERIA_RANGE1"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERION1"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the maximum value in a range of cells, filtered by a set of criteria. Learn more.\n*Implementation not complete",
+        "TODO": "dropped options multi, MAXIFS(range, criteria_range1, criterion1, [criteria_range2, criterion2], \u2026)"
+    },
+    {
+        "type": "sheets_MEDIAN",
+        "message0": "*MEDIAN %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the median value in a numeric dataset. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, MEDIAN(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_MIN",
+        "message0": "*MIN %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the minimum value in a numeric dataset. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, MIN(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_MINA",
+        "message0": "MINA %1 value1 %2 value2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the minimum numeric value in a dataset. Learn more"
+    },
+    {
+        "type": "sheets_MINIFS",
+        "message0": "*MINIFS %1 range %2 criteria range1 %3 criterion1 %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERIA_RANGE1"
+            },
+            {
+                "type": "input_value",
+                "name": "CRITERION1"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the minimum value in a range of cells, filtered by a set of criteria. Learn more.\n*Implementation not complete",
+        "TODO": "dropped options multi, MINIFS(range, criteria_range1, criterion1, [criteria_range2, criterion2], \u2026)"
+    },
+    {
+        "type": "sheets_MODE",
+        "message0": "*MODE %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the most commonly occurring value in a dataset. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, MODE(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_PERCENTILE",
+        "message0": "PERCENTILE %1 data %2 percentile %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "PERCENTILE"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the value at a given percentile of a dataset. Learn more"
+    },
+    {
+        "type": "sheets_QUARTILE",
+        "message0": "QUARTILE %1 data %2 quartile number %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "QUARTILE_NUMBER"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns a value nearest to a specified quartile of a dataset. Learn more"
+    },
+    {
+        "type": "sheets_RANK",
+        "message0": "RANK %1 value %2 data %3 [is ascending] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_ASCENDING"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the rank of a specified value in a dataset. Learn more"
+    },
+    {
+        "type": "sheets_RANK_AVG",
+        "message0": "RANK.AVG %1 value %2 data %3 [is ascending] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            },
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "IS_ASCENDING"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Returns the rank of a specified value in a dataset. If there is more than one entry of the same value in the dataset, the average rank of the entries will be returned. Learn more"
+    },
+    {
+        "type": "sheets_STDEV",
+        "message0": "*STDEV %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Calculates the standard deviation based on a sample. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, STDEV(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_VAR",
+        "message0": "*VAR %1 value1 %2 [value2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE2"
+            }
+        ],
+        "output": null,
+        "style": "Statistical_style",
+        "inputsInline": false,
+        "tooltip": "Calculates the variance based on a sample. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, VAR(value1, [value2, ...])"
+    },
+    {
+        "type": "sheets_ARABIC",
+        "message0": "ARABIC %1 roman numeral %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "ROMAN_NUMERAL"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Computes the value of a Roman numeral. Learn more"
+    },
+    {
+        "type": "sheets_CLEAN",
+        "message0": "CLEAN %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Returns the text with the non-printable ASCII characters removed. Learn more"
+    },
+    {
+        "type": "sheets_CONCATENATE",
+        "message0": "*CONCATENATE %1 string1 %2 [string2] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING1"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Appends strings to one another. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, CONCATENATE(string1, [string2, ...])"
+    },
+    {
+        "type": "sheets_DOLLAR",
+        "message0": "DOLLAR %1 number %2 [number of places] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_PLACES"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Formats a number into the locale-specific currency format. Learn more"
+    },
+    {
+        "type": "sheets_EXACT",
+        "message0": "EXACT %1 string1 %2 string2 %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING1"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Tests whether two strings are identical. Learn more"
+    },
+    {
+        "type": "sheets_FIND",
+        "message0": "FIND %1 search for %2 text to search %3 [starting at] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_FOR"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_SEARCH"
+            },
+            {
+                "type": "input_value",
+                "name": "STARTING_AT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns the position at which a string is first found within text. Learn more"
+    },
+    {
+        "type": "sheets_FIXED",
+        "message0": "FIXED %1 number %2 [number of places] %3 [suppress separator] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_PLACES"
+            },
+            {
+                "type": "input_value",
+                "name": "SUPPRESS_SEPARATOR"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Formats a number with a fixed number of decimal places. Learn more"
+    },
+    {
+        "type": "sheets_JOIN",
+        "message0": "*JOIN %1 delimiter %2 value or array1 %3 [value or array2] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DELIMITER"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_OR_ARRAY1"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE_OR_ARRAY2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Concatenates the elements of one or more one-dimensional arrays using a specified delimiter. Learn more\n*Implementation not complete",
+        "TODO": "dropped options variadic, JOIN(delimiter, value_or_array1, [value_or_array2, ...])"
+    },
+    {
+        "type": "sheets_LEFT",
+        "message0": "LEFT %1 string %2 [number of characters] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_CHARACTERS"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns a substring from the beginning of a specified string. Learn more"
+    },
+    {
+        "type": "sheets_LEN",
+        "message0": "LEN %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Returns the length of a string. Learn more"
+    },
+    {
+        "type": "sheets_LOWER",
+        "message0": "LOWER %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Converts a specified string to lowercase. Learn more"
+    },
+    {
+        "type": "sheets_MID",
+        "message0": "MID %1 string %2 starting at %3 extract length %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "STARTING_AT"
+            },
+            {
+                "type": "input_value",
+                "name": "EXTRACT_LENGTH"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns a segment of a string. Learn more"
+    },
+    {
+        "type": "sheets_PROPER",
+        "message0": "PROPER %1 text to capitalize %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_CAPITALIZE"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Capitalizes each word in a specified string. Learn more"
+    },
+    {
+        "type": "sheets_REGEXEXTRACT",
+        "message0": "REGEXEXTRACT %1 text %2 regular expression %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "REGULAR_EXPRESSION"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Extracts matching substrings according to a regular expression. Learn more"
+    },
+    {
+        "type": "sheets_REGEXMATCH",
+        "message0": "REGEXMATCH %1 text %2 regular expression %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "REGULAR_EXPRESSION"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Whether a piece of text matches a regular expression. Learn more"
+    },
+    {
+        "type": "sheets_REGEXREPLACE",
+        "message0": "REGEXREPLACE %1 text %2 regular expression %3 replacement %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "REGULAR_EXPRESSION"
+            },
+            {
+                "type": "input_value",
+                "name": "REPLACEMENT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Replaces part of a text string with a different text string using regular expressions. Learn more"
+    },
+    {
+        "type": "sheets_REPLACE",
+        "message0": "REPLACE %1 text %2 position %3 length %4 new text %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "POSITION"
+            },
+            {
+                "type": "input_value",
+                "name": "LENGTH"
+            },
+            {
+                "type": "input_value",
+                "name": "NEW_TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Replaces part of a text string with a different text string. Learn more"
+    },
+    {
+        "type": "sheets_REPT",
+        "message0": "REPT %1 text to repeat %2 number of repetitions %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_REPEAT"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_REPETITIONS"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns specified text repeated a number of times. Learn more"
+    },
+    {
+        "type": "sheets_RIGHT",
+        "message0": "RIGHT %1 string %2 [number of characters] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "STRING"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER_OF_CHARACTERS"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns a substring from the end of a specified string. Learn more"
+    },
+    {
+        "type": "sheets_ROMAN",
+        "message0": "ROMAN %1 number %2 [rule relaxation] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "RULE_RELAXATION"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Formats a number in Roman numerals. Learn more"
+    },
+    {
+        "type": "sheets_SEARCH",
+        "message0": "SEARCH %1 search for %2 text to search %3 [starting at] %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_FOR"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_SEARCH"
+            },
+            {
+                "type": "input_value",
+                "name": "STARTING_AT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Returns the position at which a string is first found within text. Learn more"
+    },
+    {
+        "type": "sheets_SPLIT",
+        "message0": "SPLIT %1 text %2 delimiter %3 [split by each] %4 [remove empty text] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            },
+            {
+                "type": "input_value",
+                "name": "DELIMITER"
+            },
+            {
+                "type": "input_value",
+                "name": "SPLIT_BY_EACH"
+            },
+            {
+                "type": "input_value",
+                "name": "REMOVE_EMPTY_TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Divides text around a specified character or string, and puts each fragment into a separate cell in the row. Learn more"
+    },
+    {
+        "type": "sheets_SUBSTITUTE",
+        "message0": "SUBSTITUTE %1 text to search %2 search for %3 replace with %4 [occurrence number] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT_TO_SEARCH"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_FOR"
+            },
+            {
+                "type": "input_value",
+                "name": "REPLACE_WITH"
+            },
+            {
+                "type": "input_value",
+                "name": "OCCURRENCE_NUMBER"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Replaces existing text with new text in a string. Learn more"
+    },
+    {
+        "type": "sheets_TEXT",
+        "message0": "TEXT %1 number %2 format %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "NUMBER"
+            },
+            {
+                "type": "input_value",
+                "name": "FORMAT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Converts a number into text according to a specified format. Learn more"
+    },
+    {
+        "type": "sheets_TEXTJOIN",
+        "message0": "*TEXTJOIN %1 delimiter %2 ignore empty %3 text1 %4 [text2] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "DELIMITER"
+            },
+            {
+                "type": "input_value",
+                "name": "IGNORE_EMPTY"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT1"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT2"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": false,
+        "tooltip": "Combines the text from multiple strings and/or arrays, with a specifiable delimiter separating the different texts. Learn more.\n*Implementation not complete",
+        "TODO": "dropped options variadic, TEXTJOIN(delimiter, ignore_empty, text1, [text2], \u2026)"
+    },
+    {
+        "type": "sheets_TRIM",
+        "message0": "TRIM %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Removes leading and trailing spaces in a specified string. Learn more"
+    },
+    {
+        "type": "sheets_UPPER",
+        "message0": "UPPER %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Converts a specified string to uppercase. Learn more"
+    },
+    {
+        "type": "sheets_VALUE",
+        "message0": "VALUE %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Text_style",
+        "inputsInline": true,
+        "tooltip": "Converts a string in any of the date, time or number formats that Google Sheets understands into a number. Learn more"
+    },
+    {
+        "type": "sheets_ENCODEURL",
+        "message0": "ENCODEURL %1 text %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": true,
+        "tooltip": "Encodes a string of text for the purpose of using in a URL query.\u00a0Learn more."
+    },
+    {
+        "type": "sheets_HYPERLINK",
+        "message0": "HYPERLINK %1 url %2 [link label] %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "URL"
+            },
+            {
+                "type": "input_value",
+                "name": "LINK_LABEL"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": false,
+        "tooltip": "Creates a hyperlink inside a cell. Learn more"
+    },
+    {
+        "type": "sheets_IMPORTDATA",
+        "message0": "IMPORTDATA %1 url %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "URL"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": true,
+        "tooltip": "Imports data at a given url in .csv (comma-separated value) or .tsv (tab-separated value) format. Learn more"
+    },
+    {
+        "type": "sheets_IMPORTFEED",
+        "message0": "IMPORTFEED %1 url %2 [query] %3 [headers] %4 [num items] %5",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "URL"
+            },
+            {
+                "type": "input_value",
+                "name": "QUERY"
+            },
+            {
+                "type": "input_value",
+                "name": "HEADERS"
+            },
+            {
+                "type": "input_value",
+                "name": "NUM_ITEMS"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": false,
+        "tooltip": "Imports a RSS or ATOM feed. Learn more"
+    },
+    {
+        "type": "sheets_IMPORTHTML",
+        "message0": "IMPORTHTML %1 url %2 query %3 index %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "URL"
+            },
+            {
+                "type": "input_value",
+                "name": "QUERY"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": false,
+        "tooltip": "Imports data from a table or list within an HTML page. Learn more"
+    },
+    {
+        "type": "sheets_IMPORTRANGE",
+        "message0": "IMPORTRANGE %1 spreadsheet url %2 range string %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SPREADSHEET_URL"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE_STRING"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": false,
+        "tooltip": "Imports a range of cells from a specified spreadsheet. Learn more"
+    },
+    {
+        "type": "sheets_IMPORTXML",
+        "message0": "IMPORTXML %1 url %2 xpath query %3",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "URL"
+            },
+            {
+                "type": "input_value",
+                "name": "XPATH_QUERY"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": false,
+        "tooltip": "Imports data from any of various structured data types including XML, HTML, CSV, TSV, and RSS and ATOM XML feeds. Learn more"
+    },
+    {
+        "type": "sheets_ISURL",
+        "message0": "ISURL %1 value %2",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "output": null,
+        "style": "Web_style",
+        "inputsInline": true,
+        "tooltip": "Checks whether a value is a valid URL. Learn more"
+    }
+]

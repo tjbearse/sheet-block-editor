@@ -1,2 +1,4 @@
-import './googleSheets.js'
-import './generator.js'
+import GoogleSheets from './googleSheets'
+import './generator'
+
+export default GoogleSheets

@@ -1,10 +1,7 @@
-import Blockly from 'blockly'
+import GoogleSheets from './googleSheets'
 
-const LANG = Blockly.GoogleSheets
-
-LANG['sheets_join'] = function(block) {
-	// FIXME precedence
-	const value_a = LANG.valueToCode(block, 'A', LANG.ORDER_CONCAT);
-	const value_b = LANG.valueToCode(block, 'B', LANG.ORDER_CONCAT);
-	return [`${value_a} & ${value_b}`, LANG.ORDER_CONCAT]
+GoogleSheets['sheets_join'] = function(block) {
+	const value_a = GoogleSheets.valueToCode(block, 'A', GoogleSheets.ORDER_CONCAT);
+	const value_b = GoogleSheets.valueToCode(block, 'B', GoogleSheets.ORDER_CONCAT);
+	return [`${value_a} & ${value_b}`, GoogleSheets.ORDER_CONCAT]
 }

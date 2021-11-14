@@ -1,5 +1,5 @@
 import blockly from 'blockly'
-import './googleSheets'
+import GoogleSheets from './googleSheets'
 import '../../blocks/Values/blocks'
 
 import './generator'
@@ -23,7 +23,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_number')
 			block.setFieldValue(1, 'NUM')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('1')
 		})
 
@@ -31,7 +31,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_number')
 			block.setFieldValue(-1, 'NUM')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('-1')
 		})
 
@@ -39,7 +39,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_number')
 			// block.setFieldValue(1, 'NUM')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('0')
 		})
 	})
@@ -49,7 +49,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_text')
 			block.setFieldValue('test', 'TEXT')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('"test"')
 		})
 
@@ -57,7 +57,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_text')
 			block.setFieldValue('', 'TEXT')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('""')
 		})
 
@@ -65,7 +65,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_text')
 			// block.setFieldValue('', 'TEXT')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('""')
 		})
 	})
@@ -75,7 +75,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_boolean')
 			block.setFieldValue('TRUE', 'BOOL')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('TRUE')
 		})
 
@@ -83,14 +83,14 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_boolean')
 			block.setFieldValue('FALSE', 'BOOL')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('FALSE')
 		})
 
 		test('build false when unset', () => {
 			const block = workspace.newBlock('sheets_boolean')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('TRUE')
 		})
 	})
@@ -100,7 +100,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_cell')
 			block.setFieldValue('A1', 'CELL')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('A1')
 		})
 
@@ -108,14 +108,14 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_cell')
 			block.setFieldValue('A1:B2', 'CELL')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('A1:B2')
 		})
 
 		test('build unset', () => {
 			const block = workspace.newBlock('sheets_cell')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('A1')
 		})
 
@@ -123,7 +123,7 @@ describe('value code generator', () => {
 			const block = workspace.newBlock('sheets_cell')
 			block.setFieldValue(')', 'CELL')
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('A1')
 		})
 	})

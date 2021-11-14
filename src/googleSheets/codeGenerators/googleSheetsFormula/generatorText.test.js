@@ -1,5 +1,5 @@
 import blockly from 'blockly'
-import './googleSheets'
+import GoogleSheets from './googleSheets'
 import '../../blocks/Text/blocks'
 import '../../blocks/Values/blocks'
 
@@ -35,7 +35,7 @@ describe('text code generator', () => {
 		const left = addTextBlock("One", block.getInput('A'))
 		const right = addTextBlock("Two", block.getInput('B'))
 
-		const code = blockly.GoogleSheets.blockToCode(block);
+		const code = GoogleSheets.blockToCode(block);
 		expect(code[0]).toBe('"One" & "Two"')
 	})
 })

@@ -1,7 +1,7 @@
 import blockly from 'blockly'
-import './googleSheets'
-import '../../blocks'
+import GoogleSheets from './googleSheets'
 import './generator'
+import '../../blocks'
 
 describe('math code generator', () => {
 	let workspace;
@@ -36,7 +36,7 @@ describe('math code generator', () => {
 		const block = workspace.newBlock('sheets_number')
 		block.setFieldValue('1', 'NUM')
 
-		const code = blockly.GoogleSheets.workspaceToCode(workspace);
+		const code = GoogleSheets.workspaceToCode(workspace);
 		expect(code).toBe('=1')
 	})
 
@@ -46,7 +46,7 @@ describe('math code generator', () => {
 				<block type="sheets_ABS" id="root">
 				</block>
 			`)
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=ABS()')
 		})
 		test('one argument', () => {
@@ -59,7 +59,7 @@ describe('math code generator', () => {
 					</value>
 				</block>
 			`)
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=ABS(2)')
 		})
 		test('two arguments', () => {
@@ -77,7 +77,7 @@ describe('math code generator', () => {
 					</value>
 				</block>
 			`)
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=CONCAT("a", "b")')
 		})
 		test('two arguments with order reversed', () => {
@@ -95,7 +95,7 @@ describe('math code generator', () => {
 					</value>
 				</block>
 			`)
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=CONCAT("a", "b")')
 		})
 	})
@@ -122,7 +122,7 @@ describe('math code generator', () => {
 			</block>
 			`)
 
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=ABS(2) + 3')
 		})
 
@@ -163,7 +163,7 @@ describe('math code generator', () => {
 			</block>
 			`)
 
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=(1 + 2) * (3 + 4)')
 		})
 
@@ -204,7 +204,7 @@ describe('math code generator', () => {
 			</block>
 			`)
 
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=1 * 2 + 3 * 4')
 		})
 
@@ -245,7 +245,7 @@ describe('math code generator', () => {
 			</block>
 			`)
 
-			const code = blockly.GoogleSheets.workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=1 + 2 + 3 + 4')
 		})
 	})

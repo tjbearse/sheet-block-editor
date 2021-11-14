@@ -1,25 +1,25 @@
-import Blockly from 'blockly'
 import quote from './quote'
+import GoogleSheets from './googleSheets'
 
 // generators for built ins
-Blockly.GoogleSheets['sheets_number'] = function(block) {
+GoogleSheets['sheets_number'] = function(block) {
 	const code = Number(block.getFieldValue('NUM'));
-	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
+	return [code, GoogleSheets.ORDER_ATOMIC];
 };
 
-Blockly.GoogleSheets['sheets_text'] = function(block) {
+GoogleSheets['sheets_text'] = function(block) {
 	const code = quote(block.getFieldValue('TEXT'));
-	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
+	return [code, GoogleSheets.ORDER_ATOMIC];
 };
 
-Blockly.GoogleSheets['sheets_boolean'] = function(block) {
+GoogleSheets['sheets_boolean'] = function(block) {
 	const code = block.getFieldValue('BOOL')
-	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
+	return [code, GoogleSheets.ORDER_ATOMIC];
 };
 
-Blockly.GoogleSheets['sheets_cell'] = function(block) {
+GoogleSheets['sheets_cell'] = function(block) {
 	const text_cell = block.getFieldValue('CELL');
 	// FIXME I can inject here with text ") & whaterver I want"
 	const code = `${text_cell}`
-	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
+	return [code, GoogleSheets.ORDER_ATOMIC];
 };

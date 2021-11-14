@@ -1,11 +1,11 @@
 import blockly from 'blockly'
 import initWorkspace from './workspace'
 import { parseAndBuild } from './googleSheets'
+import GoogleSheets from './googleSheets/codeGenerators/googleSheetsFormula'
 
 document.addEventListener("DOMContentLoaded", function () {
     const workspace = initWorkspace()
 
-    const lang = 'GoogleSheets';
     const toCode = document.getElementById('toCode');
     const toBlocks = document.getElementById('toBlocks');
     const formulaText = document.getElementById('formulaText');
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		// console.log(blockly.Xml.domToPrettyText(xml))
 
 		try {
-			const code = blockly[lang].workspaceToCode(workspace);
+			const code = GoogleSheets.workspaceToCode(workspace);
 			formulaText.value = code;
 		} catch(e) {
 			alert(e)

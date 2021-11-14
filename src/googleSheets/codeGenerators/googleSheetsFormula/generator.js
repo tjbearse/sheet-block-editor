@@ -1,12 +1,10 @@
-import Blockly from 'blockly'
-
 import './generatorMath.js'
 import './generatorValues.js'
 import './generatorLogical.js'
 import './generatorText.js'
 import blocks from '../../blocks/generated/blocks.json'
 
-const LANG = Blockly.GoogleSheets
+import GoogleSheets from './googleSheets'
 const prefix = 'sheets_'
 
 const createFunctionGenerators = (blocks) => {
@@ -18,11 +16,11 @@ const createFunctionGenerators = (blocks) => {
 		const formulaName = blockDef.type.substring(prefix.length)
 
 		const formulaGenerator = (block) => {
-			var value_vars = args.map(arg => LANG.valueToCode(block, arg, LANG.ORDER_NONE))
+			var value_vars = args.map(arg => GoogleSheets.valueToCode(block, arg, GoogleSheets.ORDER_NONE))
 			var code = formulaName + '(' + value_vars.join(', ') + ')'
-			return [code, LANG.ORDER_ATOMIC]
+			return [code, GoogleSheets.ORDER_ATOMIC]
 		}
-		LANG[blockDef.type] = formulaGenerator
+		GoogleSheets[blockDef.type] = formulaGenerator
 	})
 }
 

@@ -8,19 +8,20 @@
  */
 import Blockly from 'blockly'
 
-Blockly.GoogleSheets = new Blockly.Generator('GoogleSheets');
+export const GoogleSheets = new Blockly.Generator('GoogleSheets');
+Blockly.GoogleSheets = GoogleSheets
 
 /**
  * Order of operation ENUMs.
  */
-Blockly.GoogleSheets.ORDER_ATOMIC = 0;            // 0 "" ...
-Blockly.GoogleSheets.ORDER_EXPONENTIATION = 1;    // ^
-Blockly.GoogleSheets.ORDER_UNARY_SIGN = 2;        // + -
-Blockly.GoogleSheets.ORDER_MULTIPLICATIVE = 3;    // * /
-Blockly.GoogleSheets.ORDER_ADDITIVE = 4;          // + -
-Blockly.GoogleSheets.ORDER_CONCAT = 5;            // &
-Blockly.GoogleSheets.ORDER_RELATIONAL = 6;       // <, <=, >, >=, <>, ==
-Blockly.GoogleSheets.ORDER_NONE = 99;             // (...)
+GoogleSheets.ORDER_ATOMIC = 0;            // 0 "" ...
+GoogleSheets.ORDER_EXPONENTIATION = 1;    // ^
+GoogleSheets.ORDER_UNARY_SIGN = 2;        // + -
+GoogleSheets.ORDER_MULTIPLICATIVE = 3;    // * /
+GoogleSheets.ORDER_ADDITIVE = 4;          // + -
+GoogleSheets.ORDER_CONCAT = 5;            // &
+GoogleSheets.ORDER_RELATIONAL = 6;       // <, <=, >, >=, <>, ==
+GoogleSheets.ORDER_NONE = 99;             // (...)
 
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into
@@ -28,7 +29,7 @@ Blockly.GoogleSheets.ORDER_NONE = 99;             // (...)
  * @param {string} line Line of generated code.
  * @return {string} Legal line of code.
  */
-Blockly.GoogleSheets.scrubNakedValue = function(line) {
+GoogleSheets.scrubNakedValue = function(line) {
 	return `=${line}`;
 };
 
@@ -42,8 +43,10 @@ Blockly.GoogleSheets.scrubNakedValue = function(line) {
  * @return {string} GoogleSheets code with comments and subsequent blocks added.
  * @protected
  */
-Blockly.GoogleSheets.scrub_ = function(block, code, opt_thisOnly) {
+GoogleSheets.scrub_ = function(block, code, opt_thisOnly) {
   var nextBlock = block.nextConnection && block.nextConnection.targetBlock();
-  var nextCode = opt_thisOnly ? '' : Blockly.GoogleSheets.blockToCode(nextBlock);
+  var nextCode = opt_thisOnly ? '' : GoogleSheets.blockToCode(nextBlock);
   return code + nextCode;
 };
+
+export default GoogleSheets;

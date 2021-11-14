@@ -1,5 +1,5 @@
 import blockly from 'blockly'
-import './googleSheets'
+import GoogleSheets from './googleSheets'
 import '../../blocks/Values/blocks'
 import '../../blocks/Math/blocks'
 
@@ -38,7 +38,7 @@ describe('math code generator', () => {
 			const left = addNumberBlock(1, block.getInput('A'))
 			const right = addNumberBlock(2, block.getInput('B'))
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('1 + 2')
 		})
 
@@ -49,7 +49,7 @@ describe('math code generator', () => {
 			const left = addNumberBlock(1, block.getInput('A'))
 			const right = addNumberBlock(2, block.getInput('B'))
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('1 - 2')
 		})
 
@@ -60,7 +60,7 @@ describe('math code generator', () => {
 			const left = addNumberBlock(1, block.getInput('A'))
 			const right = addNumberBlock(2, block.getInput('B'))
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('1 * 2')
 		})
 
@@ -71,7 +71,7 @@ describe('math code generator', () => {
 			const left = addNumberBlock(1, block.getInput('A'))
 			const right = addNumberBlock(2, block.getInput('B'))
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('1 / 2')
 		})
 
@@ -82,7 +82,7 @@ describe('math code generator', () => {
 			const left = addNumberBlock(1, block.getInput('A'))
 			const right = addNumberBlock(2, block.getInput('B'))
 
-			const code = blockly.GoogleSheets.blockToCode(block);
+			const code = GoogleSheets.blockToCode(block);
 			expect(code[0]).toBe('1 ^ 2')
 		})
 	})
@@ -92,7 +92,7 @@ describe('math code generator', () => {
 
 		const right = addNumberBlock(2, block.getInput('A'))
 
-		const code = blockly.GoogleSheets.blockToCode(block);
+		const code = GoogleSheets.blockToCode(block);
 		expect(code[0]).toBe('-2')
 	})
 

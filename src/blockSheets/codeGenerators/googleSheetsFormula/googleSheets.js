@@ -16,11 +16,21 @@ export const GoogleSheets = new Blockly.Generator('GoogleSheets');
 GoogleSheets.ORDER_ATOMIC = 0;            // 0 "" ...
 GoogleSheets.ORDER_EXPONENTIATION = 1;    // ^
 GoogleSheets.ORDER_UNARY_SIGN = 2;        // + -
-GoogleSheets.ORDER_MULTIPLICATIVE = 3;    // * /
-GoogleSheets.ORDER_ADDITIVE = 4;          // + -
+GoogleSheets.ORDER_MULTIPLY = 3.1;        // *
+GoogleSheets.ORDER_DIVIDE = 3.2;          // /
+GoogleSheets.ORDER_ADD = 4.1;             // + -
+GoogleSheets.ORDER_SUBTRACT = 4.2;        // + -
 GoogleSheets.ORDER_CONCAT = 5;            // &
 GoogleSheets.ORDER_RELATIONAL = 6;       // <, <=, >, >=, <>, ==
 GoogleSheets.ORDER_NONE = 99;             // (...)
+
+GoogleSheets.ORDER_OVERRIDES = [
+  // a * (b * c) -> a * b * c
+  [GoogleSheets.ORDER_MULTIPLY, GoogleSheets.ORDER_MULTIPLY],
+  // a + (b + c) -> a + b + c
+  [GoogleSheets.ORDER_ADD, GoogleSheets.ORDER_ADD],
+];
+
 
 /**
  * Naked values are top-level blocks with outputs that aren't plugged into

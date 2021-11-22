@@ -7,19 +7,19 @@ GoogleSheets['sheets_arithmetic'] = function(block) {
 	switch(value_op) {
 		case 'ADD':
 			op = '+';
-			precedence = GoogleSheets.ORDER_ADDITIVE;
+			precedence = GoogleSheets.ORDER_ADD;
 			break;
 		case 'MINUS':
 			op = '-';
-			precedence = GoogleSheets.ORDER_ADDITIVE;
+			precedence = GoogleSheets.ORDER_SUBTRACT;
 			break;
 		case 'MULTIPLY':
 			op = '*';
-			precedence = GoogleSheets.ORDER_MULTIPLICATIVE;
+			precedence = GoogleSheets.ORDER_MULTIPLY;
 			break;
 		case 'DIVIDE':
 			op = '/';
-			precedence = GoogleSheets.ORDER_MULTIPLICATIVE;
+			precedence = GoogleSheets.ORDER_DIVIDE;
 			break;
 		case 'POWER':
 			op = '^';

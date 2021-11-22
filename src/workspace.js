@@ -1,6 +1,6 @@
 import blockly from 'blockly'
-import './googleSheets';
-import toolbox from './googleSheets/defaultToolbox'
+import './blockSheets';
+import toolbox from './blockSheets/defaultToolbox'
 import theme from './theme'
 
 import * as En from 'blockly/msg/en';

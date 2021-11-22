@@ -9,7 +9,6 @@
 import Blockly from 'blockly'
 
 export const GoogleSheets = new Blockly.Generator('GoogleSheets');
-Blockly.GoogleSheets = GoogleSheets
 
 /**
  * Order of operation ENUMs.

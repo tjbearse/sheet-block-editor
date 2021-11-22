@@ -1,7 +1,8 @@
 import blockly from 'blockly'
 import initWorkspace from './workspace'
-import { parseAndBuild } from './googleSheets'
-import GoogleSheets from './googleSheets/codeGenerators/googleSheetsFormula'
+import { parseAndBuild } from './blockSheets'
+import GoogleSheets from './blockSheets/codeGenerators/googleSheetsFormula'
+import Latex from './blockSheets/codeGenerators/latex'
 
 document.addEventListener("DOMContentLoaded", function () {
     const workspace = initWorkspace()
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const toCode = document.getElementById('toCode');
     const toBlocks = document.getElementById('toBlocks');
     const formulaText = document.getElementById('formulaText');
+    const textAsMath = document.getElementById('latex');
 
     toCode.addEventListener('click', function () {
 		// debug
@@ -18,9 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		try {
 			const code = GoogleSheets.workspaceToCode(workspace);
 			formulaText.value = code;
+
 		} catch(e) {
 			alert(e)
 		}
+		updateMath()
     })
     toBlocks.addEventListener('click', function () {
 		const formula = formulaText.value || formulaText.placeholder;
@@ -31,5 +35,27 @@ document.addEventListener("DOMContentLoaded", function () {
 		} catch(e) {
 			alert(e)
 		}
+		updateMath()
     })
+
+	function updateMath() {
+		try {
+			const math = Latex.workspaceToCode(workspace);
+			const html = window.MathJax.tex2chtml(math, {em: 12, ex: 6});
+			textAsMath.innerHTML = '';
+			textAsMath.appendChild(html);
+		} catch (e) {
+			console.error(e);
+		}
+	}
+
+
+	function onUpdate() {
+		if (!event.isUIEvent) {
+			updateMath()
+		}
+	}
+
+	workspace.addChangeListener(onUpdate);
+
 });

@@ -49,6 +49,9 @@ test('parses string values', () => {
 	expect(parser.parse('="1"')).toTreeEqual(mkValue("1"))
 	expect(parser.parse('=""')).toTreeEqual(mkValue(""))
 })
+test.skip('parses string values with inner quotes', () => {
+	expect(parser.parse('=""""')).toTreeEqual(mkValue("\""))
+})
 
 test('parses bool values', () => {
 	expect(parser.parse('=TRUE')).toTreeEqual(mkValue(true))
@@ -67,7 +70,10 @@ test('parses cell ranges', () => {
 })
 
 test.skip('parses array literals', () => {
-	expect(false).toTreeEqual(true)
+	expect(parser.parse('={1}')).toTreeEqual(true)
+	expect(parser.parse('={1;2}')).toTreeEqual(true)
+	expect(parser.parse('={1,2}')).toTreeEqual(true)
+	expect(parser.parse('={1,2;3,4}')).toTreeEqual(true)
 });
 
 // Single Function

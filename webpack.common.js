@@ -28,7 +28,7 @@ module.exports = [
 	name: 'webapp',
 	target: 'web',
 	entry: {
-		generator: './src/generator.js',
+		webapp: './src/webapp.js',
 	},
 	output: {
 		path: path.resolve(__dirname, 'build/webapp'),
@@ -46,8 +46,12 @@ module.exports = [
 		new CopyPlugin({
 			patterns: [
 				{
-					from: path.resolve(__dirname, 'public/generator.html'),
+					from: path.resolve(__dirname, 'public/webapp.html'),
 					to: path.resolve(__dirname, 'build/webapp/index.html')
+				},
+				{
+					from: path.resolve(__dirname, 'public/style.css'),
+					to: path.resolve(__dirname, 'build/webapp/style.css')
 				},
 				{
 					// Copy over media resources from the Blockly package

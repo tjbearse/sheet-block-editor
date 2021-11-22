@@ -17,7 +17,9 @@ Latex.ORDER_NONE = 99;
 Latex.ORDER_OVERRIDES = [
 	[Latex.ORDER_MULTIPLY, Latex.ORDER_MULTIPLY],
 	[Latex.ORDER_ADD, Latex.ORDER_ADD],
-]
+];
+
+Latex.scrubNakedValue = (line) => line + '\n';
 
 // TODO I'd like to use \left( and \right( for parens around some things
 // e.g. division because they resize nicely

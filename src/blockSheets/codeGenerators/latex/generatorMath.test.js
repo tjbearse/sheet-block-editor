@@ -30,7 +30,6 @@ describe('math code generator', () => {
 	}
 
 	describe('arithmetic', () => {
-		// TODO test order returns
 		test('build an addition', () => {
 			const block = workspace.newBlock('sheets_arithmetic')
 			block.setFieldValue('ADD', 'OP')

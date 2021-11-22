@@ -19,13 +19,17 @@ Latex['sheets_arithmetic'] = function(block) {
 			precedence = Latex.ORDER_MULTIPLY;
 			break;
 		case 'DIVIDE':
+		{
 			const value_a = Latex.valueToCode(block, 'A', Latex.ORDER_NONE);
 			const value_b = Latex.valueToCode(block, 'B', Latex.ORDER_NONE);
-			return [`\\frac{${value_a}}{${value_b}}`, Latex.ORDER_DIVIDE]
+			return [`\\frac{${value_a}}{${value_b}}`, Latex.ORDER_ATOMIC]
+		}
 		case 'POWER':
-			op = '^';
-			precedence = Latex.ORDER_EXPONENTIATION;
-			break;
+		{
+			const value_a = Latex.valueToCode(block, 'A', Latex.ORDER_EXPONENTIATION);
+			const value_b = Latex.valueToCode(block, 'B', Latex.ORDER_NONE);
+			return [`{${value_a}}^{${value_b}}`, Latex.ORDER_EXPONENTIATION]
+		}
 		default:
 			throw new Error(`unknown operator ${value_op}`)
 	}

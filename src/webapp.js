@@ -41,16 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
 	function updateMath() {
 		try {
 			const math = Latex.workspaceToCode(workspace);
-			const html = window.MathJax.tex2chtml(math, {em: 12, ex: 6});
+
 			textAsMath.innerHTML = '';
-			textAsMath.appendChild(html);
+
+			math.split('\n').forEach(m => {
+				const html = window.MathJax.tex2chtml(m, {em: 12, ex: 6});
+				textAsMath.appendChild(html);
+			})
 		} catch (e) {
 			console.error(e);
 		}
 	}
 
 
-	function onUpdate() {
+	function onUpdate(event) {
 		if (!event.isUIEvent) {
 			updateMath()
 		}

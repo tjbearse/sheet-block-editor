@@ -84,6 +84,11 @@
             "colourPrimary": "#444444",
             "colourSecondary": "#AD7BE9",
             "colourTertiary": "#CDB6E9"
+        },
+        "Formula_style": {
+            "colourPrimary": "#017203",
+            "colourSecondary": "#222222",
+            "colourTertiary": "#03a506"
         }
     },
     "categoryStyles": {

@@ -5,7 +5,7 @@ import GoogleSheets from './blockSheets/codeGenerators/googleSheetsFormula'
 import Latex from './blockSheets/codeGenerators/latex'
 
 document.addEventListener("DOMContentLoaded", function () {
-    const workspace = initWorkspace()
+    const [workspace, root] = initWorkspace()
 
     const toCode = document.getElementById('toCode');
     const toBlocks = document.getElementById('toBlocks');
@@ -27,11 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
 		updateMath()
     })
     toBlocks.addEventListener('click', function () {
+		// replace only the root formula block's output connection
 		const formula = formulaText.value || formulaText.placeholder;
-		workspace.clear()
 		try {
-			parseAndBuild(formula, workspace)
-			workspace.cleanUp()
+			const conn = root.getInput('FORMULA').connection;
+			const formulaBlocks = parseAndBuild(formula, workspace)
+			if (conn.isConnected()) {
+				conn.targetBlock().dispose(true);
+			}
+			if (formulaBlocks) {
+				conn.connect(formulaBlocks.outputConnection)
+			}
 		} catch(e) {
 			alert(e)
 		}

@@ -23,3 +23,10 @@ GoogleSheets['sheets_cell'] = function(block) {
 	const code = `${text_cell}`
 	return [code, GoogleSheets.ORDER_ATOMIC];
 };
+
+GoogleSheets['sheets_formula'] = function(block) {
+	const formula = GoogleSheets.valueToCode(block, 'FORMULA', GoogleSheets.ORDER_NONE);
+	const defaultFormula = '""'
+	const code = `=${formula||defaultFormula}`
+	return code;
+};

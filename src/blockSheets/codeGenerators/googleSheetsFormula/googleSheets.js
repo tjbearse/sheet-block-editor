@@ -39,7 +39,8 @@ GoogleSheets.ORDER_OVERRIDES = [
  * @return {string} Legal line of code.
  */
 GoogleSheets.scrubNakedValue = function(line) {
-	return `=${line}`;
+	// don't include any naked values in the formula
+	return '';
 };
 
 /**

@@ -22,3 +22,10 @@ Latex['sheets_cell'] = function(block) {
 	const code = `\\operatorname{${text_cell}}`
 	return [code, Latex.ORDER_ATOMIC];
 };
+
+
+Latex['sheets_formula'] = function(block) {
+	const text_cell = Latex.valueToCode(block, 'FORMULA', Latex.ORDER_NONE);
+	const code = `=${text_cell}`
+	return code;
+};

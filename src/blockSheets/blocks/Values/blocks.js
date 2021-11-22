@@ -20,4 +20,16 @@ Blockly.defineBlocksWithJsonArray([
 		"tooltip": "A cell, range of cells, or named range",
 		"helpUrl": ""
 	},
+	{
+		"type": "sheets_formula",
+		"message0": "= %1",
+		"args0": [
+			{
+				"type": "input_value",
+				"name": "FORMULA"
+			}
+		],
+		"style": "Formula_style",
+		"tooltip": "formula",
+	}
 ])

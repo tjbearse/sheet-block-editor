@@ -5,10 +5,31 @@ from pathlib import Path
 import argparse
 import csv
 import json
-import matplotlib
-import matplotlib.pyplot as plt
 import re
 import sys
+
+colorPalette=[
+    '#1f77b4',
+    '#aec7e8',
+    '#ff7f0e',
+    '#ffbb78',
+    '#2ca02c',
+    '#98df8a',
+    '#d62728',
+    '#ff9896',
+    '#9467bd',
+    '#c5b0d5',
+    '#8c564b',
+    '#c49c94',
+    '#e377c2',
+    '#f7b6d2',
+    '#7f7f7f',
+    '#c7c7c7',
+    '#bcbd22',
+    '#dbdb8d',
+    '#17becf',
+    '#9edae5'
+]
 
 variadicRegex = r"(\.\.\.|…)"
 def isVariadic(signature):
@@ -108,16 +129,14 @@ def formatAsToolbox(categories):
     }
 
 def buildTheme(categories):
-    cmap = plt.get_cmap('tab20')
+    # TODO select specific colors for each category
     colors = {
-        category: matplotlib.colors.to_hex(cmap(i), keep_alpha=False)
+        category: colorPalette[i]
         for i, category in enumerate(categories.keys())
     }
-    # TODO set color scheme
     blockStyles= {
         f"{category}_style": {
-            # TODO set colors
-            "colourPrimary": colors[category], # "#4a148c",
+            "colourPrimary": colors[category],
             "colourSecondary":"#AD7BE9",
             "colourTertiary":"#CDB6E9"
         }
@@ -125,8 +144,7 @@ def buildTheme(categories):
     }
     categoryStyles= {
             f"{category}_category": {
-                # TODO set colors
-                "colour": colors[category], # "#4a148c"
+                "colour": colors[category],
             }
             for category in categories.keys()
         }
@@ -187,7 +205,7 @@ def main():
             )
             categories[category].append(typeName)
 
-        genPath = Path("../googleSheets/blocks/generated")
+        genPath = Path("../blockSheets/blocks/generated")
         if any([
                 options.blocks,
                 options.toolbox,

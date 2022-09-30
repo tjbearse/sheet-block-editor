@@ -2,7 +2,7 @@ import quote from './quote'
 import Latex from './latex'
 
 Latex['sheets_number'] = function(block) {
-	const code = Number(block.getFieldValue('NUM'));
+	const code = ''+Number(block.getFieldValue('NUM'));
 	return [code, Latex.ORDER_ATOMIC];
 };
 

@@ -101,7 +101,7 @@ describe('value code generator', () => {
 			block.setFieldValue('A1', 'CELL')
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('A1')
+			expect(code[0]).toBe('\\operatorname{A1}')
 		})
 
 		test('build range', () => {
@@ -109,14 +109,14 @@ describe('value code generator', () => {
 			block.setFieldValue('A1:B2', 'CELL')
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('A1:B2')
+			expect(code[0]).toBe('\\operatorname{A1:B2}')
 		})
 
 		test('build unset', () => {
 			const block = workspace.newBlock('sheets_cell')
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('A1')
+			expect(code[0]).toBe('\\operatorname{A1}')
 		})
 
 		test.skip('protect against bad reference', () => {
@@ -124,7 +124,7 @@ describe('value code generator', () => {
 			block.setFieldValue(')', 'CELL')
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('A1')
+			expect(code[0]).toBe('\\operatorname{A1}')
 		})
 	})
 

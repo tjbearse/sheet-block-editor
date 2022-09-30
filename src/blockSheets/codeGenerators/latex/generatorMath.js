@@ -28,7 +28,7 @@ Latex['sheets_arithmetic'] = function(block) {
 		{
 			const value_a = Latex.valueToCode(block, 'A', Latex.ORDER_EXPONENTIATION);
 			const value_b = Latex.valueToCode(block, 'B', Latex.ORDER_NONE);
-			return [`{${value_a}}^{${value_b}}`, Latex.ORDER_EXPONENTIATION]
+			return [`${value_a}^${value_b}`, Latex.ORDER_EXPONENTIATION]
 		}
 		default:
 			throw new Error(`unknown operator ${value_op}`)
@@ -36,7 +36,7 @@ Latex['sheets_arithmetic'] = function(block) {
 	const value_a = Latex.valueToCode(block, 'A', precedence);
 	const value_b = Latex.valueToCode(block, 'B', precedence);
 	
-	let format = (a,b,op) => `{${a}}${op}{${b}}`
+	let format = (a,b,op) => `${a} ${op} ${b}`
 	return [format(value_a, value_b, op), precedence]
 }
 

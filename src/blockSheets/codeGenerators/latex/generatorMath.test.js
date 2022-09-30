@@ -71,7 +71,7 @@ describe('math code generator', () => {
 			const right = addNumberBlock(2, block.getInput('B'))
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('1 / 2')
+			expect(code[0]).toBe('\\frac{1}{2}')
 		})
 
 		test('build an exponent', () => {
@@ -82,7 +82,7 @@ describe('math code generator', () => {
 			const right = addNumberBlock(2, block.getInput('B'))
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('1 ^ 2')
+			expect(code[0]).toBe('1^2')
 		})
 	})
 
@@ -94,5 +94,4 @@ describe('math code generator', () => {
 		const code = Latex.blockToCode(block);
 		expect(code[0]).toBe('-2')
 	})
-
 })

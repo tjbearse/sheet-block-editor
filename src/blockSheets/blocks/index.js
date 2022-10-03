@@ -5,6 +5,8 @@ import './Math/blocks'
 import './Text/blocks'
 import './Values/blocks'
 
+import { createBlockFromArrayDef } from './formatGeneratedFunctions'
+
 import blocks from './generated/blocks.json'
 
-Blockly.defineBlocksWithJsonArray(blocks)
+blocks.forEach(d => createBlockFromArrayDef(d))

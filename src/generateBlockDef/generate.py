@@ -85,7 +85,13 @@ def formatArgs(name, args):
 
     return message, bArgs
     
-def buildConfig(typeName, name, style, args, descr, todoNote=None):
+def buildBlockSlimJSONConfig(typeName, name, style, args, descr, todoNote=None):
+    helpText= descr
+    inline = len(args) < 2
+    argNames = list(map(lambda x : x[0], args))
+    return [name, style, inline, helpText, argNames]
+
+def buildBlockJSONConfig(typeName, name, style, args, descr, todoNote=None):
     helpText= descr
     message, args0 = formatArgs(name, args)
     block = {
@@ -161,7 +167,10 @@ def main():
     parser.add_argument('--blocks', action='store_true')
     parser.add_argument('--toolbox', action='store_true')
     parser.add_argument('--theme', action='store_true')
+    parser.add_argument('--basicOnly', action='store_true')
+
     options = parser.parse_args()
+    limitToBasic = options.basicOnly
     if options.all:
         options.blocks = True
         options.toolbox = True
@@ -183,8 +192,8 @@ def main():
         success = 0
         total = 0
         for category, name, basic, signature, descr in reader:
-            if not basic:
-                # touch category so it exists
+            if not basic and limitToBasic:
+                # skip, but touch category so it exists
                 categories[category]
                 continue
             typeName= "sheets_" + name.replace(".", "_")
@@ -201,7 +210,7 @@ def main():
                 args = []
 
             blocks.append(
-                buildConfig(typeName, name, style, args, descr, todoNote)
+                buildBlockSlimJSONConfig(typeName, name, style, args, descr, todoNote)
             )
             categories[category].append(typeName)
 
@@ -216,17 +225,17 @@ def main():
         if options.blocks:
             fp = genPath / "blocks.json"
             with fp.open(mode='w') as bf:
-                json.dump(blocks, bf, indent=4)
+                json.dump(blocks, bf)
 
         if options.toolbox:
             fp = genPath / "toolbox.json"
             with fp.open(mode='w') as tf:
-                json.dump(formatAsToolbox(categories), tf, indent=4)
+                json.dump(formatAsToolbox(categories), tf)
 
         if options.theme:
             p = genPath / 'theme.json'
             with p.open(mode='w') as tf:
-                json.dump(buildTheme(categories), tf, indent=4)
+                json.dump(buildTheme(categories), tf)
 
         print(f"built {success} of {total}. {total-success} errors")
 

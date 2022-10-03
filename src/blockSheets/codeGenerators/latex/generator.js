@@ -4,31 +4,30 @@ import './generatorLogical.js'
 import './generatorText.js'
 import generatorOverride from './fnGeneratorOverrides'
 import blocks from '../../blocks/generated/blocks.json'
+import { formatFunctionName } from '../../blocks/formatGeneratedFunctions'
 
 import Latex from './latex'
-const prefix = 'sheets_'
 
-const getGenerator = (name, args) => (block) => {
-	const value_vars = args.map(arg => Latex.valueToCode(block, arg, Latex.ORDER_NONE))
-	const code = `\\operatorname{${name}}(${value_vars.join(', ')})`
+function generateFormula(name,block) {
+	const realInputs = block.inputList.filter(i => i.connection)
+	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
+	const code = `\\operatorname{${name}}(${valueVars.join(', ')})`
 	return [code, Latex.ORDER_ATOMIC]
 }
+
+const getGenerator = (name) => (block) => generateFormula(name,block);
 
 const createFunctionGenerators = (blocks) => {
 	blocks.forEach(blockDef => {
 		let generator;
-		const name = blockDef.type.substring(prefix.length)
+		const name = blockDef[0]
 
 		if (name in generatorOverride) {
 			generator = generatorOverride[name];
 		} else {
-			const args = blockDef.args0
-				.filter(arg => arg.type === 'input_value')
-				.map(arg => arg.name)
-
-			generator = getGenerator(name, args);
+			generator = getGenerator(name);
 		}
-		Latex[blockDef.type] = generator;
+		Latex[formatFunctionName(name)] = generator;
 	})
 }
 

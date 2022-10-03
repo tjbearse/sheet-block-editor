@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			const conn = root.getInput('FORMULA').connection;
 			const formulaBlocks = parseAndBuild(formula, workspace)
 			if (conn.isConnected()) {
-				conn.targetBlock().dispose(true);
+				// false -> do not 'healstack', i.e. do recursive dispose
+				conn.targetBlock().dispose(false);
 			}
 			if (formulaBlocks) {
 				conn.connect(formulaBlocks.outputConnection)

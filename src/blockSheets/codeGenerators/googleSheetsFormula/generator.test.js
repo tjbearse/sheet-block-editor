@@ -56,7 +56,7 @@ describe('math code generator', () => {
 				<block type="sheets_formula" id="root">
 					<value name="FORMULA">
 						<block type="sheets_ABS" id="root">
-							<value name="VALUE">
+							<value name="ARG0">
 								<block type="sheets_number" id="2">
 									<field name="NUM">2</field>
 								</block>
@@ -73,12 +73,12 @@ describe('math code generator', () => {
 				<block type="sheets_formula" id="root">
 					<value name="FORMULA">
 						<block type="sheets_CONCAT" id="root">
-							<value name="VALUE1">
+							<value name="ARG0">
 								<block type="sheets_text" id="2">
 									<field name="TEXT">a</field>
 								</block>
 							</value>
-							<value name="VALUE2">
+							<value name="ARG1">
 								<block type="sheets_text" id="2">
 									<field name="TEXT">b</field>
 								</block>
@@ -95,12 +95,12 @@ describe('math code generator', () => {
 				<block type="sheets_formula" id="root">
 					<value name="FORMULA">
 						<block type="sheets_CONCAT" id="root">
-							<value name="VALUE2">
+							<value name="ARG1">
 								<block type="sheets_text" id="2">
 									<field name="TEXT">b</field>
 								</block>
 							</value>
-							<value name="VALUE1">
+							<value name="ARG0">
 								<block type="sheets_text" id="2">
 									<field name="TEXT">a</field>
 								</block>
@@ -123,7 +123,7 @@ describe('math code generator', () => {
 							<field name="OP">ADD</field>
 							<value name="A">
 								<block type="sheets_ABS" id="root">
-									<value name="VALUE">
+									<value name="ARG0">
 										<block type="sheets_number" id="2">
 											<field name="NUM">2</field>
 										</block>

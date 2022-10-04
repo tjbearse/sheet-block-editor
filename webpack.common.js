@@ -28,7 +28,23 @@ module.exports = [
 	name: 'webapp',
 	target: 'web',
 	entry: {
-		webapp: './src/webapp.js',
+		webapp: {
+			import: './src/webapp.js',
+			dependOn: ['blockly', 'blockSheets'],
+		},
+		appscript: {
+			import: './src/appscript/appscript.js',
+			dependOn: ['blockly', 'blockSheets'],
+		},
+		blockly: './src/blockly.js',
+		blockSheets: {
+			import: './src/blockSheets/index.js',
+			dependOn: 'blockly',
+		}
+	},
+	optimization: {
+		// due to multiple entrypoints on a page https://bundlers.tooling.report/code-splitting/multi-entry/ see "webpack"
+		runtimeChunk: 'single',
 	},
 	output: {
 		path: path.resolve(__dirname, 'build/webapp'),
@@ -57,31 +73,7 @@ module.exports = [
 					// Copy over media resources from the Blockly package
 					from: path.resolve(__dirname, './node_modules/blockly/media'),
 					to: path.resolve(__dirname, 'build/webapp/media')
-				}
-			]
-		})
-	],
-}, {
-	name: 'googleapp',
-	target: 'web',
-	entry: {
-		appscript: './src/appscript/appscript.js',
-	},
-	output: {
-		path: path.resolve(__dirname, 'build/appscript'),
-		filename: '[name].js'
-	},
-	resolve: {
-		alias: {
-			// 'blockly' is a kitchen sink module that we don't want
-			// use our minimal import instead
-			blockly$: path.resolve(__dirname, "./src/blockly.js"),
-		},
-	},
-	plugins: [
-		new webpack.optimize.ModuleConcatenationPlugin(),
-		new CopyPlugin({
-			patterns: [
+				},
 				{
 					from: path.resolve(__dirname, 'public/appscript.html'),
 					to: path.resolve(__dirname, 'build/appscript/index.html')
@@ -92,7 +84,7 @@ module.exports = [
 					to: path.resolve(__dirname, 'build/appscript/media')
 				}
 			]
-		}),
+		})
 	],
 }
 ];

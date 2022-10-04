@@ -1,11 +1,11 @@
 import blockly from 'blockly'
 import initWorkspace from './workspace'
-import { parseAndBuild } from './blockSheets'
-import GoogleSheets from './blockSheets/codeGenerators/googleSheetsFormula'
-import Latex from './blockSheets/codeGenerators/latex'
 
-document.addEventListener("DOMContentLoaded", function () {
-    const [workspace, root] = initWorkspace()
+document.addEventListener("DOMContentLoaded", async function () {
+	const { default: GoogleSheets } = await import(/* webpackPreload: true */ './blockSheets/codeGenerators/googleSheetsFormula');
+	const { default: Latex } = await import(/* webpackPreload: true */ './blockSheets/codeGenerators/latex');
+	const { parseAndBuild, toolbox, theme } = await import(/* webpackPreload: true */ './blockSheets');
+    const [workspace, root] = await initWorkspace()
 
     const toCode = document.getElementById('toCode');
     const toBlocks = document.getElementById('toBlocks');

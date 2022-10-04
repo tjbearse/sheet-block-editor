@@ -1,13 +1,9 @@
-import blockly from 'blockly'
-import './blockSheets';
-import toolbox from './blockSheets/defaultToolbox'
-import theme from './theme'
-
-import * as En from 'blockly/msg/en';
+import blockly, { En } from 'blockly'
 blockly.setLocale(En);
 
 
-export const initWorkspace = (id = 'blocklyDiv') => {
+export const initWorkspace = async (id = 'blocklyDiv') => {
+	const { toolbox, theme } = await import('./blockSheets');
     const ws = blockly.inject(id,
         {
             toolbox: toolbox,

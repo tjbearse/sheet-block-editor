@@ -12,7 +12,6 @@ If you encounter bugs or would like to suggest an improvement please create an i
 
 ### Setup
 
-1. Generate block definitions: `(cd src/generateBlockDef && python3 generate.py --all)`
 2. Install node modules `npm i`
 3. Start the webserver `npm start`. Open http://localhost:3000/
 
@@ -66,3 +65,9 @@ build
 1. Checkout and pull main
 2. Clean the build directory `rm -r build`
 3. Build and deploy with `npm run gh-pages`
+
+
+### Other Generated
+
+- Generate block definitions: `(cd src/generateBlockDef && python3 generate.py --all)`
+- Generate src/blockSheets/parsing/formula.js `(cd src/blockSheets/parsing && node --experimental-modules --no-warnings ./buildFormula.mjs)`

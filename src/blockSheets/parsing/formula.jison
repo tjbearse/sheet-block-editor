@@ -1,8 +1,4 @@
 /*
-regenerate formula.js with
-node --experimental-modules --no-warnings ./buildFormula.mjs
-*/
-/*
 referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a-list-of-commands-into-an-array-of-objects
 */
 %lex

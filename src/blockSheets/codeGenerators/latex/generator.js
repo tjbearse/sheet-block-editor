@@ -11,6 +11,7 @@ import Latex from './latex'
 function generateFormula(name,block) {
 	const realInputs = block.inputList.filter(i => i.connection)
 	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
+	name = name.replaceAll('_', '\\_');
 	const code = `\\operatorname{${name}}(${valueVars.join(', ')})`
 	return [code, Latex.ORDER_ATOMIC]
 }

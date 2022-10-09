@@ -22,7 +22,7 @@ export function createBlockFromArrayDef(def) {
 				// TODO handle variadic / optional args
 				this.appendValueInput(`ARG${i}`)
 					.setCheck(null)
-					.appendField(arg.name);
+					.appendField(arg);
 			}
 		}
 	};

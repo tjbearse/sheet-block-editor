@@ -1,7 +1,7 @@
 import blockly from 'blockly'
-import initWorkspace from './workspace'
+import initWorkspace from '../workspace'
 
-import { parseAndBuild, toolbox, theme, GoogleSheets, Latex } from './blockSheets'
+import { parseAndBuild, toolbox, theme, GoogleSheets, Latex } from '../blockSheets'
 
 document.addEventListener("DOMContentLoaded", initialize);
 

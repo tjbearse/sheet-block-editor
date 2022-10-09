@@ -9,7 +9,7 @@ const update = {
 
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, 'public/appscript.html'),
+			template: path.resolve(__dirname, 'src/appscript/index.html'),
 			filename: path.resolve(__dirname, 'build/appscript/index.html'),
 			inject: 'body',
 			publicPath: 'https://tjbearse.github.io/sheet-block-editor',

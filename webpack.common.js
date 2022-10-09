@@ -29,13 +29,13 @@ module.exports = {
 	target: 'web',
 	entry: {
 		webapp: {
-			import: './src/webapp.js',
+			import: './src/webapp/index.js',
 			dependOn: ['blockly', 'blockSheets'],
 			filename: 'index.js',
 		},
 		// appscript frontend is served from the gh-pages
 		appscript: {
-			import: './src/appscript/appscript.js',
+			import: './src/appscript/index.js',
 			dependOn: ['blockly', 'blockSheets'],
 			filename: 'appscript.js',
 		},
@@ -71,7 +71,7 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{
-					from: path.resolve(__dirname, 'public/style.css'),
+					from: path.resolve(__dirname, 'src/style.css'),
 					to: path.resolve(__dirname, 'build/style.css')
 				},
 				{
@@ -82,7 +82,7 @@ module.exports = {
 			]
 		}),
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, 'public/webapp.html'),
+			template: path.resolve(__dirname, 'src/webapp/index.html'),
 			filename: path.resolve(__dirname, 'build/index.html'),
 			chunks: ['blockly', 'blockSheets', 'webapp'],
 		}),

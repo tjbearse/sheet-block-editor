@@ -48,9 +48,9 @@ Wepack configs:
 ```
 build
 ├── appscript
-│   ├── index.html (dev, appscript) - deployed to appscript bundle
-│   ├── appscript.gs (appscript) - appscript for controlling the modal integration
-│   └── test.html (dev) - simulates the modal integration
+│   ├── index.html (dev, appscript) - deployed to appscript bundle
+│   ├── appscript.gs (appscript) - appscript for controlling the modal integration
+│   └── test.html (dev) - simulates the modal integration
 ├── appscript.js - entry point for the appscript page, hosted on github pages
 ├── blockSheets.js - blocks, parsers, and blockly config for sheet blocks.
 ├── blockly.js - blockly library

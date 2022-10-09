@@ -233,7 +233,7 @@ describe('math code generator', () => {
 			expect(code).toBe('=1 * 2 + 3 * 4')
 		})
 
-		test.skip('addition alongside addition', () => {
+		test('addition alongside addition', () => {
 			addXML(`
 				<block type="sheets_formula" id="root">
 					<value name="FORMULA">

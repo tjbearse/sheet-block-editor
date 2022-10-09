@@ -32,12 +32,10 @@ export const mkUnary = (symb, right) => ({
 // values
 test('parses number values', () => {
 	expect(parser.parse('=1')).toTreeEqual(mkValue(1))
-	// FIXME there is a conflict between unary operator and negative number values
-	// I have not been able to define a grammar that allows both to exist
-	// maybe allow only 1 symbol in front of a number?
-	// or post process in builder to consolidate
 	expect(parser.parse('=-1')).toTreeEqual(mkValue(-1))
+	expect(parser.parse('=---1')).toTreeEqual(mkValue(-1))
 	expect(parser.parse('=+1')).toTreeEqual(mkValue(1))
+	expect(parser.parse('=-+-1')).toTreeEqual(mkValue(1))
 	expect(parser.parse('=1.2')).toTreeEqual(mkValue(1.2))
 })
 
@@ -49,8 +47,8 @@ test('parses string values', () => {
 	expect(parser.parse('="1"')).toTreeEqual(mkValue("1"))
 	expect(parser.parse('=""')).toTreeEqual(mkValue(""))
 })
-test.skip('parses string values with inner quotes', () => {
-	expect(parser.parse('=""""')).toTreeEqual(mkValue("\""))
+test.skip('parses string values with inner quotes (github issue #20)', () => {
+	expect(parser.parse('=".""."')).toTreeEqual(mkValue(".\"."))
 })
 
 test('parses bool values', () => {
@@ -69,7 +67,21 @@ test('parses cell ranges', () => {
 	expect(parser.parse('=A1:B')).toTreeEqual(mkRange('A1:B'))
 })
 
-test.skip('parses array literals', () => {
+test.skip('parses cell ranges with only rows (github issue #21)', () => {
+	expect(parser.parse('=1:1')).toTreeEqual(mkRange('1:1'))
+})
+
+test.skip('parses cell ranges with fixed parts (github issue #15)', () => {
+	expect(parser.parse('=$A1')).toTreeEqual(mkRange('$A1'))
+	expect(parser.parse('=A$1')).toTreeEqual(mkRange('A$1'))
+	expect(parser.parse('=$A$1')).toTreeEqual(mkRange('$A$1'))
+	expect(parser.parse('=$AZ$123')).toTreeEqual(mkRange('$AZ$123'))
+	expect(parser.parse('=$A$1:$B$2')).toTreeEqual(mkRange('$A$1:$B$2'))
+	expect(parser.parse('=$1:$1')).toTreeEqual(mkRange('$1:$1'))
+	expect(parser.parse('=$B:$B')).toTreeEqual(mkRange('$B:$B'))
+})
+
+test.skip('parses array literals (github issue #12)', () => {
 	expect(parser.parse('={1}')).toTreeEqual(true)
 	expect(parser.parse('={1;2}')).toTreeEqual(true)
 	expect(parser.parse('={1,2}')).toTreeEqual(true)

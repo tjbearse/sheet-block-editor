@@ -119,7 +119,7 @@ describe('value code generator', () => {
 			expect(code[0]).toBe('\\operatorname{A1}')
 		})
 
-		test.skip('protect against bad reference', () => {
+		test.skip('protect against bad reference (github issue #13)', () => {
 			const block = workspace.newBlock('sheets_cell')
 			block.setFieldValue(')', 'CELL')
 

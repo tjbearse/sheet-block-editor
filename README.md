@@ -63,8 +63,9 @@ build
 ### Publishing GH Pages Site
 
 1. Checkout and pull main
-2. Clean the build directory `rm -r build`
-3. Build and deploy with `npm run gh-pages`
+2. Run tests `npm run test`
+3. Clean the build directory `rm -r build`
+4. Build and deploy with `npm run gh-pages`
 
 
 ### Other Generated

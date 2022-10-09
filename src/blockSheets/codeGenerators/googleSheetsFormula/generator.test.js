@@ -112,6 +112,74 @@ describe('math code generator', () => {
 			const code = GoogleSheets.workspaceToCode(workspace);
 			expect(code).toBe('=CONCAT("a", "b")')
 		})
+		test('collapse when no arguments / all empty', () => {
+			addXML(`
+				<block type="sheets_formula" id="root">
+					<value name="FORMULA">
+						<block type="sheets_CONCAT" id="root">
+						</block>
+					</value>
+				</block>
+			`)
+			const code = GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=CONCAT(, )')
+		})
+		test('add spacer for leading empty arguments', () => {
+			addXML(`
+				<block type="sheets_formula" id="root">
+					<value name="FORMULA">
+						<block type="sheets_CONCAT" id="root">
+							<value name="ARG1">
+								<block type="sheets_text" id="2">
+									<field name="TEXT">b</field>
+								</block>
+							</value>
+						</block>
+					</value>
+				</block>
+			`)
+			const code = GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=CONCAT(, "b")')
+		})
+		test.skip('collapse trailing empty arguments (github issue #7)', () => {
+			addXML(`
+				<block type="sheets_formula" id="root">
+					<value name="FORMULA">
+						<block type="sheets_CONCAT" id="root">
+							<value name="ARG0">
+								<block type="sheets_text" id="2">
+									<field name="TEXT">a</field>
+								</block>
+							</value>
+						</block>
+					</value>
+				</block>
+			`)
+			const code = GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=CONCAT("a")')
+		})
+		test('add spacer for empty arguments in the middle', () => {
+			addXML(`
+				<block type="sheets_formula" id="root">
+					<value name="FORMULA">
+						<block type="sheets_BASE" id="root">
+							<value name="ARG0">
+								<block type="sheets_number" id="2">
+									<field name="NUM">1</field>
+								</block>
+							</value>
+							<value name="ARG2">
+								<block type="sheets_number" id="3">
+									<field name="NUM">2</field>
+								</block>
+							</value>
+						</block>
+					</value>
+				</block>
+			`)
+			const code = GoogleSheets.workspaceToCode(workspace);
+			expect(code).toBe('=BASE(1, , 2)')
+		})
 	})
 
 	describe('precedence', () => {

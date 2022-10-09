@@ -1,11 +1,11 @@
 import blockly from 'blockly'
 import initWorkspace from './workspace'
 
-import { parseAndBuild, toolbox, theme } from './blockSheets'
-import GoogleSheets from './blockSheets/codeGenerators/googleSheetsFormula';
-import Latex from './blockSheets/codeGenerators/latex';
+import { parseAndBuild, toolbox, theme, GoogleSheets, Latex } from './blockSheets'
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", initialize);
+
+async function initialize() {
     const [workspace, root] = await initWorkspace()
 
     const toCode = document.getElementById('toCode');
@@ -69,5 +69,4 @@ document.addEventListener("DOMContentLoaded", async function () {
 	}
 
 	workspace.addChangeListener(onUpdate);
-
-});
+}

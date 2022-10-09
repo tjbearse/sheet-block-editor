@@ -1,30 +1,37 @@
 import blockly from 'blockly'
 import initWorkspace from '../workspace'
-import { parseAndBuild } from '../blockSheets'
-import { getFormula, submitFormula } from './googleAPI'
+import { parseAndBuild, GoogleSheets } from '../blockSheets'
+import { getFormula, submitFormula } from 'googleAPI'
 
-const lang = 'GoogleSheets';
-
-document.addEventListener("DOMContentLoaded", function () {
-    const workspace = initWorkspace()
+document.addEventListener("DOMContentLoaded", async function () {
+    const [workspace, root] = await initWorkspace()
+	getFormula()
+		.then((formula) => {
+			formulaOnToRoot(formula);
+		})
 
     const submit = document.getElementById('submit');
     const formulaText = document.getElementById('formulaText');
 
-	getFormula()
-		.then((formula) => {
-			workspace.clear()
-			parseAndBuild(formula, workspace)
-			workspace.cleanUp()
-		})
-
 	workspace.addChangeListener(() => {
-		formulaText.value = blockly[lang].workspaceToCode(workspace);
+		formulaText.value = GoogleSheets.workspaceToCode(workspace);
 	})
 
 
     submit.addEventListener('click', function () {
-        const formula = blockly[lang].workspaceToCode(workspace);
+        const formula = GoogleSheets.workspaceToCode(workspace);
 		submitFormula(formula)
     })
+
+	function formulaOnToRoot(formula) {
+		const conn = root.getInput('FORMULA').connection;
+		const formulaBlocks = parseAndBuild(formula, workspace)
+		if (conn.isConnected()) {
+			// false -> do not 'healstack', i.e. do recursive dispose
+			conn.targetBlock().dispose(false);
+		}
+		if (formulaBlocks) {
+			conn.connect(formulaBlocks.outputConnection)
+		}
+	}
 });

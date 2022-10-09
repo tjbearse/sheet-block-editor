@@ -1,31 +1,36 @@
-<div id="container">
-	<style>
-		html, body, #container {
-			height: 100%;
-			margin: 0;
-		}
-		#blocklyDiv {
-			height: 100%;
-		}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style>
+			html, body, #container {
+				height: 100%;
+				margin: 0;
+			}
+			#blocklyDiv {
+				height: 100%;
+			}
 
-		#formulaText {
-			flex-grow: 1;
-		}
-		#formulaBar {
-			height: 32px;
-			display: flex;
-			flex-direction: row;
-		}
-	</style>
+			#formulaText {
+				flex-grow: 1;
+			}
+			#formulaBar {
+				height: 32px;
+				display: flex;
+				flex-direction: row;
+			}
+		</style>
 
-	<div id="formulaBar">
-		<input value="" id="formulaText" readonly/>
-		<button id="submit">submit</button>
-	</div>
-	<div id='blocklyDiv'>
-	</div>
+	</head>
+	<body>
+		<div id="container">
+			<div id="formulaBar">
+				<input value="" id="formulaText" readonly/>
+				<button id="submit">submit</button>
+			</div>
+			<div id='blocklyDiv'>
+			</div>
 
-	<!-- TODO auto inline this js -->
-	<script type='text/javascript' src='./appscript.js'></script>
-
-</div>
+		</div>
+	</body>
+</html>

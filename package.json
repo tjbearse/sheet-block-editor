@@ -6,10 +6,11 @@
 		"audit": "npm audit fix",
 		"update": "npm update",
 		"start": "webpack-dev-server --config webpack.dev.js",
-		"build": "webpack --config webpack.prod.js",
-		"build-size": "webpack --config webpack.prod.js --json > /tmp/webpackStats.json && sleep .1 | npx webpack-bundle-analyzer /tmp/webpackStats.json",
+		"build-pages": "webpack --config webpack.pages.js",
+		"build-appscript": "webpack --config webpack.appscript.js",
+		"build-size": "webpack --config webpack.pages.js --json > /tmp/webpackStats.json && sleep .1 | npx webpack-bundle-analyzer /tmp/webpackStats.json",
 		"test": "jest",
-		"pages": "webpack --config webpack.prod.js --config-name webapp && gh-pages -d build/webapp"
+		"pages": "webpack --config webpack.pages.js --config-name webapp && gh-pages -d build/webapp"
 	},
 	"dependencies": {
 		"blockly": "^3.20200924.1"
@@ -20,6 +21,7 @@
 		"babel-preset-env": "^1.7.0",
 		"copy-webpack-plugin": "^6.3.2",
 		"gh-pages": "^3.2.3",
+		"html-webpack-plugin": "^5.5.0",
 		"jest": "^27.0.4",
 		"jison": "^0.4.18",
 		"webpack": "^5.0.0",

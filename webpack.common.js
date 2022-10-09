@@ -22,32 +22,39 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = [
-{
+module.exports = {
 	name: 'webapp',
 	target: 'web',
 	entry: {
 		webapp: {
 			import: './src/webapp.js',
 			dependOn: ['blockly', 'blockSheets'],
+			filename: 'index.js',
 		},
+		// appscript frontend is served from the gh-pages
 		appscript: {
 			import: './src/appscript/appscript.js',
 			dependOn: ['blockly', 'blockSheets'],
+			filename: 'appscript.js',
 		},
-		blockly: './src/blockly.js',
+		blockly: {
+			import: './src/blockly.js',
+			filename: 'blockly.js',
+		},
 		blockSheets: {
 			import: './src/blockSheets/index.js',
+			filename: 'blockSheets.js',
 			dependOn: 'blockly',
-		}
+		},
 	},
 	optimization: {
 		// due to multiple entrypoints on a page https://bundlers.tooling.report/code-splitting/multi-entry/ see "webpack"
 		runtimeChunk: 'single',
 	},
 	output: {
-		path: path.resolve(__dirname, 'build/webapp'),
+		path: path.resolve(__dirname, 'build'),
 		filename: '[name].js'
 	},
 	resolve: {
@@ -55,6 +62,8 @@ module.exports = [
 			// 'blockly' is a kitchen sink module that we don't want
 			// use our minimal import instead
 			blockly$: path.resolve(__dirname, "./src/blockly.js"),
+
+			googleAPI: path.resolve(__dirname, 'src/appscript/googleAPI.js'),
 		},
 	},
 	plugins: [
@@ -62,29 +71,20 @@ module.exports = [
 		new CopyPlugin({
 			patterns: [
 				{
-					from: path.resolve(__dirname, 'public/webapp.html'),
-					to: path.resolve(__dirname, 'build/webapp/index.html')
-				},
-				{
 					from: path.resolve(__dirname, 'public/style.css'),
-					to: path.resolve(__dirname, 'build/webapp/style.css')
+					to: path.resolve(__dirname, 'build/style.css')
 				},
 				{
 					// Copy over media resources from the Blockly package
 					from: path.resolve(__dirname, './node_modules/blockly/media'),
-					to: path.resolve(__dirname, 'build/webapp/media')
+					to: path.resolve(__dirname, 'build/media')
 				},
-				{
-					from: path.resolve(__dirname, 'public/appscript.html'),
-					to: path.resolve(__dirname, 'build/appscript/index.html')
-				},
-				{
-					// Copy over media resources from the Blockly package
-					from: path.resolve(__dirname, './node_modules/blockly/media'),
-					to: path.resolve(__dirname, 'build/appscript/media')
-				}
 			]
-		})
+		}),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, 'public/webapp.html'),
+			filename: path.resolve(__dirname, 'build/index.html'),
+			chunks: ['blockly', 'blockSheets', 'webapp'],
+		}),
 	],
-}
-];
+};

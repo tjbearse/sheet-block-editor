@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style>
+			/* TODO need to un-hardcode the modal sizes and mimic the responsive-ness */
+			.modal-dialog-bg {
+				background-attachment: scroll;
+				background-clip: border-box;
+				background-color: rgb(0, 0, 0);
+				background-image: none;
+				background-origin: padding-box;
+				background-position-x: 0%;
+				background-position-y: 0%;
+				background-repeat: repeat;
+				background-size: auto;
+				color: rgb(0, 0, 0);
+				font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+				font-size: 13px;
+				font-weight: 400;
+				height: 100vh;
+				left: 0px;
+				opacity: 0.6;
+				position: absolute;
+				top: 0px;
+				width: 100vw;
+				z-index: 998;
+			}
+			.modal-dialog {
+				left: 755px;
+				top: 223.5px;
+
+				background-attachment: scroll;
+				background-clip: border-box;
+				background-color: rgb(255, 255, 255);
+				background-image: none;
+				background-origin: padding-box;
+				background-position-x: 0%;
+				background-position-y: 0%;
+				background-repeat: repeat;
+				background-size: auto;
+				border-bottom-color: rgba(0, 0, 0, 0);
+				border-bottom-left-radius: 8px;
+				border-bottom-right-radius: 8px;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				border-image-outset: 0;
+				border-image-repeat: stretch;
+				border-image-slice: 100%;
+				border-image-source: none;
+				border-image-width: 1;
+				border-left-color: rgba(0, 0, 0, 0);
+				border-left-style: solid;
+				border-left-width: 1px;
+				border-right-color: rgba(0, 0, 0, 0);
+				border-right-style: solid;
+				border-right-width: 1px;
+				border-top-color: rgba(0, 0, 0, 0);
+				border-top-left-radius: 8px;
+				border-top-right-radius: 8px;
+				border-top-style: solid;
+				border-top-width: 1px;
+				box-shadow: rgba(60, 64, 67, 0.15) 0px 4px 8px 3px;
+				color: rgb(60, 64, 67);
+				font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+				font-size: 13px;
+				font-weight: 400;
+				outline-color: rgb(60, 64, 67);
+				outline-style: none;
+				outline-width: 0px;
+				padding-bottom: 24px;
+				padding-left: 24px;
+				padding-right: 24px;
+				padding-top: 24px;
+				position: absolute;
+				z-index: 1003;
+			}
+
+			.modal-title {
+				background-color: rgb(255, 255, 255);
+				color: rgb(0, 0, 0);
+				cursor: default;
+				font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+				font-size: 22px;
+				font-weight: 400;
+				line-height: 24px;
+				margin-bottom: 16px;
+				margin-left: 0px;
+				margin-right: 0px;
+				margin-top: 0px;
+				position: relative;
+			}
+
+			.modal-content {
+				background-color: rgb(255, 255, 255);
+				color: rgb(60, 64, 67);
+				font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				font-weight: 400;
+				height: 800px;
+				line-height: 19.6px;
+				overflow-wrap: break-word;
+				padding-bottom: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				padding-top: 0px;
+				width: 1000px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="modal-dialog-bg" aria-hidden="true"></div>
+		<div class="modal-dialog">
+			<div class="modal-title">Title</div>
+			<div class="modal-content">
+				<iframe
+					width="1000px"
+					height="800px"
+					style="border:none;"
+					src="./index.html"
+				/>
+			</div>
+		</div>
+	</body>
+</html>
+

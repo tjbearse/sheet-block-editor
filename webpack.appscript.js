@@ -2,39 +2,27 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const common = require('./webpack.common.js');
 
 const update = {
-	mode: 'development',
-	devServer: {
-		port: 3000,
-	},
-	resolve: {
-		alias: {
-			'googleAPI': path.resolve(__dirname, 'src/appscript/mockGoogleAPI.js'),
-		},
-	},
+	mode: 'production',
 	plugins: [
-		// add in Appscript for mock testing
-		new CopyPlugin({
-			patterns: [
-				{
-					from: path.resolve(__dirname, 'public/appscriptMock.html'),
-					to: path.resolve(__dirname, 'build/appscript/test.html')
-				},
-			]
-		}),
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, 'public/appscript.html'),
 			filename: path.resolve(__dirname, 'build/appscript/index.html'),
 			inject: 'body',
-			// publicPath: 'https://tjbearse.github.io/sheet-block-editor',
+			publicPath: 'https://tjbearse.github.io/sheet-block-editor',
 			chunks: ['blockly', 'blockSheets', 'appscript'],
-			publicPath: '/',
-			base: '/',
+			base: 'https://tjbearse.github.io/sheet-block-editor/',
 		}),
-	],
-}
-
+		new CopyPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, 'src/appscript/sheetMain.gs'),
+					to: path.resolve(__dirname, 'build/appscript/sheetMain.gs')
+				},
+			],
+		}),
+	]
+};
 module.exports = merge(common, update);

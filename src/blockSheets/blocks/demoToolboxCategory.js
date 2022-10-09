@@ -18,7 +18,7 @@ const percentChangeXml = `
 		</value>
 		<value name="B">
 			<block type="sheets_ABS">
-				<value name="VALUE">
+				<value name="ARG0">
 					<block type="sheets_cell">
 						<field name="CELL">b2</field>
 					</block>
@@ -44,17 +44,17 @@ const quadraticFormula = ` <block type="sheets_arithmetic">
 			</value>
 			<value name="B">
 				<block type="sheets_SQRT">
-					<value name="VALUE">
+					<value name="ARG0">
 						<block type="sheets_arithmetic">
 							<field name="OP">MINUS</field>
 							<value name="A">
 								<block type="sheets_POW">
-									<value name="BASE">
+									<value name="ARG0">
 										<block type="sheets_cell">
 											<field name="CELL">b1</field>
 										</block>
 									</value>
-									<value name="EXPONENT">
+									<value name="ARG1">
 										<block type="sheets_number">
 											<field name="NUM">2</field>
 										</block>

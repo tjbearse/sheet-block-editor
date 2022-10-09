@@ -67,6 +67,17 @@ build
 3. Clean the build directory `rm -r build`
 4. Build and deploy with `npm run pages`
 
+### Publishing Appscript
+(requires access to the appscript project)
+
+1. Checkout and pull main
+2. Run tests `npm run test`
+3. Clean the build directory `rm -r build`
+4. Build `npm run build-appscript`
+5. Copy files to the GAS Sheet Block Editor project
+   - `build/appscript/sheetsMain.gs` to `sheetMain.gs`
+   - `build/appscript/index.html` to `block.html`
+6. Execute the Test Deployment from the GAS project to use in the test file
 
 ### Other Generated
 

@@ -3,8 +3,6 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"audit": "npm audit fix",
-		"update": "npm update",
 		"start": "webpack-dev-server --config webpack.dev.js",
 		"build-pages": "webpack --config webpack.pages.js",
 		"build-appscript": "webpack --config webpack.appscript.js",

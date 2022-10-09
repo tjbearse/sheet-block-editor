@@ -10,7 +10,7 @@
 		"build-appscript": "webpack --config webpack.appscript.js",
 		"build-size": "webpack --config webpack.pages.js --json > /tmp/webpackStats.json && sleep .1 | npx webpack-bundle-analyzer /tmp/webpackStats.json",
 		"test": "jest",
-		"pages": "webpack --config webpack.pages.js --config-name webapp && gh-pages -d build/webapp"
+		"pages": "webpack --config webpack.pages.js && gh-pages -d build"
 	},
 	"dependencies": {
 		"blockly": "^3.20200924.1"

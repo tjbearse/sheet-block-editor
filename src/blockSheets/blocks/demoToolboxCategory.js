@@ -1,157 +1,7 @@
-const percentChangeXml = `
-	<block type="sheets_arithmetic">
-		<field name="OP">DIVIDE</field>
-		<value name="A">
-			<block type="sheets_arithmetic">
-				<field name="OP">MINUS</field>
-				<value name="A">
-					<block type="sheets_cell">
-						<field name="CELL">a1</field>
-					</block>
-				</value>
-				<value name="B">
-					<block type="sheets_cell">
-						<field name="CELL">b2</field>
-					</block>
-				</value>
-			</block>
-		</value>
-		<value name="B">
-			<block type="sheets_ABS">
-				<value name="ARG0">
-					<block type="sheets_cell">
-						<field name="CELL">b2</field>
-					</block>
-				</value>
-			</block>
-		</value>
-	</block>
-`;
-
-const quadraticFormula = ` <block type="sheets_arithmetic">
-	<field name="OP">DIVIDE</field>
-	<value name="A">
-		<block type="sheets_arithmetic">
-			<field name="OP">ADD</field>
-			<value name="A">
-				<block type="sheets_negate">
-					<value name="A">
-						<block type="sheets_cell">
-							<field name="CELL">b1</field>
-						</block>
-					</value>
-				</block>
-			</value>
-			<value name="B">
-				<block type="sheets_SQRT">
-					<value name="ARG0">
-						<block type="sheets_arithmetic">
-							<field name="OP">MINUS</field>
-							<value name="A">
-								<block type="sheets_POW">
-									<value name="ARG0">
-										<block type="sheets_cell">
-											<field name="CELL">b1</field>
-										</block>
-									</value>
-									<value name="ARG1">
-										<block type="sheets_number">
-											<field name="NUM">2</field>
-										</block>
-									</value>
-								</block>
-							</value>
-							<value name="B">
-								<block type="sheets_arithmetic">
-									<field name="OP">MULTIPLY</field>
-									<value name="A">
-										<block type="sheets_arithmetic">
-											<field name="OP">MULTIPLY</field>
-											<value name="A">
-												<block type="sheets_number">
-													<field name="NUM">4</field>
-												</block>
-											</value>
-											<value name="B">
-												<block type="sheets_cell">
-													<field name="CELL">a1</field>
-												</block>
-											</value>
-										</block>
-									</value>
-									<value name="B">
-										<block type="sheets_cell">
-											<field name="CELL">c1</field>
-										</block>
-									</value>
-								</block>
-							</value>
-						</block>
-					</value>
-				</block>
-			</value>
-		</block>
-	</value>
-	<value name="B">
-		<block type="sheets_arithmetic">
-			<field name="OP">MULTIPLY</field>
-			<value name="A">
-				<block type="sheets_number">
-					<field name="NUM">2</field>
-				</block>
-			</value>
-			<value name="B">
-				<block type="sheets_cell">
-					<field name="CELL">a1</field>
-				</block>
-			</value>
-		</block>
-	</value>
-</block>`
-
-const circumference = `<block type="sheets_arithmetic" x="0" y="0">
-		<field name="OP">MULTIPLY</field>
-		<value name="A">
-			<block type="sheets_arithmetic">
-				<field name="OP">MULTIPLY</field>
-				<value name="A">
-					<block type="sheets_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-				<value name="B">
-					<block type="sheets_PI"></block>
-				</value>
-			</block>
-		</value>
-		<value name="B">
-			<block type="sheets_cell">
-				<field name="CELL">r1</field>
-			</block>
-		</value>
-	</block>`
-
-const circleArea = `<block type="sheets_arithmetic" x="0" y="0">
-		<field name="OP">MULTIPLY</field>
-		<value name="A">
-			<block type="sheets_PI"></block>
-		</value>
-		<value name="B">
-			<block type="sheets_arithmetic">
-				<field name="OP">POWER</field>
-				<value name="A">
-					<block type="sheets_cell">
-						<field name="CELL">r1</field>
-					</block>
-				</value>
-				<value name="B">
-					<block type="sheets_number">
-						<field name="NUM">2</field>
-					</block>
-				</value>
-			</block>
-		</value>
-	</block>`
+import quadraticFormula from './demo/quadratic.json'
+import percentChange from './demo/percentChange.json'
+import circumference from './demo/circumference.json'
+import circleArea from './demo/circleArea.json'
 
 export default {
 	"kind": "category",
@@ -163,7 +13,7 @@ export default {
 		},
 		{
 			"kind": "block",
-			"blockxml": circleArea,
+			...circleArea,
 		},
 		{
 			"kind": "label",
@@ -171,7 +21,7 @@ export default {
 		},
 		{
 			"kind": "block",
-			"blockxml": circumference,
+			...circumference,
 		},
 		{
 			"kind": "label",
@@ -179,7 +29,7 @@ export default {
 		},
 		{
 			"kind": "block",
-			"blockxml": percentChangeXml,
+			...percentChange,
 		},
 		{
 			"kind": "label",
@@ -187,7 +37,7 @@ export default {
 		},
 		{
 			"kind": "block",
-			"blockxml": quadraticFormula,
+			...quadraticFormula,
 		},
 	]
 }

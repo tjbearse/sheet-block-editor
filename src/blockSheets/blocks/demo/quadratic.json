@@ -1,0 +1,143 @@
+{
+	"type": "sheets_arithmetic",
+	"fields": {
+		"OP": "DIVIDE"
+	},
+	"inputs": {
+		"A": {
+			"block": {
+				"type": "sheets_arithmetic",
+				"fields": {
+					"OP": "ADD"
+				},
+				"inputs": {
+					"A": {
+						"block": {
+							"type": "sheets_negate",
+							"inputs": {
+								"A": {
+									"block": {
+										"type": "sheets_cell",
+										"fields": {
+											"CELL": "b1"
+										}
+									}
+								}
+							}
+						}
+					},
+					"B": {
+						"block": {
+							"type": "sheets_SQRT",
+							"inputs": {
+								"ARG0": {
+									"block": {
+										"type": "sheets_arithmetic",
+										"fields": {
+											"OP": "MINUS"
+										},
+										"inputs": {
+											"A": {
+												"block": {
+													"type": "sheets_POW",
+													"inputs": {
+														"ARG0": {
+															"block": {
+																"type": "sheets_cell",
+																"fields": {
+																	"CELL": "b1"
+																}
+															}
+														},
+														"ARG1": {
+															"block": {
+																"type": "sheets_number",
+																"fields": {
+																	"NUM": 2
+																}
+															}
+														}
+													}
+												}
+											},
+											"B": {
+												"block": {
+													"type": "sheets_arithmetic",
+													"fields": {
+														"OP": "MULTIPLY"
+													},
+													"inputs": {
+														"A": {
+															"block": {
+																"type": "sheets_arithmetic",
+																"fields": {
+																	"OP": "MULTIPLY"
+																},
+																"inputs": {
+																	"A": {
+																		"block": {
+																			"type": "sheets_number",
+																			"fields": {
+																				"NUM": 4
+																			}
+																		}
+																	},
+																	"B": {
+																		"block": {
+																			"type": "sheets_cell",
+																			"fields": {
+																				"CELL": "a1"
+																			}
+																		}
+																	}
+																}
+															}
+														},
+														"B": {
+															"block": {
+																"type": "sheets_cell",
+																"fields": {
+																	"CELL": "c1"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"B": {
+			"block": {
+				"type": "sheets_arithmetic",
+				"fields": {
+					"OP": "MULTIPLY"
+				},
+				"inputs": {
+					"A": {
+						"block": {
+							"type": "sheets_number",
+							"fields": {
+								"NUM": 2
+							}
+						}
+					},
+					"B": {
+						"block": {
+							"type": "sheets_cell",
+							"fields": {
+								"CELL": "a1"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

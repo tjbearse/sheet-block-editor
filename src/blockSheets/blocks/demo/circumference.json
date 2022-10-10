@@ -1,0 +1,39 @@
+{
+	"type": "sheets_arithmetic",
+	"fields": {
+		"OP": "MULTIPLY"
+	},
+	"inputs": {
+		"A": {
+			"block": {
+				"type": "sheets_arithmetic",
+				"fields": {
+					"OP": "MULTIPLY"
+				},
+				"inputs": {
+					"A": {
+						"block": {
+							"type": "sheets_number",
+							"fields": {
+								"NUM": 2
+							}
+						}
+					},
+					"B": {
+						"block": {
+							"type": "sheets_PI"
+						}
+					}
+				}
+			}
+		},
+		"B": {
+			"block": {
+				"type": "sheets_cell",
+				"fields": {
+					"CELL": "r1"
+				}
+			}
+		}
+	}
+}

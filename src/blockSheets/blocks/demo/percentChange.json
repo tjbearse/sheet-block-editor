@@ -1,0 +1,49 @@
+{
+	"type": "sheets_arithmetic",
+	"fields": {
+		"OP": "DIVIDE"
+	},
+	"inputs": {
+		"A": {
+			"block": {
+				"type": "sheets_arithmetic",
+				"fields": {
+					"OP": "MINUS"
+				},
+				"inputs": {
+					"A": {
+						"block": {
+							"type": "sheets_cell",
+							"fields": {
+								"CELL": "a1"
+							}
+						}
+					},
+					"B": {
+						"block": {
+							"type": "sheets_cell",
+							"fields": {
+								"CELL": "b2"
+							}
+						}
+					}
+				}
+			}
+		},
+		"B": {
+			"block": {
+				"type": "sheets_ABS",
+				"inputs": {
+					"ARG0": {
+						"block": {
+							"type": "sheets_cell",
+							"fields": {
+								"CELL": "b2"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

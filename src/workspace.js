@@ -4,12 +4,12 @@ blockly.setLocale(En);
 
 
 export const initWorkspace = async (id = 'blocklyDiv') => {
-    const ws = blockly.inject(id,
-        {
-            toolbox: toolbox,
-            media: 'media/',
+	const ws = blockly.inject(id,
+	    {
+	        toolbox: toolbox,
+	        media: 'media/',
 			theme: theme,
-        })
+	    })
 	const block = ws.newBlock('sheets_formula')
 	block.setDeletable(false);
 	block.setEditable(false);

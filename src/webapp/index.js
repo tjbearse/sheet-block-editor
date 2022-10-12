@@ -6,18 +6,16 @@ import { parseAndBuild, toolbox, theme, GoogleSheets, Latex } from '../blockShee
 document.addEventListener("DOMContentLoaded", initialize);
 
 async function initialize() {
-    const [workspace, root] = await initWorkspace()
+	const [workspace, root] = await initWorkspace()
 
-    const toCode = document.getElementById('toCode');
-    const toBlocks = document.getElementById('toBlocks');
-    const formulaText = document.getElementById('formulaText');
-    const textAsMath = document.getElementById('latex');
+	const toCode = document.getElementById('toCode');
+	const toBlocks = document.getElementById('toBlocks');
+	const formulaText = document.getElementById('formulaText');
+	const textAsMath = document.getElementById('latex');
+	window.workspace = workspace;
+	window.Blockly = blockly;
 
-    toCode.addEventListener('click', function () {
-		// debug
-		// var xml = blockly.Xml.workspaceToDom(workspace);
-		// console.log(blockly.Xml.domToPrettyText(xml))
-
+	toCode.addEventListener('click', function () {
 		try {
 			const code = GoogleSheets.workspaceToCode(workspace);
 			formulaText.value = code;
@@ -26,8 +24,8 @@ async function initialize() {
 			alert(e)
 		}
 		updateMath()
-    })
-    toBlocks.addEventListener('click', function () {
+	})
+	toBlocks.addEventListener('click', function () {
 		// replace only the root formula block's output connection
 		const formula = formulaText.value || formulaText.placeholder;
 		try {
@@ -44,7 +42,7 @@ async function initialize() {
 			alert(e)
 		}
 		updateMath()
-    })
+	})
 
 	function updateMath() {
 		try {

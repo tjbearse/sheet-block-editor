@@ -21,47 +21,62 @@ describe('generator overrides', () => {
 		const conn = input.connection
 		conn.connect(outBlock.outputConnection)
 	}
-	function addXML(xml) {
-		xml = `<xml xmlns="https://developers.google.com/blockly/xml">${xml}</xml>`
-		blockly.Xml.domToWorkspace(blockly.Xml.textToDom(xml), workspace);
+	function addJSONBlock(json) {
+		blockly.serialization.blocks.append(json, workspace);
 	}
-
 	test('pow', () => {
-		addXML(`
-			<block type="sheets_formula" id="root">
-				<value name="FORMULA">
-					<block type="sheets_POW">
-						<value name="ARG0">
-							<block type="sheets_number">
-								<field name="NUM">4</field>
-							</block>
-						</value>
-						<value name="ARG1">
-							<block type="sheets_number">
-								<field name="NUM">5</field>
-							</block>
-						</value>
-					</block>
-				</value>
-			</block>
-		`)
+		addJSONBlock({
+			"type": "sheets_formula",
+			"inputs": {
+				"FORMULA": {
+					"block": {
+						"type": "sheets_POW",
+						"inputs": {
+							"ARG0": {
+								"block": {
+									"type": "sheets_number",
+									"fields": {
+										"NUM": "4"
+									}
+								}
+							},
+							"ARG1": {
+								"block": {
+									"type": "sheets_number",
+									"fields": {
+										"NUM": "5"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		})
 		const code = Latex.workspaceToCode(workspace);
 		expect(code).toEqual('={4}^{5}')
 	})
 	test('sqrt', () => {
-		addXML(`
-			<block type="sheets_formula" id="root">
-				<value name="FORMULA">
-					<block type="sheets_SQRT">
-						<value name="ARG0">
-							<block type="sheets_number">
-								<field name="NUM">4</field>
-							</block>
-						</value>
-					</block>
-				</value>
-			</block>
-		`)
+		addJSONBlock({
+			"type": "sheets_formula",
+			"inputs": {
+				"FORMULA": {
+					"block": {
+						"type": "sheets_SQRT",
+						"inputs": {
+							"ARG0": {
+								"block": {
+									"type": "sheets_number",
+									"fields": {
+										"NUM": "4"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		})
 		const code = Latex.workspaceToCode(workspace);
 		expect(code).toEqual('=\\sqrt{4}')
 	})

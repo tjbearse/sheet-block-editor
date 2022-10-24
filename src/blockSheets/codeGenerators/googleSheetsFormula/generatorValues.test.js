@@ -7,6 +7,10 @@ import './generator'
 describe('value code generator', () => {
 	let workspace;
 
+	function addJSONBlock(json) {
+		return blockly.serialization.blocks.append(json, workspace);
+	}
+
 	beforeAll(() => {
 		workspace = new blockly.Workspace()
 	})
@@ -128,4 +132,161 @@ describe('value code generator', () => {
 		})
 	})
 
+	describe('arrayLiterals row', () => {
+		test('empty', () => {
+			const block = addJSONBlock({
+				"type": "sheets_row",
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{}')
+		})
+		test('one', () => {
+			const block = addJSONBlock({
+				"type": "sheets_row",
+				"extraState": { 'count': 1 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					}
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1}')
+		})
+		test('many', () => {
+			const block = addJSONBlock({
+				"type": "sheets_row",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					},
+					"ITEM1": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "2" }}
+					},
+					"ITEM2": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "3" }}
+					},
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1; 2; 3}')
+		})
+		test('enclosed gap', () => {
+			const block = addJSONBlock({
+				"type": "sheets_row",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					},
+					"ITEM2": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "3" }}
+					},
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1; ; 3}')
+		})
+		test('trailing gaps', () => {
+			const block = addJSONBlock({
+				"type": "sheets_row",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					},
+					"ITEM1": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "2" }}
+					},
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1; 2; }')
+		})
+	})
+
+	describe('arrayLiterals column', () => {
+		test('empty', () => {
+			const block = addJSONBlock({
+				"type": "sheets_column",
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{}')
+		})
+		test('one', () => {
+			const block = addJSONBlock({
+				"type": "sheets_column",
+				"extraState": { 'count': 1 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					}
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1}')
+		})
+		test('many', () => {
+			const block = addJSONBlock({
+				"type": "sheets_column",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					},
+					"ITEM1": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "2" }}
+					},
+					"ITEM2": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "3" }}
+					},
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1, 2, 3}')
+		})
+		test('enclosed gap', () => {
+			const block = addJSONBlock({
+				"type": "sheets_column",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					},
+					"ITEM2": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "3" }}
+					},
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1, , 3}')
+		})
+		test('trailing gaps', () => {
+			const block = addJSONBlock({
+				"type": "sheets_column",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "1" }}
+					},
+					"ITEM1": {
+						"block": { "type": "sheets_number", "fields": { "NUM": "2" }}
+					},
+				},
+			})
+
+			const code = GoogleSheets.blockToCode(block);
+			expect(code[0]).toBe('{1, 2, }')
+		})
+	})
 })

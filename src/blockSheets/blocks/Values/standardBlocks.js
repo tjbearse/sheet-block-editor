@@ -2,6 +2,7 @@ import Blockly from 'blockly'
 /**
  * these block definitions are derived from standard blockly blocks
  * math_number, text, logic_boolean
+ * lists_create_with_container, lists_create_with_item
  * available here: https://github.com/google/blockly/tree/master/blocks
  * Those blocks are Copyright 2012 Google LLC and licensed under Apache-2.0
  */
@@ -44,5 +45,25 @@ Blockly.defineBlocksWithJsonArray([
 		],
 		"output": "Boolean",
 		"style": "Value_style",
+	}, {
+		"type": "mutator_variable_container",
+		"message0": "%1 %2 %3",
+		"args0": [{
+			"type": "field_label_serializable",
+			"name": "NAME",
+			"text": "Container"
+		}, {
+			"type": "input_dummy"
+		}, {
+			"type": "input_statement",
+			"name": "STACK"
+		}],
+		"style": "Value_style",
+	}, {
+		"type": "mutator_variable_container_item",
+		"message0": "Item",
+		"style": "Value_style",
+		"previousStatement": null,
+		"nextStatement": null,
 	},
 ])

@@ -30,3 +30,17 @@ GoogleSheets['sheets_formula'] = function(block) {
 	const code = `=${formula||defaultFormula}`
 	return code;
 };
+
+GoogleSheets['sheets_column'] = function(block) {
+	const realInputs = block.inputList.filter(i => i.connection)
+	const valueVars = realInputs.map(i => GoogleSheets.valueToCode(block, i.name, GoogleSheets.ORDER_NONE))
+	const code = `{${valueVars.join(', ')}}`
+	return [code, GoogleSheets.ORDER_ATOMIC]
+};
+
+GoogleSheets['sheets_row'] = function(block) {
+	const realInputs = block.inputList.filter(i => i.connection)
+	const valueVars = realInputs.map(i => GoogleSheets.valueToCode(block, i.name, GoogleSheets.ORDER_NONE))
+	const code = `{${valueVars.join('; ')}}`
+	return [code, GoogleSheets.ORDER_ATOMIC]
+};

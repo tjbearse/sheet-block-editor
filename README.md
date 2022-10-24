@@ -12,8 +12,8 @@ If you encounter bugs or would like to suggest an improvement please create an i
 
 ### Setup
 
-2. Install node modules `npm i`
-3. Start the webserver `npm start`. Open http://localhost:3000/
+1. Install node modules `npm i`
+2. Start the webserver `npm start`. Open http://localhost:3000/
 
 ### Source Tour
 ```

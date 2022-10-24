@@ -48,4 +48,41 @@ describe('function blocks', () => {
 			expect(block.inputList[1].fieldRow[0].getText()).toBe('value');
 		})
 	});
+
+
+	/*
+	   interesting examples
+	   SORTN, pair variadic
+	   SWITCH, pair variadic with optional trailing arg
+	   GETPIVOTDATA twice variadic
+	 */
+	describe.skip('variadic function', () => {
+		test('has function name', () => {
+			createBlockFromArrayDef(['FLATTEN', '', true, '', ['range1', { variadic:true, name: `range%i` }]]);
+			createBlockFromArrayDef(['FLATTEN', '', true, '', ['range1'], { variadic:true, name: `range%i` }]);
+		});
+		test('has non-variadic argument names', () => {
+			expect(true).toBe(false);
+		});
+		test('does not have variadic arguments when none supplied', () => {
+			expect(true).toBe(false);
+		});
+		test('has variadic arguments when one supplied', () => {
+			expect(true).toBe(false);
+		});
+		test('multiple variadic arguments when multiple supplied', () => {
+			expect(true).toBe(false);
+		});
+
+		test('multiple variadic arguments names enumerated', () => {
+			expect(true).toBe(false);
+		});
+
+		test('paried variadic arguments appear in pairs', () => {
+			expect(true).toBe(false);
+		});
+		test('variadic argument terminal argument', () => {
+			expect(true).toBe(false);
+		});
+	});
 })

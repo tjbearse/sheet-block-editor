@@ -1,8 +1,7 @@
 import Blockly from 'blockly'
 
 import './standardBlocks'
-// TODO array syntax
-// TODO value style
+import './arrayLiteral'
 
 Blockly.defineBlocksWithJsonArray([
 	{

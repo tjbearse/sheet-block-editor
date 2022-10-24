@@ -31,6 +31,5 @@ Blockly.GoogleSheets['test_block'] = function(block) {
 	var value_value = Blockly.GoogleSheets.valueToCode(block, 'VALUE', Blockly.GoogleSheets.ORDER_ATOMIC);
 	var value_factor = Blockly.GoogleSheets.valueToCode(block, 'FACTOR', Blockly.GoogleSheets.ORDER_ATOMIC);
 	var code = `ceiling(${value_value}` + (value_factor? `, ${value_factor})` : ')')
-	// TODO: Change ORDER_NONE to the correct strength.
 	return [code, Blockly.GoogleSheets.ORDER_ATOMIC];
 };

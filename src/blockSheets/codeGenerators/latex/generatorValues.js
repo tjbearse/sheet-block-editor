@@ -29,3 +29,17 @@ Latex['sheets_formula'] = function(block) {
 	const code = `=${text_cell}`
 	return code;
 };
+
+Latex['sheets_column'] = function(block) {
+	const realInputs = block.inputList.filter(i => i.connection)
+	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
+	const code = `$\\{${valueVars.join(', ')}\\}$`
+	return [code, Latex.ORDER_ATOMIC]
+};
+
+Latex['sheets_row'] = function(block) {
+	const realInputs = block.inputList.filter(i => i.connection)
+	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
+	const code = `$\\{${valueVars.join('; ')}\\}$`
+	return [code, Latex.ORDER_ATOMIC]
+};

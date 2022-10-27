@@ -2,21 +2,23 @@ import Blockly from 'blockly'
 
 import './standardBlocks'
 
-Blockly.Blocks['sheets_column'] = {
+Blockly.Blocks['sheets_columns'] = {
 	init: getInit('Columns', 'a 1-dimensional array literal in the horizontal direction'),
 	saveExtraState,
 	loadExtraState,
 	updateShape_: updateShape,
 	decompose: getDecompose('Columns'),
+	ensureCapacity,
 	compose,
 	saveConnections,
 };
-Blockly.Blocks['sheets_row'] = {
+Blockly.Blocks['sheets_rows'] = {
 	init: getInit('Rows', 'a 1-dimensional array literal in the vertical direction'),
 	saveExtraState,
 	loadExtraState,
 	updateShape_: updateShape,
 	decompose: getDecompose('Rows'),
+	ensureCapacity,
 	compose,
 	saveConnections,
 };
@@ -67,6 +69,12 @@ function saveExtraState() {
 
 function loadExtraState(state) {
 	this.count_ = state['count'] || 0;
+	this.updateShape_();
+}
+
+// helper for programatic resize
+function ensureCapacity(number) {
+	this.count_ = Math.max(this.count_ || 0, number);
 	this.updateShape_();
 }
 

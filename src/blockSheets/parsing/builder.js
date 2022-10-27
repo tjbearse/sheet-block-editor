@@ -36,6 +36,9 @@ export const buildBlocks = (workspace, tree, init=()=>{}) => {
 			block = workspace.newBlock('sheets_cell')
 			block.setFieldValue(tree.range, 'CELL')
 			break;
+		case 'array':
+			block = makeArrayBlock(workspace, tree, init);
+			break;
 		case 'func':
 			block = workspace.newBlock(`sheets_${tree.name}`)
 			const inputs = block.inputList.filter(i => i.type === InputValue)
@@ -125,4 +128,59 @@ export const buildBlocks = (workspace, tree, init=()=>{}) => {
 	}
 	init(block)
 	return block;
+}
+
+function makeArrayBlock(workspace, tree, init) {
+	const nRows = tree.values.length;
+	const nCols = tree.values[0]?.length ?? 0;
+	// TODO use tree.values to inflate array
+	// TODO refactor some of the nesting here into functions?
+
+	if (nRows < 2) {
+		// single row, takes precedence over rows only
+		const block = workspace.newBlock('sheets_columns');
+		block.ensureCapacity(nCols);
+		if (nRows === 1) {
+			const row = tree.values[0];
+			for (let i = 0; i < nCols; i++) {
+				const node = row[i];
+				const vBlock = buildBlocks(workspace, node, init);
+				const conn = block.getInput(`ITEM${i}`).connection;
+				conn.connect(vBlock.outputConnection);
+			}
+		}
+		return block;
+	} else if (nCols < 2) {
+		// single column
+		const block = workspace.newBlock('sheets_rows');
+		block.ensureCapacity(nRows);
+		if (nCols === 1) {
+			for (let i = 0; i < nRows; i++) {
+				const row = tree.values[i];
+				const node = row[0];
+				const vBlock = buildBlocks(workspace, node, init);
+				const conn = block.getInput(`ITEM${i}`).connection;
+				conn.connect(vBlock.outputConnection);
+			}
+		}
+		return block;
+	} else {
+		// 2d array, insert columns into rows
+		const root = workspace.newBlock('sheets_rows');
+		root.ensureCapacity(nRows);
+		for (let r = 0; r < nRows; r++) {
+			const col = tree.values[r];
+			const columnBlock = workspace.newBlock('sheets_columns');
+			columnBlock.ensureCapacity(nCols);
+			for (let c = 0; c < nCols; c++) {
+				const node = tree.values[r][c];
+				const vBlock = buildBlocks(workspace, node, init);
+				columnBlock.getInput(`ITEM${c}`).connection
+					.connect(vBlock.outputConnection);
+			}
+			root.getInput(`ITEM${r}`).connection.connect(columnBlock.outputConnection);
+			init(columnBlock);
+		}
+		return root;
+	}
 }

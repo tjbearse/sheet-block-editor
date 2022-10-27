@@ -9,6 +9,8 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 [0-9]+("."[0-9]+)?\b	  return 'NUMBER'
 "("                       return 'OPEN_PAREN'
 ")"                       return 'CLOSE_PAREN'
+"{"                       return 'OPEN_BRACE'
+"}"                       return 'CLOSE_BRACE'
 ","                       return 'COMMA'
 "<>"                      return 'NOTEQUALS'
 "<="                      return 'LE'
@@ -24,6 +26,7 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 "/"						  return 'DIVIDE'
 "%"						  return 'PCT'
 ":"						  return 'COLON'
+";"						  return 'SEMICOLON'
 [Tt][Rr][Uu][Ee]		  return 'TRUE'
 [Ff][Aa][Ll][Ss][Ee]	  return 'FALSE'
 \"[^"]*\"         		  yytext = yytext.slice(1,-1); return 'STRING'
@@ -57,10 +60,25 @@ exp
 	| function
 	| STRING -> { kind: 'value', value: $1 }
 	| OPEN_PAREN exp CLOSE_PAREN -> $2
+	| arrayExp
 	| boolean
 	| range
 	| binop
 	| unop
+	;
+
+arrayExp
+	: OPEN_BRACE arrayVerticalExp CLOSE_BRACE -> { kind: 'array', values: $2 }
+	;
+/* delineates rows */
+arrayVerticalExp
+	: arrayVerticalExp SEMICOLON arrayHorizontalExp -> [...$1,$3]
+	| arrayHorizontalExp -> [$1]
+	;
+/* delineates columns */
+arrayHorizontalExp
+	: arrayHorizontalExp COMMA exp -> [...$1,$3]
+	| exp -> [$1]
 	;
 
 function

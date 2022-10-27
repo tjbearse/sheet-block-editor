@@ -30,14 +30,14 @@ Latex['sheets_formula'] = function(block) {
 	return code;
 };
 
-Latex['sheets_column'] = function(block) {
+Latex['sheets_columns'] = function(block) {
 	const realInputs = block.inputList.filter(i => i.connection)
 	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
 	const code = `$\\{${valueVars.join(', ')}\\}$`
 	return [code, Latex.ORDER_ATOMIC]
 };
 
-Latex['sheets_row'] = function(block) {
+Latex['sheets_rows'] = function(block) {
 	const realInputs = block.inputList.filter(i => i.connection)
 	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
 	const code = `$\\{${valueVars.join('; ')}\\}$`

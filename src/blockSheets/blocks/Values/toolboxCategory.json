@@ -7,7 +7,7 @@
 		{ "kind": "block", "type": "sheets_number" },
 		{ "kind": "block", "type": "sheets_boolean" },
 		{ "kind": "block", "type": "sheets_cell" },
-		{ "kind": "block", "type": "sheets_row" },
-		{ "kind": "block", "type": "sheets_column" }
+		{ "kind": "block", "type": "sheets_rows" },
+		{ "kind": "block", "type": "sheets_columns" }
 	]
 }

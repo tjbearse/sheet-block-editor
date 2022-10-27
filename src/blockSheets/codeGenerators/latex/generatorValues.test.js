@@ -135,7 +135,7 @@ describe('value code generator', () => {
 	describe('arrayLiterals row', () => {
 		test('empty', () => {
 			const block = addJSONBlock({
-				"type": "sheets_row",
+				"type": "sheets_rows",
 			})
 
 			const code = Latex.blockToCode(block);
@@ -143,7 +143,7 @@ describe('value code generator', () => {
 		})
 		test('one', () => {
 			const block = addJSONBlock({
-				"type": "sheets_row",
+				"type": "sheets_rows",
 				"extraState": { 'count': 1 },
 				"inputs": {
 					"ITEM0": {
@@ -157,7 +157,7 @@ describe('value code generator', () => {
 		})
 		test('many', () => {
 			const block = addJSONBlock({
-				"type": "sheets_row",
+				"type": "sheets_rows",
 				"extraState": { 'count': 3 },
 				"inputs": {
 					"ITEM0": {
@@ -177,7 +177,7 @@ describe('value code generator', () => {
 		})
 		test('enclosed gap', () => {
 			const block = addJSONBlock({
-				"type": "sheets_row",
+				"type": "sheets_rows",
 				"extraState": { 'count': 3 },
 				"inputs": {
 					"ITEM0": {
@@ -194,7 +194,7 @@ describe('value code generator', () => {
 		})
 		test('trailing gaps', () => {
 			const block = addJSONBlock({
-				"type": "sheets_row",
+				"type": "sheets_rows",
 				"extraState": { 'count': 3 },
 				"inputs": {
 					"ITEM0": {
@@ -214,7 +214,7 @@ describe('value code generator', () => {
 	describe('arrayLiterals column', () => {
 		test('empty', () => {
 			const block = addJSONBlock({
-				"type": "sheets_column",
+				"type": "sheets_columns",
 			})
 
 			const code = Latex.blockToCode(block);
@@ -222,7 +222,7 @@ describe('value code generator', () => {
 		})
 		test('one', () => {
 			const block = addJSONBlock({
-				"type": "sheets_column",
+				"type": "sheets_columns",
 				"extraState": { 'count': 1 },
 				"inputs": {
 					"ITEM0": {
@@ -236,7 +236,7 @@ describe('value code generator', () => {
 		})
 		test('many', () => {
 			const block = addJSONBlock({
-				"type": "sheets_column",
+				"type": "sheets_columns",
 				"extraState": { 'count': 3 },
 				"inputs": {
 					"ITEM0": {
@@ -256,7 +256,7 @@ describe('value code generator', () => {
 		})
 		test('enclosed gap', () => {
 			const block = addJSONBlock({
-				"type": "sheets_column",
+				"type": "sheets_columns",
 				"extraState": { 'count': 3 },
 				"inputs": {
 					"ITEM0": {
@@ -273,7 +273,7 @@ describe('value code generator', () => {
 		})
 		test('trailing gaps', () => {
 			const block = addJSONBlock({
-				"type": "sheets_column",
+				"type": "sheets_columns",
 				"extraState": { 'count': 3 },
 				"inputs": {
 					"ITEM0": {

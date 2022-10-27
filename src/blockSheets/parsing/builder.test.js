@@ -46,29 +46,34 @@ blockly.defineBlocksWithJsonArray([
 	},
 ]);
 
-export const mkValue = (v) => ({
+const mkValue = (v) => ({
 	kind: 'value',
 	value: v,
 })
 
-export const mkRange = (r) => ({
+const mkRange = (r) => ({
 	kind: 'range',
 	range: r,
 })
 
-export const mkFunc = (n, arg) => ({
+const mkFunc = (n, arg) => ({
 	kind: 'func',
 	name: n,
 	args: arg,
 })
+const mkArray = (arr) => ({
+	kind: 'array',
+	// arr[row][column]
+	values: arr,
+})
 
-export const mkBinary = (symb, left, right) => ({
+const mkBinary = (symb, left, right) => ({
 	kind: 'binaryOp',
 	symb,
 	left,
 	right,
 })
-export const mkUnary = (symb, right) => ({
+const mkUnary = (symb, right) => ({
 	kind: 'unaryOp',
 	symb,
 	right,
@@ -76,6 +81,10 @@ export const mkUnary = (symb, right) => ({
 
 describe('workspace builder', () => {
 	let workspace;
+
+	function getJSON(block) {
+		return blockly.serialization.blocks.save(block, { addCoordinates: false })
+	}
 
 	beforeAll(() => {
 		workspace = new blockly.Workspace()
@@ -124,6 +133,121 @@ describe('workspace builder', () => {
 			expect(root.getFieldValue("CELL")).toBe("ZZ1")
 		})
 	})
+
+	describe('arrays', () => {
+		// rows then columns
+		test('creates an empty array', () => {
+			const tree = mkArray([])
+			const root = buildBlocks(workspace, tree)
+
+			const expectedJSON = {
+				"type": "sheets_columns",
+				"extraState": { 'count': 0 },
+			}
+			expect(getJSON(root)).toMatchObject(expectedJSON);
+		})
+
+		test('creates a single element array', () => {
+			const tree = mkArray([[mkValue(1)]])
+			const root = buildBlocks(workspace, tree)
+
+			const expectedJSON = {
+				"type": "sheets_columns",
+				"extraState": { 'count': 1 },
+				"inputs": {
+					"ITEM0": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 1 }}
+					}
+				}
+			}
+			expect(getJSON(root)).toMatchObject(expectedJSON);
+		})
+
+		test('creates a one dimensional horizontal array', () => {
+			const tree = mkArray([[mkValue(1), mkValue(2), mkValue(3)]])
+			const root = buildBlocks(workspace, tree)
+
+			const expectedJSON = {
+				"type": "sheets_columns",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 1 }}
+					},
+					"ITEM1": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 2 }}
+					},
+					"ITEM2": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 3 }}
+					},
+				}
+			}
+			expect(getJSON(root)).toMatchObject(expectedJSON);
+		})
+
+		test('creates a one dimensional vertical array', () => {
+			const tree = mkArray([[mkValue(1)], [mkValue(2)], [mkValue(3)]])
+			const root = buildBlocks(workspace, tree)
+
+			const expectedJSON = {
+				"type": "sheets_rows",
+				"extraState": { 'count': 3 },
+				"inputs": {
+					"ITEM0": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 1 }}
+					},
+					"ITEM1": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 2 }}
+					},
+					"ITEM2": {
+						"block": {"type": "sheets_number", "fields": { "NUM": 3 }}
+					},
+				}
+			}
+			expect(getJSON(root)).toMatchObject(expectedJSON);
+		})
+
+		test('creates a two dimensional array', () => {
+			const tree = mkArray([[mkValue(1), mkValue(2)], [mkValue(3), mkValue(4)]])
+			const root = buildBlocks(workspace, tree)
+
+			const expectedJSON = {
+				"type": "sheets_rows",
+				"extraState": { 'count': 2 },
+				"inputs": {
+					"ITEM0": {
+						"block": {
+							"type": "sheets_columns",
+							"extraState": { 'count': 2 },
+							"inputs": {
+								"ITEM0": {
+									"block": {"type": "sheets_number", "fields": { "NUM": 1 }}
+								},
+								"ITEM1": {
+									"block": {"type": "sheets_number", "fields": { "NUM": 2 }}
+								},
+							}
+						},
+					},
+					"ITEM1": {
+						"block": {
+							"type": "sheets_columns",
+							"extraState": { 'count': 2 },
+							"inputs": {
+								"ITEM0": {
+									"block": {"type": "sheets_number", "fields": { "NUM": 3 }}
+								},
+								"ITEM1": {
+									"block": {"type": "sheets_number", "fields": { "NUM": 4 }}
+								},
+							}
+						},
+					},
+				}
+			};
+			expect(getJSON(root)).toMatchObject(expectedJSON);
+		})
+	});
 
 	describe('functions', () => {
 		test('creates function', () => {

@@ -4,8 +4,8 @@ import './standardBlocks'
 import each from 'jest-each'
 
 each([
-	['sheets_column', 'Columns'],
-	['sheets_row', 'Rows'],
+	['sheets_columns', 'Columns'],
+	['sheets_rows', 'Rows'],
 ]).describe('arrayLiterals %s', (blockName, name) => {
 	let workspace;
 	let rootEl;
@@ -324,5 +324,47 @@ each([
 			const jsonOut = getJSON(block);
 			expect(jsonOut).toMatchObject(expectedJSON);
 		})
+
+		test('programatic resize bigger', () => {
+			const jsonIn ={
+				"type": blockName,
+				"extraState": { 'count': 2 },
+				"inputs": {
+					"ITEM0": {
+						"block": {
+							"type": "sheets_number",
+							"fields": { "NUM": 2 }
+						}
+					},
+					"ITEM1": {
+						"block": {
+							"type": "sheets_number",
+							"fields": { "NUM": 10 }
+						}
+					}
+				}
+			}
+			const block = addJSONBlock(jsonIn);
+			block.ensureCapacity(4);
+			const expectedJSON = {
+				"type": blockName,
+				"extraState": { 'count': 4 },
+				"inputs": {
+					"ITEM0": {
+						"block": {
+							"type": "sheets_number",
+							"fields": { "NUM": 2 }
+						}
+					},
+					"ITEM1": {
+						"block": {
+							"type": "sheets_number",
+							"fields": { "NUM": 10 }
+						}
+					}
+				}
+			}
+			expect(getJSON(block)).toMatchObject(expectedJSON);
+		});
 	});
 })

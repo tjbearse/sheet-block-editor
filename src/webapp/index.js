@@ -21,6 +21,7 @@ async function initialize() {
 			formulaText.value = code;
 
 		} catch(e) {
+			console.error(e);
 			alert(e)
 		}
 		updateMath()
@@ -39,6 +40,7 @@ async function initialize() {
 				conn.connect(formulaBlocks.outputConnection)
 			}
 		} catch(e) {
+			console.error(e);
 			alert(e)
 		}
 		updateMath()

@@ -188,6 +188,7 @@ function makeArrayBlock(workspace, tree, init) {
 			const col = tree.values[r];
 			const columnBlock = workspace.newBlock('sheets_columns');
 			columnBlock.ensureCapacity(nCols);
+			init(columnBlock);
 			for (let c = 0; c < nCols; c++) {
 				const node = tree.values[r][c];
 				const vBlock = buildBlocks(workspace, node, init);
@@ -195,7 +196,6 @@ function makeArrayBlock(workspace, tree, init) {
 					.connect(vBlock.outputConnection);
 			}
 			root.getInput(`ITEM${r}`).connection.connect(columnBlock.outputConnection);
-			init(columnBlock);
 		}
 		return root;
 	}

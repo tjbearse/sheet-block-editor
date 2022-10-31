@@ -139,7 +139,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*\\end{Bmatrix}/)
 		})
 		test('one', () => {
 			const block = addJSONBlock({
@@ -153,7 +153,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1\s*\\end{Bmatrix}/)
 		})
 		test('many', () => {
 			const block = addJSONBlock({
@@ -173,7 +173,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1; 2; 3\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1;\s*2;\s*3\s*\\end{Bmatrix}/)
 		})
 		test('enclosed gap', () => {
 			const block = addJSONBlock({
@@ -190,7 +190,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1; ; 3\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1;\s*;\s*3\s*\\end{Bmatrix}/)
 		})
 		test('trailing gaps', () => {
 			const block = addJSONBlock({
@@ -207,7 +207,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1; 2; \\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1;\s*2;\s*\\end{Bmatrix}/)
 		})
 	})
 
@@ -218,7 +218,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*\\end{Bmatrix}/)
 		})
 		test('one', () => {
 			const block = addJSONBlock({
@@ -232,7 +232,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1\s*\\end{Bmatrix}/)
 		})
 		test('many', () => {
 			const block = addJSONBlock({
@@ -252,7 +252,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1, 2, 3\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1,\s*2,\s*3\s*\\end{Bmatrix}/)
 		})
 		test('enclosed gap', () => {
 			const block = addJSONBlock({
@@ -269,7 +269,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1, , 3\\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1,\s*,\s*3\s*\\end{Bmatrix}/)
 		})
 		test('trailing gaps', () => {
 			const block = addJSONBlock({
@@ -286,7 +286,7 @@ describe('value code generator', () => {
 			})
 
 			const code = Latex.blockToCode(block);
-			expect(code[0]).toBe('$\\{1, 2, \\}$')
+			expect(code[0]).toMatch(/\\begin{Bmatrix}\s*1,\s*2,\s*\\end{Bmatrix}/)
 		})
 	})
 })

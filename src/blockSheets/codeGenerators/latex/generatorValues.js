@@ -33,13 +33,13 @@ Latex['sheets_formula'] = function(block) {
 Latex['sheets_columns'] = function(block) {
 	const realInputs = block.inputList.filter(i => i.connection)
 	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
-	const code = `$\\{${valueVars.join(', ')}\\}$`
+	const code = `\\begin{Bmatrix}${valueVars.join(', ')}\\end{Bmatrix}`
 	return [code, Latex.ORDER_ATOMIC]
 };
 
 Latex['sheets_rows'] = function(block) {
 	const realInputs = block.inputList.filter(i => i.connection)
 	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
-	const code = `$\\{${valueVars.join('; ')}\\}$`
+	const code = `\\begin{Bmatrix}${valueVars.join('; ')}\\end{Bmatrix}`
 	return [code, Latex.ORDER_ATOMIC]
 };

@@ -93,7 +93,6 @@ each([
 			} 
 			const block = addJSONBlock(jsonIn);
 			const jsonOut = getJSON(block);
-			// FIXME is this check sufficient?
 			expect(jsonOut).toMatchObject(jsonIn);
 		})
 

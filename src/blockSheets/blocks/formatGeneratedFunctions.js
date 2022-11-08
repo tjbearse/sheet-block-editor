@@ -8,7 +8,7 @@ import './values/standardBlocks'
 // inline: boolean
 // tooltip: string
 // args: string[]
-// variadic: [nameRoot, indexStart=1]
+// variadic: [nameRoots, indexStart=1]
 export function createBlockFromArrayDef(def) {
 	const [name, style, inline, tooltip, args, variadic=null] = def;
 	const blockDef = {
@@ -23,7 +23,6 @@ export function createBlockFromArrayDef(def) {
 
 			for (let i=0; i < args.length; i++) {
 				const arg = args[i];
-				// TODO handle variadic / optional args
 				this.appendValueInput(`ARG${i}`)
 					.setCheck(null)
 					.appendField(arg);
@@ -59,7 +58,8 @@ export function formatFunctionName(name) {
 	how to slot args into arg list (number)
 */
 
-function getVariadicFunctions(nonVariadicArgs, [variadicName, indexStart=1]) {
+
+function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, variadicStart=nonVariadicArgs.length]) {
 	return {
 		saveExtraState,
 		loadExtraState,
@@ -76,22 +76,38 @@ function getVariadicFunctions(nonVariadicArgs, [variadicName, indexStart=1]) {
 	function updateShape() {
 		// TODO arg numbers will need to change when we put variadics in the middle of the nonVariadicArgs
 		// may need to rebuild non-variadic args if we can only append
-		// TODO mapping variadic count to argument count happens here
 
-		// one for title dummy
-		const targetInputCount = 1 + nonVariadicArgs.length + this.variadicCount_;
-
-		while(this.inputList.length < targetInputCount) {
-			// add new args
-			const argI = this.inputList.length - 1;
-			const varI = this.inputList.length - 1 - nonVariadicArgs.length + indexStart;
-			this.appendValueInput(`ARG${argI}`)
-				.appendField(variadicName + varI); // TODO number variadics
+		// one for title dummy input
+		let nVariadicArgs = this.inputList.length - 1 - nonVariadicArgs.length;
+		if(nVariadicArgs % variadicNames.length !== 0) {
+			throw new Error('the number of variadic arguments is not a multiple of group size')
 		}
-		while(this.inputList.length > targetInputCount) {
-			// remove args
-			const i = this.inputList.length - 2;
-			this.removeInput(`ARG${i}`);
+		let nVariadicGroups = nVariadicArgs / variadicNames.length
+
+		let nameOfInputThatVariadicsPrecede = null;
+		if (variadicStart < nonVariadicArgs.length) {
+			nameOfInputThatVariadicsPrecede = `ARG${variadicStart}`
+		}
+
+		while(nVariadicGroups < this.variadicCount_) {
+			// add new args
+			const varI = nVariadicGroups + indexStart;
+			for(let name of variadicNames) {
+				const inputName = `VARG${nVariadicArgs}`;
+				this.appendValueInput(inputName)
+					.appendField(name + varI);
+				this.moveInputBefore(inputName, nameOfInputThatVariadicsPrecede);
+				nVariadicArgs++;
+			}
+			nVariadicGroups++;
+		}
+		while(nVariadicGroups > this.variadicCount_) {
+			// remove args, always remove the last
+			for(let _ of variadicNames) {
+				this.removeInput(`VARG${nVariadicArgs-1}`);
+				nVariadicArgs--;
+			}
+			nVariadicGroups--;
 		}
 	}
 
@@ -103,8 +119,8 @@ function getVariadicFunctions(nonVariadicArgs, [variadicName, indexStart=1]) {
 		topBlock.initSvg?.call(topBlock);
 
 		let connection = topBlock.getInput('STACK').connection;
-		for (var i = 0; i < this.variadicCount_; i++) {
-			var itemBlock = workspace.newBlock('mutator_variable_container_item');
+		for (let i = 0; i < this.variadicCount_; i++) {
+			let itemBlock = workspace.newBlock('mutator_variable_container_item');
 			topBlock.initSvg?.call(topBlock);
 			connection.connect(itemBlock.previousConnection);
 			connection = itemBlock.nextConnection;
@@ -114,47 +130,61 @@ function getVariadicFunctions(nonVariadicArgs, [variadicName, indexStart=1]) {
 	}
 
 	// called before modifications to associate mutator blocks with workspace connections
-	// via added property valueConnection_
+	// via added property valueConnections_
+	// this is needed for variadic args only
 	function saveConnections(topBlock) {
-		var itemBlock = topBlock.getInputTargetBlock('STACK');
+		let itemBlock = topBlock.getInputTargetBlock('STACK');
 
-		var i = 0;
+		// this is the index of the first variadic arg
+		let i = 0;
 		while (itemBlock) {
-			var input = this.getInput(`ARG${i}`);
-			itemBlock.valueConnection_ = input && input.connection.targetConnection;
-			i++;
+			const connections = [];
+			// need to collect all the connections for this variadic group.
+			// They are all associated with this itemBlock
+			for (let _ of variadicNames) {
+				let input = this.getInput(`VARG${i}`);
+				connections.push(input && input.connection.targetConnection);
+				i++;
+			}
+			itemBlock.valueConnections_ = connections;
 			itemBlock = itemBlock.nextConnection && itemBlock.nextConnection.targetBlock();
 		}
 	}
 
 	// configure the block from mutator
 	function compose(topBlock) {
-		var itemBlock = topBlock.getInputTargetBlock('STACK');
+		let itemBlock = topBlock.getInputTargetBlock('STACK');
 
-		var connections = [];
+		let connections = [];
 		while (itemBlock) {
 			if (itemBlock.IsInsertionMarker) {
 				itemBlock = itemBlock.getNextBlock();
 				continue;
 			}
-			// note valueConnection_ is populated by saveConnections
-			connections.push(itemBlock.valueConnection_);
+			// note valueConnections_ is populated by saveConnections
+			if (itemBlock.valueConnections_) {
+				connections.push(...itemBlock.valueConnections_);
+			} else {
+				connections.push(...variadicNames.map(n => undefined));
+			}
 			itemBlock = itemBlock.getNextBlock();
 		}
 
-		// FIXME variadic count != argument count
-		for (var i = 0; i < nonVariadicArgs.length + this.variadicCount_; i++) {
-			var connection = this.getInput(`ARG${i}`).connection.targetConnection;
+		const prevNArgs = nonVariadicArgs.length + variadicNames.length * this.variadicCount_;
+		const firstVariadicIndex = nonVariadicArgs.length;
+
+		for (let i = 0; i < variadicNames.length * this.variadicCount_; i++) {
+			let connection = this.getInput(`VARG${i}`).connection.targetConnection;
 			if (connection && connections.indexOf(connection) == -1) {
 				connection.disconnect();
 			}
 		}
 
-		this.variadicCount_ = connections.length;
+		this.variadicCount_ = Math.floor(connections.length / variadicNames.length);
 		this.updateShape_();
 
-		for (var i = 0; i < this.variadicCount_; i++) {
-			const reconnected = Blockly.Mutator.reconnect(connections[i], this, `ARG${i}`);
+		for (let i = 0; i < variadicNames.length * this.variadicCount_; i++) {
+			const reconnected = Blockly.Mutator.reconnect(connections[i], this, `VARG${i}`);
 		}
 
 	}

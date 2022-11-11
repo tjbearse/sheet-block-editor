@@ -1,4 +1,4 @@
 import GoogleSheets from './googleSheets'
-import './generator'
+export { createFunctionGenerator } from './generator'
 
 export default GoogleSheets

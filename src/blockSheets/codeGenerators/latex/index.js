@@ -1,4 +1,4 @@
 import Latex from './latex'
-import './generator'
+export { createFunctionGenerator } from './generator'
 
 export default Latex

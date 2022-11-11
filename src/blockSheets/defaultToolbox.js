@@ -1,6 +1,6 @@
-import generatedToolbox from './blocks/generated/toolbox.json'
-import values from './blocks/Values/toolboxCategory.json'
-import demo from './blocks/demoToolboxCategory.js'
+import generatedToolbox from './generatedBlocks/generated/toolbox.json'
+import values from './staticBlocks/Values/toolboxCategory.json'
+import demo from './staticBlocks/demoToolboxCategory.js'
 
 const separator = { kind: 'sep' }
 

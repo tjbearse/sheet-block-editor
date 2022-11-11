@@ -1,6 +1,7 @@
 import Blockly from 'blockly'
 
-import './values/standardBlocks'
+// depends on mutator blocks
+import '../staticBlocks/Values/standardBlocks'
 
 // def: [name, style, inline, tooltip, args, variadic?]
 // name: string
@@ -8,7 +9,7 @@ import './values/standardBlocks'
 // inline: boolean
 // tooltip: string
 // args: string[]
-// variadic: [nameRoots, indexStart=1]
+// variadic: [variadicNames, indexStart=1, variadicStart=nonVariadicArgs.length]
 export function createBlockFromArrayDef(def) {
 	const [name, style, inline, tooltip, args, variadic=null] = def;
 	const blockDef = {
@@ -49,15 +50,6 @@ export function createBlockFromArrayDef(def) {
 export function formatFunctionName(name) {
 	return 'sheets_' + name.toUpperCase().replaceAll(/[. ]/g, '_');
 }
-
-/*
-	// TODO variadicStyle argStartIndex=length
-	mapping variadic counts to args (single w/ name, paired, dual variadic) (serialize as a function style)
-		compose (mutator to block) expand mutator to variadic
-		decompose (block to mutator) collapse variadics to mutator
-	how to slot args into arg list (number)
-*/
-
 
 function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, variadicStart=nonVariadicArgs.length]) {
 	return {

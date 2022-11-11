@@ -1,4 +1,4 @@
-import Latex from './latex'
+import Latex from '../codeGenerators/latex'
 
 const pow = block => {
 		const value_a = Latex.valueToCode(block, 'ARG0', Latex.ORDER_EXPONENTIATION);

@@ -1,5 +1,4 @@
-import blocks from '../../blocks/generated/blocks.json'
-import { formatFunctionName } from '../../blocks/formatGeneratedFunctions'
+import { formatFunctionName } from '../../generatedBlocks/formatGeneratedFunctions'
 
 import GoogleSheets from './googleSheets'
 
@@ -11,12 +10,8 @@ function generateFormula(name,block) {
 }
 const getGenerator = (name) => (block) => generateFormula(name, block);
 
-const createFunctionGenerators = (blocks) => {
-	blocks.forEach(blockDef => {
-		const formulaName = blockDef[0];
+export const createFunctionGenerator = (blockDef) => {
+	const formulaName = blockDef[0];
 
-		GoogleSheets[formatFunctionName(formulaName)] = getGenerator(formulaName)
-	})
+	GoogleSheets[formatFunctionName(formulaName)] = getGenerator(formulaName)
 }
-
-createFunctionGenerators(blocks)

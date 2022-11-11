@@ -214,7 +214,7 @@ def main():
             )
             categories[category].append(typeName)
 
-        genPath = Path("../blockSheets/blocks/generated")
+        genPath = Path("../blockSheets/generatedBlocks/generated")
         if any([
                 options.blocks,
                 options.toolbox,

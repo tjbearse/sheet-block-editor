@@ -1,13 +1,23 @@
 import blockly from 'blockly'
-import Latex from './latex'
-import './generator'
-import '../../blocks'
+import Latex from '../codeGenerators/latex'
+import '../staticBlocks'
+import { createBlockFromArrayDef } from './formatGeneratedFunctions'
+import { createFunctionGenerator } from '../codeGenerators/latex/generatorFunction'
+import overrides from './latexGeneratorOverrides'
 
 describe('generator overrides', () => {
 	let workspace;
 
 	beforeAll(() => {
 		workspace = new blockly.Workspace()
+		const blockDefs = [
+			['POW', '', false, '', ['base', 'exponent']],
+			['SQRT', '', false, '', ['value']],
+		];
+		blockDefs.forEach(b => {
+			createBlockFromArrayDef(b);
+			createFunctionGenerator(b, overrides);
+		})
 	})
 	beforeEach(() => {
 		workspace.clear()

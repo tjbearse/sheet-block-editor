@@ -1,7 +1,7 @@
 import blockly from 'blockly'
 import Latex from './latex'
-import '../../blocks/Values/blocks'
-import '../../blocks/Math/blocks'
+import '../../staticBlocks/Values/blocks'
+import '../../staticBlocks/Math/blocks'
 
 import './generator'
 

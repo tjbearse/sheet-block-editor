@@ -1,13 +1,19 @@
 import blockly from 'blockly'
 import Latex from './latex'
-import './generator'
-import '../../blocks'
+import { createBlockFromArrayDef } from '../../generatedBlocks/formatGeneratedFunctions'
+import { createFunctionGenerator } from './generator'
+import '../../staticBlocks'
 
 describe('math code generator', () => {
 	let workspace;
 
 	beforeAll(() => {
 		workspace = new blockly.Workspace()
+
+		const abs = ['ABS', '', false, '', ['value']];
+		createBlockFromArrayDef(abs);
+		createFunctionGenerator(abs);
+
 	})
 	beforeEach(() => {
 		workspace.clear()
@@ -36,110 +42,6 @@ describe('math code generator', () => {
 		expect(code).toBe('=1')
 	})
 
-	describe('formula', () => {
-		test('no arguments', () => {
-			addJSONBlock({
-				"type": "sheets_formula",
-				"inputs": {
-					"FORMULA": {
-						"block": {
-							"type": "sheets_ABS"
-						}
-					}
-				}
-			})
-			const code = Latex.workspaceToCode(workspace);
-			expect(code).toBe('=\\operatorname{ABS}()')
-		})
-		test('one argument', () => {
-			addJSONBlock({
-				"type": "sheets_formula",
-				"inputs": {
-					"FORMULA": {
-						"block": {
-							"type": "sheets_ABS",
-							"inputs": {
-								"ARG0": {
-									"block": {
-										"type": "sheets_number",
-										"fields": {
-											"NUM": "2"
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			})
-			const code = Latex.workspaceToCode(workspace);
-			expect(code).toBe('=\\operatorname{ABS}(2)')
-		})
-		test('two arguments', () => {
-			addJSONBlock({
-				"type": "sheets_formula",
-				"inputs": {
-					"FORMULA": {
-						"block": {
-							"type": "sheets_CONCAT",
-							"inputs": {
-								"ARG0": {
-									"block": {
-										"type": "sheets_text",
-										"fields": {
-											"TEXT": "a"
-										}
-									}
-								},
-								"ARG1": {
-									"block": {
-										"type": "sheets_text",
-										"fields": {
-											"TEXT": "b"
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			})
-			const code = Latex.workspaceToCode(workspace);
-			expect(code).toBe('=\\operatorname{CONCAT}("a", "b")')
-		})
-		test('two arguments with order reversed', () => {
-			addJSONBlock({
-				"type": "sheets_formula",
-				"inputs": {
-					"FORMULA": {
-						"block": {
-							"type": "sheets_CONCAT",
-							"inputs": {
-								"ARG1": {
-									"block": {
-										"type": "sheets_text",
-										"fields": {
-											"TEXT": "b"
-										}
-									}
-								},
-								"ARG0": {
-									"block": {
-										"type": "sheets_text",
-										"fields": {
-											"TEXT": "a"
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			})
-			const code = Latex.workspaceToCode(workspace);
-			expect(code).toBe('=\\operatorname{CONCAT}("a", "b")')
-		})
-	})
 
 	describe('precedence', () => {
 		test('formula with addition', () => {

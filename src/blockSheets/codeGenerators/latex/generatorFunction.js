@@ -1,10 +1,10 @@
-import blocks from '../../blocks/generated/blocks.json'
-import generatorOverride from './fnGeneratorOverrides'
-import { formatFunctionName } from '../../blocks/formatGeneratedFunctions'
+import { formatFunctionName } from '../../generatedBlocks/formatGeneratedFunctions'
 
 import Latex from './latex'
 
 function generateFormula(name,block) {
+	// note that variadic args are inserted into args in the right order (including position offset)
+	// so we just need to read the args in order, skipping the first
 	const realInputs = block.inputList.filter(i => i.connection)
 	const valueVars = realInputs.map(i => Latex.valueToCode(block, i.name, Latex.ORDER_NONE))
 	name = name.replaceAll('_', '\\_');
@@ -14,18 +14,14 @@ function generateFormula(name,block) {
 
 const getGenerator = (name) => (block) => generateFormula(name,block);
 
-const createFunctionGenerators = (blocks) => {
-	blocks.forEach(blockDef => {
-		let generator;
-		const name = blockDef[0]
+export const createFunctionGenerator = (blockDef, generatorOverrides={}) => {
+	let generator;
+	const name = blockDef[0]
 
-		if (name in generatorOverride) {
-			generator = generatorOverride[name];
-		} else {
-			generator = getGenerator(name);
-		}
-		Latex[formatFunctionName(name)] = generator;
-	})
+	if (name in generatorOverrides) {
+		generator = generatorOverrides[name];
+	} else {
+		generator = getGenerator(name);
+	}
+	Latex[formatFunctionName(name)] = generator;
 }
-
-createFunctionGenerators(blocks)

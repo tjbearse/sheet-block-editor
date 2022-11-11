@@ -1,6 +1,6 @@
 import blockly from 'blockly'
 import { createBlockFromArrayDef } from './formatGeneratedFunctions'
-import './Values/blocks'
+import '../staticBlocks/Values/blocks'
 
 describe('function blocks', () => {
 	let workspace;
@@ -58,7 +58,7 @@ describe('function blocks', () => {
 	   GETPIVOTDATA twice variadic
 	 */
 	describe('variadic function', () => {
-		test.skip('sequential variadic pairs', () => {
+		test.skip('sequential variadic groups', () => {
 			// TODO this is an alternate variadic pattern used by GETPIVOTDATA
 			createBlockFromArrayDef(['TESTFN', '', true, '', ['foo'], [['a','b'] /*  TODO signal sequential */]]);
 			const block = addJSONBlock({

@@ -1,9 +1,7 @@
 import blockly from 'blockly'
 
-import '../blocks/Values/blocks'
-import '../blocks/Math/blocks'
-import '../blocks/Logical/standardBlocks'
-import '../blocks/Text/blocks'
+import '../staticBlocks'
+// FIXME depends on generated blocks too?
 
 export const buildBlocks = (workspace, tree, init=()=>{}) => {
 	let block = null;

@@ -1,6 +1,6 @@
 import blockly from 'blockly'
 import GoogleSheets from './googleSheets'
-import '../../blocks/Values/blocks'
+import '../../staticBlocks/Values/blocks'
 
 import './generator'
 

@@ -155,6 +155,21 @@ describe('functions', () => {
 				])
 			)
 	})
+
+	test.skip('parses functions that skip arguments, github issue #37', () => {
+		expect(parser.parse('=Max(, 2))'))
+			.toTreeEqual(
+				mkFunc('MAX', [null, mkValue(2)])
+			)
+		expect(parser.parse('=MAX(1, , 3)'))
+			.toTreeEqual(
+				mkFunc('MAX', [
+					mkValue(1),
+					null,
+					mkValue(3),
+				])
+			)
+	})
 })
 
 describe('Operators', () => {

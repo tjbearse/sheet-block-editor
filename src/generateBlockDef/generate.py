@@ -227,17 +227,17 @@ def main(options):
         if options.blocks:
             fp = genPath / "blocks.json"
             with fp.open(mode='w') as bf:
-                json.dump(blocks, bf)
+                json.dump(blocks, bf, separators=(',', ':'))
 
         if options.toolbox:
             fp = genPath / "toolbox.json"
             with fp.open(mode='w') as tf:
-                json.dump(formatAsToolbox(categories), tf)
+                json.dump(formatAsToolbox(categories), tf, separators=(',', ':'))
 
         if options.theme:
             p = genPath / 'theme.json'
             with p.open(mode='w') as tf:
-                json.dump(buildTheme(categories), tf)
+                json.dump(buildTheme(categories), tf, separators=(',', ':'))
 
         print(f"built {success} of {total}. {total - success} errors")
 

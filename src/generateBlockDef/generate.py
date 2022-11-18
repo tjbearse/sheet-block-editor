@@ -57,6 +57,8 @@ def parseArgs(signature):
             )
         )
     elif signature.startswith('GETPIVOTDATA'):
+        # TODO js needs to be able to handle this, github issue #36
+        """
         return (
             ['value_name', 'any_pivot_table_cell'],
             dict(
@@ -66,6 +68,8 @@ def parseArgs(signature):
                 series=True,
             )
         )
+        """
+        return ['value_name', 'any_pivot_table_cell'], None
 
     m = re.search(r"\((.*)\)", signature)
     if not m:

@@ -67,9 +67,6 @@ function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, var
 	// --
 
 	function updateShape() {
-		// TODO arg numbers will need to change when we put variadics in the middle of the nonVariadicArgs
-		// may need to rebuild non-variadic args if we can only append
-
 		// one for title dummy input
 		let nVariadicArgs = this.inputList.length - 1 - nonVariadicArgs.length;
 		if(nVariadicArgs % variadicNames.length !== 0) {

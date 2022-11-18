@@ -1,4 +1,5 @@
 import unittest
+from unittest.case import skip
 from generate import parseArgs
 
 class TestParseArgs(unittest.TestCase):
@@ -60,6 +61,7 @@ class TestParseArgs(unittest.TestCase):
             positionStart=3,
         ))
 
+    @skip('js not ready to receive serial variadics, github issue #36')
     def test_series_variadic(self):
         a, v = parseArgs("GETPIVOTDATA(value_name, any_pivot_table_cell, [original_column, ...], [pivot_item, ...])")
         self.assertEqual(a, [

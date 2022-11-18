@@ -58,9 +58,12 @@ describe('function blocks', () => {
 	   GETPIVOTDATA twice variadic
 	 */
 	describe('variadic function', () => {
-		test.skip('sequential variadic groups', () => {
+		test.skip('sequential variadic groups, github issue #36', () => {
 			// TODO this is an alternate variadic pattern used by GETPIVOTDATA
-			createBlockFromArrayDef(['TESTFN', '', true, '', ['foo'], [['a','b'] /*  TODO signal sequential */]]);
+			createBlockFromArrayDef([
+				'TESTFN', '', true, '', ['foo'],
+				[['a','b'], undefined, undefined, true]
+			]);
 			const block = addJSONBlock({
 				"type": "sheets_TESTFN",
 				"extraState": { 'variadicCount': 2 },

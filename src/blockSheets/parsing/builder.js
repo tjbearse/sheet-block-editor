@@ -104,10 +104,15 @@ function makeBinOpBlock(workspace, tree, init) {
 const InputValue = 1
 function makeFuncBlock(workspace, tree, init) {
 	const block = workspace.newBlock(`sheets_${tree.name}`)
-	const inputs = block.inputList.filter(i => i.type === InputValue)
+	let inputs = block.inputList.filter(i => i.type === InputValue)
 	try {
 		if (tree.args.length > inputs.length) {
-			throw new Error(`too many arguments given (${tree.args.length}) for function ${tree.name} (wanted ${inputs.length})`)
+			if (block.setTotalArgCount) {
+				block.setTotalArgCount(tree.args.length);
+				inputs = block.inputList.filter(i => i.type === InputValue)
+			} else {
+				throw new Error(`too many arguments given (${tree.args.length}) for function ${tree.name} (wanted ${inputs.length})`)
+			}
 		}
 		tree.args.forEach((a, i) => {
 			const b2 = buildBlocks(workspace, a, init)

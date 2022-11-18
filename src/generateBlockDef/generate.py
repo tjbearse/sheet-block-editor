@@ -35,24 +35,37 @@ variadicRegex = r"(\.\.\.|…)"
 def isVariadic(signature):
     return bool(re.search(variadicRegex, signature))
 
-multiOptionedRegex = r"\[\w+,.*?\]"
-def isMultiOptioned(signature):
-    return re.search(multiOptionedRegex, signature)
 
-def parseArg(arg):
-    variable = re.sub(r'\[(.*)\]', r'\1', arg).upper()
-    return (arg.replace("_", " "), variable)
+def extractEnumeration(items):
+    try:
+        start = int(items[0][-1])
+    except:
+        start = 1
+    items = [ re.sub(r'[0-9]$', '', e) for e in items ]
+    return items, start
 
+ellipsisChar = u"…"
 def parseArgs(signature):
-    origSignature = signature # used for todos
-    todo = None
-    # doing variadic first makes some things not multi optioned variadic
-    if isVariadic(signature):
-        signature = re.sub(r"(,\s*)?" + variadicRegex, "", signature)
-        todo = f"dropped options variadic, {origSignature}"
-    if isMultiOptioned(signature):
-        signature = re.sub(r"(,\s*)?" + multiOptionedRegex, "", signature)
-        todo = f"dropped options multi, {origSignature}"
+    # special cases
+    if signature.startswith('SWITCH'):
+        return (
+            ['expression', 'case1', 'value1', 'default'],
+            dict(
+                    argNames=['case', 'value'],
+                    enumStart=2,
+                    positionStart=3,
+            )
+        )
+    elif signature.startswith('GETPIVOTDATA'):
+        return (
+            ['value_name', 'any_pivot_table_cell'],
+            dict(
+                argNames=['original_column', 'pivot_item'],
+                enumStart=1,
+                positionStart=2,
+                series=True,
+            )
+        )
 
     m = re.search(r"\((.*)\)", signature)
     if not m:
@@ -60,54 +73,53 @@ def parseArgs(signature):
         raise ValueError("did not match signature format")
     g = m.group(1)
     if not g:
-        return [], todo
-    else:
-        rawArgs = re.split(",\s*", g)
-        # text, variable
-        # TODO store variadic or optional status
-        return list(map(parseArg, rawArgs)), todo
+        return [], None
 
-def formatArgs(name, args):
-    if not args:
-        return name, []
-    # note that placeholders are 1 indexed and we have 1 fake element
-    message = name + " %1 " + " ".join([ f"{a[0]} %{i+2}" for i, a in enumerate(args)])
+    argGroups = re.findall(r'(\[.*?\]|\w+|\.{3}|…)(?:,|$)', g)
+    variadic = None
 
-    bArgs = [{
-            "type": "input_dummy"
-        }]
-    bArgs += [
-        {
-            "type": "input_value",
-            "name": a[1]
-        } for a in args
+    # find variadic
+    if argGroups[-1] in ['...', ellipsisChar]:
+        argGroups.pop()
+        withoutBrace = argGroups.pop()[1:-1]
+        vArgNames, enumStart = extractEnumeration(re.split(r',\s*', withoutBrace))
+        variadic = dict(
+            argNames=vArgNames,
+            enumStart=enumStart,
+            positionStart=len(argGroups)
+        )
+
+    elif isVariadic(argGroups[-1]):
+        insideBrace = argGroups.pop()[1:-1]
+        vArgNames, enumStart = extractEnumeration(re.split(r',\s*', insideBrace)[:-1])
+        variadic = dict(
+            argNames=vArgNames,
+            enumStart=enumStart,
+            positionStart=len(argGroups)
+        )
+
+    return argGroups, variadic
+
+def buildBlockSlimJSONConfig(typeName, name, style, args, vargs, descr):
+    inline = len(args) < 2 and vargs is None
+    bDef = [
+        name,
+        style,
+        1 if inline else 0,
+        descr,
+        args,
     ]
-
-    return message, bArgs
-    
-def buildBlockSlimJSONConfig(typeName, name, style, args, descr, todoNote=None):
-    helpText= descr
-    inline = len(args) < 2
-    argNames = list(map(lambda x : x[0], args))
-    return [name, style, inline, helpText, argNames]
-
-def buildBlockJSONConfig(typeName, name, style, args, descr, todoNote=None):
-    helpText= descr
-    message, args0 = formatArgs(name, args)
-    block = {
-        "type": typeName,
-        "message0": message,
-        "args0": args0,
-        "output": None, # will fill in post, needs to be null
-        "style": style,
-        "inputsInline": len(args) < 2,
-        "tooltip": helpText,
-    }
-    if todoNote:
-        block["TODO"] = todoNote
-        block["message0"] = "*" + block["message0"]
-        block["tooltip"] += "\n*Implementation not complete"
-    return block
+    if vargs is not None:
+        v = [vargs.get('argNames'), vargs.get('enumStart'), vargs.get('positionStart'), vargs.get('series')]
+        # trim to last non None
+        lastNone = len(v)
+        for vi, val in reversed(list(enumerate(v))):
+            if val is not None:
+                break
+            lastNone = vi
+        v = v[:lastNone]
+        bDef.append(v)
+    return bDef
 
 def formatCategory(name, blocks):
     if not blocks:
@@ -160,17 +172,7 @@ def buildTheme(categories):
         'componentStyles' : {}
     }
 
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--all', action='store_true')
-    parser.add_argument('--blocks', action='store_true')
-    parser.add_argument('--toolbox', action='store_true')
-    parser.add_argument('--theme', action='store_true')
-    parser.add_argument('--basicOnly', action='store_true')
-
-    options = parser.parse_args()
-    limitToBasic = options.basicOnly
+def main(options):
     if options.all:
         options.blocks = True
         options.toolbox = True
@@ -192,25 +194,21 @@ def main():
         success = 0
         total = 0
         for category, name, basic, signature, descr in reader:
-            if not basic and limitToBasic:
-                # skip, but touch category so it exists
-                categories[category]
-                continue
+            descr = re.sub(r'\s*learn more$', '', descr, flags=re.I);
             typeName= "sheets_" + name.replace(".", "_")
             style = f"{category}_style"
             total += 1
             args = []
-            todoNote = None
             try:
-                args, todoNote = parseArgs(signature)
+                args, vargs = parseArgs(signature)
                 success += 1
             except ValueError as ve:
                 print(f'{typeName} failed val error: {ve}. Adding TODO block')
-                todoNote = signature
                 args = []
+                vargs = None
 
             blocks.append(
-                buildBlockSlimJSONConfig(typeName, name, style, args, descr, todoNote)
+                buildBlockSlimJSONConfig(typeName, name, style, args, vargs, descr)
             )
             categories[category].append(typeName)
 
@@ -237,7 +235,14 @@ def main():
             with p.open(mode='w') as tf:
                 json.dump(buildTheme(categories), tf)
 
-        print(f"built {success} of {total}. {total-success} errors")
+        print(f"built {success} of {total}. {total - success} errors")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--all', action='store_true')
+    parser.add_argument('--blocks', action='store_true')
+    parser.add_argument('--toolbox', action='store_true')
+    parser.add_argument('--theme', action='store_true')
+
+    options = parser.parse_args()
+    main(options)

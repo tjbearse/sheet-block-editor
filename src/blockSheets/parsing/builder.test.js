@@ -1,5 +1,6 @@
 import blockly from 'blockly'
 import { buildBlocks } from './builder.js'
+import { createBlockFromArrayDef } from '../generatedBlocks/formatGeneratedFunctions'
 
 blockly.defineBlocksWithJsonArray([
 	{
@@ -13,7 +14,7 @@ blockly.defineBlocksWithJsonArray([
 		"args0": [
 	        {
 	            "type": "input_value",
-	            "name": "ARG1"
+	            "name": "ARG0"
 	        }
 		],
 		"output": null,
@@ -26,7 +27,7 @@ blockly.defineBlocksWithJsonArray([
 	        },
 	        {
 	            "type": "input_value",
-	            "name": "ARG1"
+	            "name": "ARG0"
 	        }
 		],
 		"output": null,
@@ -36,15 +37,16 @@ blockly.defineBlocksWithJsonArray([
 		"args0": [
 	        {
 	            "type": "input_value",
-	            "name": "ARG1"
+	            "name": "ARG0"
 	        }, {
 	            "type": "input_value",
-	            "name": "ARG2"
+	            "name": "ARG1"
 	        }
 		],
 		"output": null,
 	},
 ]);
+createBlockFromArrayDef(['VARIADIC', '', false, '', ['a','b'], [['vc','vd']]])
 
 const mkValue = (v) => ({
 	kind: 'value',
@@ -260,7 +262,7 @@ describe('workspace builder', () => {
 			const tree = mkFunc("ONEARG", [mkValue(1)])
 			const root = buildBlocks(workspace, tree)
 			expect(root.type).toBe("sheets_ONEARG")
-			const child = root.getInputTargetBlock("ARG1")
+			const child = root.getInputTargetBlock("ARG0")
 			expect(child.type).toBe("sheets_number")
 			expect(child.getFieldValue("NUM")).toBe(1)
 		})
@@ -270,7 +272,7 @@ describe('workspace builder', () => {
 			const root = buildBlocks(workspace, tree)
 			expect(root.type).toBe("sheets_ONEARG")
 
-			const child = root.getInputTargetBlock("ARG1")
+			const child = root.getInputTargetBlock("ARG0")
 			expect(child).toBe(null)
 		})
 
@@ -278,7 +280,7 @@ describe('workspace builder', () => {
 			const tree = mkFunc("DUMMYARG", [mkValue(1)])
 			const root = buildBlocks(workspace, tree)
 			expect(root.type).toBe("sheets_DUMMYARG")
-			const child = root.getInputTargetBlock("ARG1")
+			const child = root.getInputTargetBlock("ARG0")
 			expect(child.type).toBe("sheets_number")
 			expect(child.getFieldValue("NUM")).toBe(1)
 		})
@@ -287,21 +289,74 @@ describe('workspace builder', () => {
 			const tree = mkFunc("TWOARG", [mkValue(1), mkValue("foo")])
 			const root = buildBlocks(workspace, tree)
 
-			const child = root.getInputTargetBlock("ARG1")
+			const child = root.getInputTargetBlock("ARG0")
 			expect(child.type).toBe("sheets_number")
 			expect(child.getFieldValue("NUM")).toBe(1)
 
-			const child2 = root.getInputTargetBlock("ARG2")
+			const child2 = root.getInputTargetBlock("ARG1")
 			expect(child2.type).toBe("sheets_text")
 			expect(child2.getFieldValue("TEXT")).toBe("foo")
+		})
+
+		test('variadic basic arguments', () => {
+			const tree = mkFunc("VARIADIC", [mkValue(1), mkValue("foo")])
+			const root = buildBlocks(workspace, tree)
+
+			const child = root.getInputTargetBlock("ARG0")
+			expect(child.type).toBe("sheets_number")
+			expect(child.getFieldValue("NUM")).toBe(1)
+
+			const child2 = root.getInputTargetBlock("ARG1")
+			expect(child2.type).toBe("sheets_text")
+			expect(child2.getFieldValue("TEXT")).toBe("foo")
+		})
+
+		test('variadic all arguments', () => {
+			const tree = mkFunc("VARIADIC", [
+				mkValue(1),
+				mkValue("foo"),
+				mkValue(2),
+				mkValue('bar'),
+				mkValue(3),
+				mkValue('baz'),
+			])
+			const root = buildBlocks(workspace, tree)
+			expect(
+				root.inputList.filter(i=>i.connection).map(i => [i.name, i.connection?.targetBlock()?.type])
+			).toEqual([
+				['ARG0', 'sheets_number'],
+				['ARG1', 'sheets_text'],
+				['VARG0', 'sheets_number'],
+				['VARG1', 'sheets_text'],
+				['VARG2', 'sheets_number'],
+				['VARG3', 'sheets_text'],
+			])
+
+			const child = root.getInputTargetBlock("ARG0")
+			expect(child.getFieldValue("NUM")).toBe(1)
+
+			const child2 = root.getInputTargetBlock("ARG1")
+			expect(child2.getFieldValue("TEXT")).toBe("foo")
+
+			const vchild1 = root.getInputTargetBlock("VARG0")
+			expect(vchild1.getFieldValue("NUM")).toBe(2)
+
+			const vchild2 = root.getInputTargetBlock("VARG1")
+			expect(vchild2.getFieldValue("TEXT")).toBe('bar')
+
+			const vchild3 = root.getInputTargetBlock("VARG2")
+			expect(vchild3.getFieldValue("NUM")).toBe(3)
+
+			const vchild4 = root.getInputTargetBlock("VARG3")
+			expect(vchild4.getFieldValue("TEXT")).toBe('baz')
 		})
 
 		test('inits all blocks for multiple function arguments', () => {
 			const init = jest.fn()
 			const tree = mkFunc("TWOARG", [null, mkValue("foo")])
 			const root = buildBlocks(workspace, tree, init)
-			const nullChild = root.getInputTargetBlock("ARG1")
-			const child2 = root.getInputTargetBlock("ARG2")
+			const nullChild = root.getInputTargetBlock("ARG0")
+			const child2 = root.getInputTargetBlock("ARG1")
 
 			expect(root).not.toBeNull()
 			expect(nullChild).toBeNull()

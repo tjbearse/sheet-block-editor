@@ -59,6 +59,7 @@ function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, var
 		decompose,
 		compose,
 		setVariadicCount,
+		setTotalArgCount,
 		saveConnections,
 	}
 
@@ -179,6 +180,12 @@ function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, var
 			const reconnected = Blockly.Mutator.reconnect(connections[i], this, `VARG${i}`);
 		}
 
+	}
+
+	// helper for programatic resize when we don't know all the arg info
+	function setTotalArgCount(number) {
+		const vargs = number - nonVariadicArgs.length;
+		this.setVariadicCount(vargs / variadicNames.length);
 	}
 }
 

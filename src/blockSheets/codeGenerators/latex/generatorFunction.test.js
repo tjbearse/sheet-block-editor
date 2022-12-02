@@ -1,16 +1,14 @@
-import blockly from 'blockly'
+import { Workspace, serialization } from 'blockly'
 import Latex from './latex'
 import '../../staticBlocks'
 import { createBlockFromArrayDef } from '../../generatedBlocks/formatGeneratedFunctions'
 import { createFunctionGenerator } from './generator'
 
-// TODO create our function blocks
-
 describe('functions', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 		// these aren't "real" generated blocks they are just test blocks
 		const blockDefs = [
 			['ABS', '', false, '', ['value']],
@@ -37,7 +35,7 @@ describe('functions', () => {
 		conn.connect(outBlock.outputConnection)
 	}
 	function addJSONBlock(json) {
-		blockly.serialization.blocks.append(json, workspace);
+		serialization.blocks.append(json, workspace);
 	}
 
 	test('no arguments', () => {

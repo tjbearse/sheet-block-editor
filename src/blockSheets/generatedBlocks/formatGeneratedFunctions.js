@@ -1,4 +1,4 @@
-import Blockly from 'blockly'
+import { Blocks, Mutator } from 'blockly'
 
 // depends on mutator blocks
 import '../staticBlocks/Values/standardBlocks'
@@ -29,7 +29,7 @@ export function createBlockFromArrayDef(def) {
 					.appendField(arg);
 			}
 			if (variadic) {
-				this.setMutator(new Blockly.Mutator(
+				this.setMutator(new Mutator(
 					['mutator_variable_container_item'],
 					this
 				));
@@ -41,7 +41,7 @@ export function createBlockFromArrayDef(def) {
 	if (variadic) {
 		Object.assign(blockDef, getVariadicFunctions(args, variadic))
 	}
-	Blockly.Blocks[formatFunctionName(name)] = blockDef;
+	Blocks[formatFunctionName(name)] = blockDef;
 
 	return;
 
@@ -174,7 +174,7 @@ function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, var
 		this.updateShape_();
 
 		for (let i = 0; i < variadicNames.length * this.variadicCount_; i++) {
-			const reconnected = Blockly.Mutator.reconnect(connections[i], this, `VARG${i}`);
+			const reconnected = Mutator.reconnect(connections[i], this, `VARG${i}`);
 		}
 
 	}

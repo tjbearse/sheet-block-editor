@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { Workspace, serialization } from 'blockly'
 import Latex from '../codeGenerators/latex'
 import '../staticBlocks'
 import { createBlockFromArrayDef } from './formatGeneratedFunctions'
@@ -9,7 +9,7 @@ describe('generator overrides', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 		const blockDefs = [
 			['POW', '', false, '', ['base', 'exponent']],
 			['SQRT', '', false, '', ['value']],
@@ -32,7 +32,7 @@ describe('generator overrides', () => {
 		conn.connect(outBlock.outputConnection)
 	}
 	function addJSONBlock(json) {
-		blockly.serialization.blocks.append(json, workspace);
+		serialization.blocks.append(json, workspace);
 	}
 	test('pow', () => {
 		addJSONBlock({

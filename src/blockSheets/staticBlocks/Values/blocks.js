@@ -1,9 +1,9 @@
-import Blockly from 'blockly'
+import { defineBlocksWithJsonArray } from 'blockly'
 
 import './standardBlocks'
 import './arrayLiteral'
 
-Blockly.defineBlocksWithJsonArray([
+defineBlocksWithJsonArray([
 	{
 		"type": "sheets_cell",
 		"message0": "Cell Range %1",

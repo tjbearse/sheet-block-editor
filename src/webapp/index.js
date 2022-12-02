@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import * as blockly from 'blockly'
 import initWorkspace from '../workspace'
 
 import { parseAndBuild, toolbox, theme, GoogleSheets, Latex } from '../blockSheets'

@@ -1,4 +1,4 @@
-import Blockly from 'blockly'
+import { defineBlocksWithJsonArray } from 'blockly'
 /**
  * these block definitions are derived from standard blockly blocks
  * math_number, text, logic_boolean
@@ -6,7 +6,7 @@ import Blockly from 'blockly'
  * available here: https://github.com/google/blockly/tree/master/blocks
  * Those blocks are Copyright 2012 Google LLC and licensed under Apache-2.0
  */
-Blockly.defineBlocksWithJsonArray([
+defineBlocksWithJsonArray([
 	{
 		// blockly/math/math_number
 		"type": "sheets_number",

@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { Workspace, serialization } from 'blockly'
 import { createBlockFromArrayDef } from './formatGeneratedFunctions'
 import '../staticBlocks/Values/blocks'
 
@@ -6,7 +6,7 @@ describe('function blocks', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 	})
 	beforeEach(() => {
 		workspace.clear()
@@ -17,10 +17,10 @@ describe('function blocks', () => {
 	})
 
 	function addJSONBlock(json) {
-		return blockly.serialization.blocks.append(json, workspace);
+		return serialization.blocks.append(json, workspace);
 	}
 	function getJSON(block) {
-		return blockly.serialization.blocks.save(block, { addCoordinates: false })
+		return serialization.blocks.save(block, { addCoordinates: false })
 	}
 
 

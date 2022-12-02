@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { Workspace, serialization } from 'blockly'
 import Latex from './latex'
 import { createBlockFromArrayDef } from '../../generatedBlocks/formatGeneratedFunctions'
 import { createFunctionGenerator } from './generator'
@@ -8,7 +8,7 @@ describe('math code generator', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 
 		const abs = ['ABS', '', false, '', ['value']];
 		createBlockFromArrayDef(abs);
@@ -28,7 +28,7 @@ describe('math code generator', () => {
 		conn.connect(outBlock.outputConnection)
 	}
 	function addJSONBlock(json) {
-		blockly.serialization.blocks.append(json, workspace);
+		serialization.blocks.append(json, workspace);
 	}
 
 	test('build a formula', () => {

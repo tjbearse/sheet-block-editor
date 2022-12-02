@@ -1,5 +1,3 @@
-import blockly from 'blockly'
-
 import '../staticBlocks'
 // FIXME depends on generated blocks too?
 

@@ -1,10 +1,10 @@
 import { toolbox, theme } from './blockSheets';
-import blockly, { En } from 'blockly'
-blockly.setLocale(En);
+import { setLocale, inject, En } from 'blockly'
+setLocale(En);
 
 
 export const initWorkspace = async (id = 'blocklyDiv') => {
-	const ws = blockly.inject(id,
+	const ws = inject(id,
 	    {
 	        toolbox: toolbox,
 	        media: 'media/',

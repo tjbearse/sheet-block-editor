@@ -1,4 +1,3 @@
-import blockly from 'blockly'
 import initWorkspace from '../workspace'
 import { parseAndBuild, GoogleSheets } from '../blockSheets'
 import { getFormula, submitFormula } from 'googleAPI'

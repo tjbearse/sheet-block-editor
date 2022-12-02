@@ -1,8 +1,8 @@
-import blockly from 'blockly'
+import { defineBlocksWithJsonArray, Workspace, serialization } from 'blockly'
 import { buildBlocks } from './builder.js'
 import { createBlockFromArrayDef } from '../generatedBlocks/formatGeneratedFunctions'
 
-blockly.defineBlocksWithJsonArray([
+defineBlocksWithJsonArray([
 	{
 		"type": "sheets_NOARG",
 		"message0": "NOARG",
@@ -85,11 +85,11 @@ describe('workspace builder', () => {
 	let workspace;
 
 	function getJSON(block) {
-		return blockly.serialization.blocks.save(block, { addCoordinates: false })
+		return serialization.blocks.save(block, { addCoordinates: false })
 	}
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 	})
 	beforeEach(() => {
 		workspace.clear()

@@ -1,5 +1,5 @@
-import * as core from 'blockly/core'
-// this is aliased as 'blockly' to mimimize the build size
+export * from 'blockly/core'
+
+// FIXME we don't need all of En
 import * as En from 'blockly/msg/en';
 export { En }
-export default core

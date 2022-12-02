@@ -1,8 +1,8 @@
-import Blockly from 'blockly'
+import { Blocks, Mutator } from 'blockly'
 
 import './standardBlocks'
 
-Blockly.Blocks['sheets_columns'] = {
+Blocks['sheets_columns'] = {
 	init: getInit('Columns', 'a 1-dimensional array literal in the horizontal direction'),
 	saveExtraState,
 	loadExtraState,
@@ -12,7 +12,7 @@ Blockly.Blocks['sheets_columns'] = {
 	compose,
 	saveConnections,
 };
-Blockly.Blocks['sheets_rows'] = {
+Blocks['sheets_rows'] = {
 	init: getInit('Rows', 'a 1-dimensional array literal in the vertical direction'),
 	saveExtraState,
 	loadExtraState,
@@ -37,7 +37,7 @@ function getInit(name, tooltip) {
 		this.appendDummyInput()
 			.appendField(name);
 
-		this.setMutator(new Blockly.Mutator(
+		this.setMutator(new Mutator(
 			['mutator_variable_container_item'],
 			this
 		));
@@ -140,7 +140,7 @@ function compose(topBlock) {
 	this.updateShape_();
 
 	for (let i = 0; i < this.count_; i++) {
-		const reconnected = Blockly.Mutator.reconnect(connections[i], this, `ITEM${i}`);
+		const reconnected = Mutator.reconnect(connections[i], this, `ITEM${i}`);
 	}
 
 }

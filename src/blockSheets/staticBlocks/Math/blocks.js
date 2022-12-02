@@ -1,8 +1,8 @@
-import Blockly from 'blockly'
+import { defineBlocksWithJsonArray } from 'blockly'
 
 import './standardBlocks'
 
-Blockly.defineBlocksWithJsonArray([
+defineBlocksWithJsonArray([
 	{
 		"type": "sheets_negate",
 		"message0": "-%1",

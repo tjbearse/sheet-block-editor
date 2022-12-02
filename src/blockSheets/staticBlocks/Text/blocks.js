@@ -1,6 +1,6 @@
-import Blockly from 'blockly'
+import { defineBlocksWithJsonArray } from 'blockly'
 
-Blockly.defineBlocksWithJsonArray([
+defineBlocksWithJsonArray([
 	{
 		"type": "sheets_join",
 		"message0": "%1 & %2",

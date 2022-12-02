@@ -6,9 +6,9 @@
  *
  * Modifications have been made to convert to google sheets generator
  */
-import Blockly from 'blockly'
+import { Generator } from 'blockly'
 
-export const GoogleSheets = new Blockly.Generator('GoogleSheets');
+export const GoogleSheets = new Generator('GoogleSheets');
 
 /**
  * Order of operation ENUMs.

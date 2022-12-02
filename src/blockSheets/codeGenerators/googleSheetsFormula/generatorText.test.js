@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { Workspace } from 'blockly'
 import GoogleSheets from './googleSheets'
 import '../../staticBlocks/Text/blocks'
 import '../../staticBlocks/Values/blocks'
@@ -9,7 +9,7 @@ describe('text code generator', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 	})
 	beforeEach(() => {
 		workspace.clear()

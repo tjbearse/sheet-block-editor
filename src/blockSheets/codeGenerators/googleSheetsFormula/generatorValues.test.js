@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { serialization, Workspace } from 'blockly'
 import GoogleSheets from './googleSheets'
 import '../../staticBlocks/Values/blocks'
 
@@ -8,11 +8,11 @@ describe('value code generator', () => {
 	let workspace;
 
 	function addJSONBlock(json) {
-		return blockly.serialization.blocks.append(json, workspace);
+		return serialization.blocks.append(json, workspace);
 	}
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 	})
 	beforeEach(() => {
 		workspace.clear()

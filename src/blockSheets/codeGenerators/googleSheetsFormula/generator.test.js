@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { Workspace, serialization } from 'blockly'
 import GoogleSheets from './googleSheets'
 import '../../staticBlocks'
 import { createBlockFromArrayDef } from '../../generatedBlocks/formatGeneratedFunctions'
@@ -8,7 +8,7 @@ describe('math code generator', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 
 		// these aren't "real" generated blocks they are just test blocks
 		const blockDefs = [
@@ -38,7 +38,7 @@ describe('math code generator', () => {
 	}
 
 	function addJSONBlock(json) {
-		blockly.serialization.blocks.append(json, workspace);
+		serialization.blocks.append(json, workspace);
 	}
 
 	test('build a formula', () => {

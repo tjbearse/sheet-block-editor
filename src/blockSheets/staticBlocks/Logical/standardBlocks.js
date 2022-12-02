@@ -1,11 +1,11 @@
-import Blockly from 'blockly'
+import { defineBlocksWithJsonArray } from 'blockly'
 /**
  * these block definitions are derived from standard blockly blocks
  * logic_compare
  * available here: https://github.com/google/blockly/tree/master/blocks
  * Those blocks are Copyright 2012 Google LLC and licensed under Apache-2.0
  */
-Blockly.defineBlocksWithJsonArray([
+defineBlocksWithJsonArray([
 	{
 		"type": "sheets_compare",
 		"message0": "%1 %2 %3",

@@ -1,6 +1,6 @@
-import Blockly from 'blockly'
+import { Generator } from 'blockly'
 
-export const Latex = new Blockly.Generator('Latex')
+export const Latex = new Generator('Latex')
 
 Latex.ORDER_ATOMIC = 0;
 Latex.ORDER_EXPONENTIATION = 1;

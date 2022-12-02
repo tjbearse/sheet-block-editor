@@ -1,4 +1,4 @@
-import blockly from 'blockly'
+import { Workspace } from 'blockly'
 import Latex from './latex'
 import '../../staticBlocks/Values/blocks'
 import '../../staticBlocks/Math/blocks'
@@ -9,7 +9,7 @@ describe('math code generator', () => {
 	let workspace;
 
 	beforeAll(() => {
-		workspace = new blockly.Workspace()
+		workspace = new Workspace()
 	})
 	beforeEach(() => {
 		workspace.clear()

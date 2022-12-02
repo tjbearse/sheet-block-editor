@@ -111,7 +111,7 @@ function getVariadicFunctions(nonVariadicArgs, [variadicNames, indexStart=1, var
 		let connection = topBlock.getInput('STACK').connection;
 		for (let i = 0; i < this.variadicCount_; i++) {
 			let itemBlock = workspace.newBlock('mutator_variable_container_item');
-			topBlock.initSvg?.call(topBlock);
+			itemBlock.initSvg?.call(itemBlock);
 			connection.connect(itemBlock.previousConnection);
 			connection = itemBlock.nextConnection;
 		}

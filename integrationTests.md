@@ -12,7 +12,7 @@ with webapp dev server running:
 1. Check demo blocks have no empty spots
 
 
-### /appscriptTest:
+### /appscript/test.html:
 
 1. change formula (e.g. =max(1,0)+min(1,0))
 2. say ok and observe correct formula

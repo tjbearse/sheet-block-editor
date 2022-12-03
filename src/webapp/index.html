@@ -39,23 +39,38 @@
 			display: block;
 			margin-top: 8px;
 		}
+		#errorModal {
+			position: relative;
+		}
 	</style>
 </head>
 
 <body>
   <div id="content">
+	<dialog id="errorModal">
+		<form method="dialog">
+			<button class="btn-x"></button>
+			<div class="column" style="align-items:start">
+				<span style="font-size: 1.5em; margin-bottom:0.5em;">Error:</span>
+				<div id="errorText" class="monospace" ></div>
+			</div>
+		</form>
+	</dialog>
 
-	<div class="row">
-		<button id="toCode" class="btn"><span class="icon">&#8625;</span> Blocks to Formula <span class="icon">&#8625;</span></button>
-		<input value="" class="monospace" id="formulaText" placeholder="=abs(1)">
-		<button id="toBlocks" class="btn"><span class="icon">&#8628;</span> Formula to Blocks <span class="icon">&#8628;</span></button>
-		<div class="btn-menu">
-		  <span class="icon">&#8721;</span>
-		  <div class="menu">
-			<div id="latex"></div>
-		  </div>
+	<form id="codeForm" action="javascript:void(0);">
+		<div class="row">
+			<input value="" class="monospace" id="formulaText" placeholder="=abs(1)">
+			<button id="toBlocks" class="btn" type="submit">
+				<span class="icon">&#8628;</span> Formula to Blocks <span class="icon">&#8628;</span>
+			</button>
+			<div class="btn-menu">
+				<span class="icon">&#8721;</span>
+				<div class="menu">
+					<div id="latex"></div>
+				</div>
+			</div>
 		</div>
-	</div>
+	</form>
 	<div id='blocklyDiv'></div>
   </div>
 

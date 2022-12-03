@@ -8,25 +8,57 @@ document.addEventListener("DOMContentLoaded", initialize);
 async function initialize() {
 	const [workspace, root] = await initWorkspace()
 
-	const toCode = document.getElementById('toCode');
-	const toBlocks = document.getElementById('toBlocks');
+	const form = document.getElementById('codeForm');
 	const formulaText = document.getElementById('formulaText');
 	const textAsMath = document.getElementById('latex');
+	const errorModal = document.getElementById('errorModal');
+	const errorText = document.getElementById('errorText');
 	window.workspace = workspace;
 	window.Blockly = blockly;
 
-	toCode.addEventListener('click', function () {
+	form.onsubmit = (e) => { codeToBlocks(); e.preventDefault(); }
+	workspace.addChangeListener(onUpdate);
+
+	return
+
+	// --
+
+	function onUpdate(event) {
+		if (!event.isUIEvent) {
+			blocksToCode();
+			updateMath()
+		}
+	}
+
+	function blocksToCode() {
 		try {
 			const code = GoogleSheets.workspaceToCode(workspace);
 			formulaText.value = code;
 
 		} catch(e) {
 			console.error(e);
-			alert(e)
+			displayError(e)
+			throw e;
 		}
-		updateMath()
-	})
-	toBlocks.addEventListener('click', function () {
+	}
+
+	function updateMath() {
+		try {
+			const math = Latex.workspaceToCode(workspace);
+
+			textAsMath.innerHTML = '';
+
+			math.split('\n').forEach(m => {
+				const html = window.MathJax.tex2chtml(m, {em: 12, ex: 6});
+				textAsMath.appendChild(html);
+			})
+		} catch (e) {
+			console.error(e);
+			throw e;
+		}
+	}
+
+	function codeToBlocks() {
 		// replace only the root formula block's output connection
 		const formula = formulaText.value || formulaText.placeholder;
 		try {
@@ -41,32 +73,15 @@ async function initialize() {
 			}
 		} catch(e) {
 			console.error(e);
-			alert(e)
+			displayError(e.message)
+			throw e
 		}
 		updateMath()
-	})
-
-	function updateMath() {
-		try {
-			const math = Latex.workspaceToCode(workspace);
-
-			textAsMath.innerHTML = '';
-
-			math.split('\n').forEach(m => {
-				const html = window.MathJax.tex2chtml(m, {em: 12, ex: 6});
-				textAsMath.appendChild(html);
-			})
-		} catch (e) {
-			console.error(e);
-		}
 	}
 
-
-	function onUpdate(event) {
-		if (!event.isUIEvent) {
-			updateMath()
-		}
+	function displayError(e) {
+		errorText.innerText = e;
+		errorModal.showModal();
 	}
 
-	workspace.addChangeListener(onUpdate);
 }

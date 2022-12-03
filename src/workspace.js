@@ -9,6 +9,13 @@ export const initWorkspace = async (id = 'blocklyDiv') => {
 	        toolbox: toolbox,
 	        media: 'media/',
 			theme: theme,
+			zoom: {
+				controls: true,
+				wheel: true,
+				maxScale: 2,
+				minScale: 0.5,
+			},
+
 	    })
 	const block = ws.newBlock('sheets_formula')
 	block.setDeletable(false);

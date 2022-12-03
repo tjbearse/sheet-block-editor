@@ -7,26 +7,26 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 
 \s+                   /* skip whitespace */
 [0-9]+("."[0-9]+)?\b	  return 'NUMBER'
-"("                       return 'OPEN_PAREN'
-")"                       return 'CLOSE_PAREN'
-"{"                       return 'OPEN_BRACE'
-"}"                       return 'CLOSE_BRACE'
-","                       return 'COMMA'
-"<>"                      return 'NOTEQUALS'
-"<="                      return 'LE'
-">="                      return 'GE'
-"<"                       return 'LT'
-"="                       return 'EQUALS'
-">"                       return 'GT'
-"-"						  return 'MINUS'
-"+"						  return 'PLUS'
-"&"						  return 'AMPERSAND'
-"*"						  return 'MULT'
-"^"						  return 'EXPONENT'
-"/"						  return 'DIVIDE'
-"%"						  return 'PCT'
-":"						  return 'COLON'
-";"						  return 'SEMICOLON'
+"("                       return '('
+")"                       return ')'
+"{"                       return '{'
+"}"                       return '}'
+","                       return ','
+"<>"                      return '<>'
+"<="                      return '<='
+">="                      return '>='
+"<"                       return '<'
+"="                       return '='
+">"                       return '>'
+"-"						  return '-'
+"+"						  return '+'
+"&"						  return '&'
+"*"						  return '*'
+"^"						  return '^'
+"/"						  return '/'
+"%"						  return '%'
+":"						  return ':'
+";"						  return ';'
 [Tt][Rr][Uu][Ee]		  return 'TRUE'
 [Ff][Aa][Ll][Ss][Ee]	  return 'FALSE'
 \"[^"]*\"         		  yytext = yytext.slice(1,-1); return 'STRING'
@@ -37,11 +37,11 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 
 /lex
 
-%left LT LE EQUALS NOTEQUALS GE GT
-%left AMPERSAND
-%left PLUS MINUS
-%left MULT DIVIDE
-%left EXPONENT
+%left '<' '<=' '=' '<>' '>=' '>'
+%left '&'
+%left '+' '-'
+%left '*' '/'
+%left '^'
 %left UMINUS UPLUS
 %left UNMINUS
 
@@ -52,14 +52,14 @@ start:
   ;
 
 formula
-  : EQUALS exp -> $2
+  : '=' exp -> $2
   ;
 
 exp 
 	: number
 	| function
 	| STRING -> { kind: 'value', value: $1 }
-	| OPEN_PAREN exp CLOSE_PAREN -> $2
+	| '(' exp ')' -> $2
 	| arrayExp
 	| boolean
 	| range
@@ -68,31 +68,31 @@ exp
 	;
 
 arrayExp
-	: OPEN_BRACE arrayVerticalExp CLOSE_BRACE -> { kind: 'array', values: $2 }
+	: '{' arrayVerticalExp '}' -> { kind: 'array', values: $2 }
 	;
 /* delineates rows */
 arrayVerticalExp
-	: arrayVerticalExp SEMICOLON arrayHorizontalExp -> [...$1,$3]
+	: arrayVerticalExp ';' arrayHorizontalExp -> [...$1,$3]
 	| arrayHorizontalExp -> [$1]
 	;
 /* delineates columns */
 arrayHorizontalExp
-	: arrayHorizontalExp COMMA exp -> [...$1,$3]
+	: arrayHorizontalExp ',' exp -> [...$1,$3]
 	| exp -> [$1]
 	;
 
 function
-	: FUNC_NAME OPEN_PAREN arguments CLOSE_PAREN
+	: FUNC_NAME '(' arguments ')'
 		{$$ = { kind: 'func', name: $1.toUpperCase(), args: $3 };}
-	| FUNC_NAME OPEN_PAREN CLOSE_PAREN
+	| FUNC_NAME '(' ')'
 		{$$ = { kind: 'func', name: $1.toUpperCase(), args: [] };}
 	;
 
 arguments
-	: arguments COMMA exp -> [...$1, $3]
-	| arguments COMMA -> [...$1, null] /* blank args */
+	: arguments ',' exp -> [...$1, $3]
+	| arguments ',' -> [...$1, null] /* blank args */
 	| exp -> [$1]
-	| COMMA -> [null, null]
+	| ',' -> [null, null]
 	;
 
 number
@@ -100,7 +100,7 @@ number
 	;
 
 n
-	: NUMBER PCT -> Number($1) / 100
+	: NUMBER '%' -> Number($1) / 100
 	| NUMBER -> Number($1)
 	;
 
@@ -114,32 +114,32 @@ range
 	;
 
 r
-	: COLUMN COLON CELL -> $1 + $2 + $3
-	| CELL COLON COLUMN -> $1 + $2 + $3
-	| COLUMN COLON COLUMN -> $1 + $2 + $3
-	| CELL COLON ROW -> $1 + $2 + $3
-	| ROW COLON ROW -> $1 + $2 + $3
-	| ROW COLON CELL -> $1 + $2 + $3
-	| CELL COLON CELL -> $1 + $2 + $3
+	: COLUMN ':' CELL -> $1 + $2 + $3
+	| CELL ':' COLUMN -> $1 + $2 + $3
+	| COLUMN ':' COLUMN -> $1 + $2 + $3
+	| CELL ':' ROW -> $1 + $2 + $3
+	| ROW ':' ROW -> $1 + $2 + $3
+	| ROW ':' CELL -> $1 + $2 + $3
+	| CELL ':' CELL -> $1 + $2 + $3
 	| CELL
 	;
 
 binop
-	: exp NOTEQUALS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp LT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp LE exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp EQUALS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp GE exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp GT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp MINUS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp PLUS exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp AMPERSAND exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp MULT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp DIVIDE exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
-	| exp EXPONENT exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	: exp '<>' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '<' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '<=' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '=' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '>=' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '>' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '-' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '+' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '&' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '*' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '/' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
+	| exp '^' exp -> { kind: 'binaryOp', left: $1, symb: $2, right: $3 }
 	;
 
 unop
-	: MINUS exp %prec UMINUS -> ($2.kind === 'value' ? { kind: 'value', value: -$2.value } : { kind: 'unaryOp', symb: '-', right: $2 })
-	| PLUS exp %prec UPLUS -> $2
+	: '-' exp %prec UMINUS -> ($2.kind === 'value' ? { kind: 'value', value: -$2.value } : { kind: 'unaryOp', symb: '-', right: $2 })
+	| '+' exp %prec UPLUS -> $2
 	;

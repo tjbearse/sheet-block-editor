@@ -1,5 +1,8 @@
 name: 'deploy pages site'
-on: [workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -104,11 +104,11 @@ def parseArgs(signature):
 
     return argGroups, variadic
 
-def buildBlockSlimJSONConfig(typeName, name, style, args, vargs, descr):
+def buildBlockSlimJSONConfig(typeName, name, category, args, vargs, descr):
     inline = len(args) < 2 and vargs is None
     bDef = [
         name,
-        style,
+        category,
         1 if inline else 0,
         descr,
         args,
@@ -200,7 +200,6 @@ def main(options):
         for category, name, basic, signature, descr in reader:
             descr = re.sub(r'\s*learn more$', '', descr, flags=re.I);
             typeName= "sheets_" + name.replace(".", "_")
-            style = f"{category}_style"
             total += 1
             args = []
             try:
@@ -212,7 +211,7 @@ def main(options):
                 vargs = None
 
             blocks.append(
-                buildBlockSlimJSONConfig(typeName, name, style, args, vargs, descr)
+                buildBlockSlimJSONConfig(typeName, name, category, args, vargs, descr)
             )
             categories[category].append(typeName)
 
@@ -229,10 +228,10 @@ def main(options):
             with fp.open(mode='w') as bf:
                 json.dump(blocks, bf, separators=(',', ':'))
 
-        if options.toolbox:
-            fp = genPath / "toolbox.json"
-            with fp.open(mode='w') as tf:
-                json.dump(formatAsToolbox(categories), tf, separators=(',', ':'))
+        # if options.toolbox:
+        #     fp = genPath / "toolbox.json"
+        #     with fp.open(mode='w') as tf:
+        #         json.dump(formatAsToolbox(categories), tf, separators=(',', ':'))
 
         if options.theme:
             p = genPath / 'theme.json'

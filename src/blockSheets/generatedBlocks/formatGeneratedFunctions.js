@@ -14,7 +14,7 @@ export function createBlockFromArrayDef(def) {
 	const [name, style, inline, tooltip, args, variadic=null] = def;
 	const blockDef = {
 		init: function() {
-			this.setStyle(style);
+			this.setStyle(style + '_style');
 			this.setTooltip(tooltip);
 			this.setOutput(true, null);
 			this.setInputsInline(inline);

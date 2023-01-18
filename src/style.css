@@ -83,3 +83,17 @@ dialog {
 	font-size: 32px;
 	line-height: 18px;
 }
+
+.blocklyTreeRow.search-bar-row {
+	height: unset;
+	padding:0px;
+}
+
+.search-bar {
+	margin: 4px;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #ccc;
+	padding: 4px;
+	font-family: "Lucida Console", Courier, monospace;
+}

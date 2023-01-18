@@ -1,7 +1,7 @@
 import './staticBlocks'
 export { parseAndBuild } from './parsing/parseAndBuild'
 
-import toolbox from './defaultToolbox'
+import toolbox from './toolbox'
 import theme from './staticBlocks/theme.json'
 export { theme, toolbox }
 

@@ -5,127 +5,38 @@
 	"contents": [
 	    {
 	        "kind": "block",
-	        "type": "sheets_arithmetic"
+	        "type": "sheets_arithmetic",
+			"fields": { "OP": "ADD" },
+			"search": "add\n+"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_negate"
+	        "type": "sheets_arithmetic",
+			"fields": { "OP": "MINUS" },
+			"search": "minus\n-"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_ABS"
+	        "type": "sheets_arithmetic",
+			"fields": { "OP": "DIVIDE" },
+			"search": "divide\n/"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_CEILING"
+	        "type": "sheets_arithmetic",
+			"fields": { "OP": "MULTIPLY" },
+			"search": "multiply\ntimes\n*"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_COUNTBLANK"
+	        "type": "sheets_arithmetic",
+			"fields": { "OP": "POWER" },
+			"search": "power\nexponent\n^"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_COUNTIF"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_COUNTIFS"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_COUNTUNIQUE"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_EVEN"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_FACT"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_FLOOR"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_INT"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_ISEVEN"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_ISODD"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_MOD"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_ODD"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_PI"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_POWER"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_PRODUCT"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_QUOTIENT"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_RAND"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_RANDARRAY"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_RANDBETWEEN"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_ROUND"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_ROUNDDOWN"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_ROUNDUP"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_SIGN"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_SQRT"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_SUM"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_SUMIF"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_SUMIFS"
+	        "type": "sheets_negate",
+			"search": "negative\nminus\n-"
 	    }
 	]
 }

@@ -3,10 +3,11 @@
 	"name": "Values",
 	"categoryStyle": "Values_category",
 	"contents": [
-		{ "kind": "block", "type": "sheets_text" },
-		{ "kind": "block", "type": "sheets_number" },
-		{ "kind": "block", "type": "sheets_boolean" },
-		{ "kind": "block", "type": "sheets_cell" },
+		{ "kind": "block", "type": "sheets_text", "search": "text\nstring" },
+		{ "kind": "block", "type": "sheets_number", "search": "number\nnumberic" },
+		{ "kind": "block", "type": "sheets_boolean", "search": "boolean\nfalse", "fields": {"BOOL": "FALSE"}},
+		{ "kind": "block", "type": "sheets_boolean", "search": "boolean\ntrue", "fields": {"BOOL": "TRUE"}},
+		{ "kind": "block", "type": "sheets_cell", "search": "cell range" },
 		{ "kind": "block", "type": "sheets_rows" },
 		{ "kind": "block", "type": "sheets_columns" }
 	]

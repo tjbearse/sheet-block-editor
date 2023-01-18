@@ -5,47 +5,39 @@
 	"contents": [
 	    {
 	        "kind": "block",
-	        "type": "sheets_compare"
+	        "type": "sheets_compare",
+			"fields": { "OP": "EQ" },
+			"search": "=\nequal\neq"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_AND"
+	        "type": "sheets_compare",
+			"fields": { "OP": "NEQ" },
+			"search": "<>\nneq\nunequal"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_FALSE"
+	        "type": "sheets_compare",
+			"fields": { "OP": "LT" },
+			"search": "<\nless than\nlt"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_IF"
+	        "type": "sheets_compare",
+			"fields": { "OP": "LTE" },
+			"search": "<=\nless than or equal\nlte"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_IFERROR"
+	        "type": "sheets_compare",
+			"fields": { "OP": "GT" },
+			"search": ">\ngreater than\ngt"
 	    },
 	    {
 	        "kind": "block",
-	        "type": "sheets_IFNA"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_IFS"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_NOT"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_OR"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_SWITCH"
-	    },
-	    {
-	        "kind": "block",
-	        "type": "sheets_TRUE"
+	        "type": "sheets_compare",
+			"fields": { "OP": "GTE" },
+			"search": ">=\ngreater than or equal\ngte"
 	    }
 	]
 }

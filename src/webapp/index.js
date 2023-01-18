@@ -15,6 +15,9 @@ async function initialize() {
 	const errorText = document.getElementById('errorText');
 	window.workspace = workspace;
 	window.Blockly = blockly;
+	formulaText.value = getFormulaFromURL()
+
+	codeToBlocks();
 
 	form.onsubmit = (e) => { codeToBlocks(); e.preventDefault(); }
 	workspace.addChangeListener(onUpdate);
@@ -34,6 +37,7 @@ async function initialize() {
 		try {
 			const code = GoogleSheets.workspaceToCode(workspace);
 			formulaText.value = code;
+			setFormulaInURL(code);
 
 		} catch(e) {
 			console.error(e);
@@ -84,4 +88,12 @@ async function initialize() {
 		errorModal.showModal();
 	}
 
+}
+
+function getFormulaFromURL() {
+	const hash = window.location.hash
+	return decodeURIComponent(hash.slice(1))
+}
+function setFormulaInURL(f) {
+	window.location.hash = '#' + f
 }

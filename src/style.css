@@ -1,3 +1,22 @@
+#formulaText {
+	margin: 4px;
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #ccc;
+	padding: 8px;
+	font-size: medium;
+	flex-grow: 1;
+}
+#latex {
+	white-space: nowrap;
+}
+#latex > * {
+	display: block;
+	margin-top: 8px;
+}
+#errorModal {
+	position: relative;
+}
 
 .monospace {
 	font-family: "Lucida Console", Courier, monospace;

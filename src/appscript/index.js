@@ -1,6 +1,7 @@
 import initWorkspace from '../workspace'
 import { parseAndBuild, GoogleSheets } from '../blockSheets'
 import { getFormula, submitFormula } from 'googleAPI'
+import '../style.css'
 
 document.addEventListener("DOMContentLoaded", async function () {
 	const [workspace, root] = await initWorkspace()

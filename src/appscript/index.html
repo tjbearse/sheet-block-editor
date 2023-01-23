@@ -11,22 +11,14 @@
 				height: calc(100% - 32px);
 			}
 
-			#formulaText {
-				flex-grow: 1;
-			}
-			#formulaBar {
-				height: 32px;
-				display: flex;
-				flex-direction: row;
-			}
 		</style>
 
 	</head>
 	<body>
 		<div id="container">
-			<div id="formulaBar">
-				<input value="" id="formulaText" readonly/>
-				<button id="submit">submit</button>
+			<div class="row">
+				<input class="monospace" value="" id="formulaText" readonly/>
+				<button class="btn" id="submit">Submit</button>
 			</div>
 			<div id='blocklyDiv'>
 			</div>

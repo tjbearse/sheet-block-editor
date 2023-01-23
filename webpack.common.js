@@ -66,6 +66,14 @@ module.exports = {
 			googleAPI: path.resolve(__dirname, 'src/appscript/googleAPI.js'),
 		},
 	},
+	module: {
+		rules: [
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
+			},
+		],
+	},
 	plugins: [
 		new webpack.optimize.ModuleConcatenationPlugin(),
 		new CopyPlugin({

@@ -91,7 +91,7 @@ function getDecompose(name) {
 		let connection = topBlock.getInput('STACK').connection;
 		for (let i = 0; i < this.count_; i++) {
 			let itemBlock = workspace.newBlock('mutator_variable_container_item');
-			topBlock.initSvg?.call(topBlock);
+			itemBlock.initSvg?.call(itemBlock);
 			connection.connect(itemBlock.previousConnection);
 			connection = itemBlock.nextConnection;
 		}

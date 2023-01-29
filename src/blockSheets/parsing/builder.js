@@ -150,7 +150,6 @@ function makeValueBlock(workspace, tree, init) {
 function makeArrayBlock(workspace, tree, init) {
 	const nRows = tree.values.length;
 	const nCols = tree.values[0]?.length ?? 0;
-	// TODO use tree.values to inflate array
 	// TODO refactor some of the nesting here into functions?
 
 	if (nRows < 2) {

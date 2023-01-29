@@ -8,7 +8,7 @@
 		{ "kind": "block", "type": "sheets_boolean", "search": "boolean\nfalse", "fields": {"BOOL": "FALSE"}},
 		{ "kind": "block", "type": "sheets_boolean", "search": "boolean\ntrue", "fields": {"BOOL": "TRUE"}},
 		{ "kind": "block", "type": "sheets_cell", "search": "cell range" },
-		{ "kind": "block", "type": "sheets_rows" },
-		{ "kind": "block", "type": "sheets_columns" }
+		{ "kind": "block", "type": "sheets_rows", "search": "rows\narray" },
+		{ "kind": "block", "type": "sheets_columns", "search": "columns\narray" }
 	]
 }

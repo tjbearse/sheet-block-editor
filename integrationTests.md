@@ -11,6 +11,9 @@ with webapp dev server running:
 
 1. Check demo blocks have no empty spots
 
+1. Create an array block with multiple elements from a formula, e.g. `={1,2}`
+2. Open the mutator
+
 
 ### /appscript/test.html:
 

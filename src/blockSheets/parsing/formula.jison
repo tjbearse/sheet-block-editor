@@ -92,6 +92,7 @@ arguments
 	| arguments ',' -> [...$1, null] /* blank args */
 	| exp -> [$1]
 	| ',' -> [null, null]
+	| ',' exp -> [null, $2] /* mixed blank args */
 	;
 
 /* these are together to resolve ambiguity between numbers and row based ranges */

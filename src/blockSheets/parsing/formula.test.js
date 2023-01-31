@@ -169,8 +169,12 @@ describe('functions', () => {
 			)
 	})
 
-	test.skip('parses functions that skip arguments, github issue #37', () => {
-		expect(parser.parse('=Max(, 2))'))
+	test('parses functions that skip arguments, github issue #37', () => {
+		expect(parser.parse('=Max(,)'))
+			.toTreeEqual(
+				mkFunc('MAX', [null, null])
+			)
+		expect(parser.parse('=Max(, 2)'))
 			.toTreeEqual(
 				mkFunc('MAX', [null, mkValue(2)])
 			)

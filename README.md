@@ -86,7 +86,7 @@ build
 ### Other Generated
 
 - Generate block definitions: `(cd src/generateBlockDef && python3 generate.py --all)`
-- Generate src/blockSheets/parsing/formula.js `(cd src/blockSheets/parsing && node --experimental-modules --no-warnings ./buildFormula.mjs)`
+- Generate src/blockSheets/parsing/formula.js `npm run parser`
 
 
 ## FAQ

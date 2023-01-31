@@ -6,7 +6,6 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 %%
 
 \s+                   /* skip whitespace */
-[0-9]+("."[0-9]+)?\b	  return 'NUMBER'
 "("                       return '('
 ")"                       return ')'
 "{"                       return '{'
@@ -18,22 +17,23 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 "<"                       return '<'
 "="                       return '='
 ">"                       return '>'
-"-"						  return '-'
-"+"						  return '+'
-"&"						  return '&'
-"*"						  return '*'
-"^"						  return '^'
-"/"						  return '/'
-"%"						  return '%'
-":"						  return ':'
-";"						  return ';'
-[Tt][Rr][Uu][Ee]		  return 'TRUE'
-[Ff][Aa][Ll][Ss][Ee]	  return 'FALSE'
-\"[^"]*\"         		  yytext = yytext.slice(1,-1); return 'STRING'
+"-"                       return '-'
+"+"                       return '+'
+"&"                       return '&'
+"*"                       return '*'
+"^"                       return '^'
+"/"                       return '/'
+"%"                       return '%'
+":"                       return ':'
+";"                       return ';'
+"$"                       return '$'
+[Tt][Rr][Uu][Ee]          return 'TRUE'
+[Ff][Aa][Ll][Ss][Ee]      return 'FALSE'
+\"[^"]*\"                 yytext = yytext.slice(1,-1); return 'STRING'
 [\w]+\s*(?=\()            return 'FUNC_NAME'
-[a-zA-Z]+[0-9]+		  	  return 'CELL'
-[a-zA-Z]+				  return 'COLUMN'
-[0-9]+				  	  return 'ROW'
+[0-9]*\.[0-9]+            return 'FLOAT'
+[0-9]+\.?                 return 'INTEGER'
+[a-zA-Z]+                 return 'WORD'
 
 /lex
 
@@ -56,13 +56,12 @@ formula
   ;
 
 exp 
-	: number
+	: numberOrRange
 	| function
 	| STRING -> { kind: 'value', value: $1 }
 	| '(' exp ')' -> $2
 	| arrayExp
 	| boolean
-	| range
 	| binop
 	| unop
 	;
@@ -95,33 +94,37 @@ arguments
 	| ',' -> [null, null]
 	;
 
-number
-	: n -> { kind: 'value', value: $1 }
+/* these are together to resolve ambiguity between numbers and row based ranges */
+numberOrRange
+	: '$' INTEGER ':' row        -> { kind: 'range', range: $1 + $2 + $3 + $4 }
+	| '$' INTEGER ':' column row -> { kind: 'range', range: $1 + $2 + $3 + $4 + $5 }
+	| INTEGER ':' column row     -> { kind: 'range', range: $1 + $2 + $3 + $4 }
+	| INTEGER ':' row            -> { kind: 'range', range: $1 + $2 + $3 }
+	| column ':' column          -> { kind: 'range', range: $1 + $2 + $3 }
+	| column ':' column row      -> { kind: 'range', range: $1 + $2 + $3 + $4 }
+	| column row                 -> { kind: 'range', range: $1 + $2 }
+	| column row ':' column      -> { kind: 'range', range: $1 + $2 + $3 + $4 }
+	| column row ':' row         -> { kind: 'range', range: $1 + $2 + $3 + $4 }
+	| column row ':' column row  -> { kind: 'range', range: $1 + $2 + $3 + $4 + $5 }
+	| FLOAT '%'                  -> { kind: 'value', value: Number($1) / 100 }
+	| INTEGER '%'                -> { kind: 'value', value: Number($1) / 100 }
+	| INTEGER                    -> { kind: 'value', value: Number($1) }
+	| FLOAT                      -> { kind: 'value', value: Number($1) }
 	;
 
-n
-	: NUMBER '%' -> Number($1) / 100
-	| NUMBER -> Number($1)
+column
+	: WORD
+	| '$' WORD -> $1 + $2
+	;
+
+row
+	: INTEGER -> $1
+	| '$' INTEGER -> $1 + $2
 	;
 
 boolean
 	: TRUE -> { kind: 'value', value: true }
 	| FALSE -> { kind: 'value', value: false }
-	;
-
-range
-	: r -> { kind: 'range', range: $1 }
-	;
-
-r
-	: COLUMN ':' CELL -> $1 + $2 + $3
-	| CELL ':' COLUMN -> $1 + $2 + $3
-	| COLUMN ':' COLUMN -> $1 + $2 + $3
-	| CELL ':' ROW -> $1 + $2 + $3
-	| ROW ':' ROW -> $1 + $2 + $3
-	| ROW ':' CELL -> $1 + $2 + $3
-	| CELL ':' CELL -> $1 + $2 + $3
-	| CELL
 	;
 
 binop

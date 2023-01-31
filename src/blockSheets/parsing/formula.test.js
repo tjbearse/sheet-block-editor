@@ -76,6 +76,13 @@ describe('values', () => {
 		expect(parser.parse('=A1:B')).toTreeEqual(mkRange('A1:B'))
 	})
 
+	test('parses cell ranges referencing other sheets (github issue #42)', () => {
+		expect(parser.parse("='sheet1'!A1")).toTreeEqual(mkRange("'sheet1'!A1"))
+		expect(parser.parse("='sheet 1'!A1")).toTreeEqual(mkRange("'sheet 1'!A1"))
+		expect(parser.parse("=sheet1!A1")).toTreeEqual(mkRange("sheet1!A1"))
+		expect(parser.parse("='sheet_ with @ \" '' symbols'!D33")).toTreeEqual(mkRange("'sheet_ with @ \" '' symbols'!D33"))
+	})
+
 	test('parses cell ranges with row only parts (github issue #21)', () => {
 		expect(parser.parse('=1:1')).toTreeEqual(mkRange('1:1'))
 		expect(parser.parse('=1:A1')).toTreeEqual(mkRange('1:A1'))

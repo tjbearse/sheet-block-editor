@@ -8,7 +8,8 @@
 		"build-appscript": "webpack --config webpack.appscript.js",
 		"build-size": "webpack --config webpack.pages.js --json > /tmp/webpackStats.json && sleep .1 | npx webpack-bundle-analyzer /tmp/webpackStats.json",
 		"test": "jest",
-		"pages": "webpack --config webpack.pages.js && gh-pages -d build"
+		"pages": "webpack --config webpack.pages.js && gh-pages -d build",
+		"parser": "(cd src/blockSheets/parsing && node --experimental-modules --no-warnings ./buildFormula.mjs)"
 	},
 	"dependencies": {
 		"blockly": "^9.0.0"

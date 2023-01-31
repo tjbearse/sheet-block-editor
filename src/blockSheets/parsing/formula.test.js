@@ -55,8 +55,9 @@ describe('values', () => {
 		expect(parser.parse('="1"')).toTreeEqual(mkValue("1"))
 		expect(parser.parse('=""')).toTreeEqual(mkValue(""))
 	})
-	test.skip('parses string values with inner quotes (github issue #20)', () => {
-		expect(parser.parse('=".""."')).toTreeEqual(mkValue(".\"."))
+	test('parses string values with inner quotes (github issue #20)', () => {
+		expect(parser.parse('=".""."')).toTreeEqual(mkValue('.".'))
+		expect(parser.parse('="."".""."')).toTreeEqual(mkValue('.".".'))
 	})
 
 	test('parses bool values', () => {

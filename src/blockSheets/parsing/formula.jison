@@ -29,7 +29,7 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 "$"                       return '$'
 [Tt][Rr][Uu][Ee]          return 'TRUE'
 [Ff][Aa][Ll][Ss][Ee]      return 'FALSE'
-\"[^"]*\"                 yytext = yytext.slice(1,-1); return 'STRING'
+\"([^"]|\"\")*\"            yytext = yytext.slice(1,-1).replaceAll('""', '"'); return 'STRING'
 [\w]+\s*(?=\()            return 'FUNC_NAME'
 [0-9]*\.[0-9]+            return 'FLOAT'
 [0-9]+\.?                 return 'INTEGER'

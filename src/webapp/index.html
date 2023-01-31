@@ -1,70 +1,119 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<title>Block Sheet Editor</title>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<meta content="utf-8" http-equiv="encoding">
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<style>
-	    html,
-	    body {
-	        height: 100%;
-	        margin: 0;
-			font-family: Verdana, Arial, Helvetica, sans-serif;
-	    }
-		#content {
-			height: 100%;
-			display:flex;
-			flex-direction:column;
-		}
+	<head>
+		<title>Block Sheet Editor</title>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				font-family: Verdana, Arial, Helvetica, sans-serif;
+			}
+			#content {
+				height: 100%;
+				display:flex;
+				flex-direction:column;
+			}
 
-	    #blocklyDiv {
-			flex-grow: 1;
-	    }
+			#blocklyDiv {
+				flex-grow: 1;
+			}
 
-	</style>
-</head>
+			#help-menu {
+			}
+			#help-menu .menu {
+				white-space: nowrap;
+				background: #ccc;
+				min-width: 200px;
+			}
+			#help-menu ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			#help-menu li {
+				margin: 2px;
+				background: white;
+			}
+			#help-menu a {
+				display: block;
+				padding: 8px;
+				width: calc(100% - 16px);
+				height: 100%;
+				color: black;
+				text-decoration: none;
+			}
+			#help-menu a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
 
-<body>
-  <div id="content">
-	<dialog id="errorModal">
-		<form method="dialog">
-			<button class="btn-x"></button>
-			<div class="column" style="align-items:start">
-				<span style="font-size: 1.5em; margin-bottom:0.5em;">Error:</span>
-				<div id="errorText" class="monospace" ></div>
-			</div>
-		</form>
-	</dialog>
-
-	<form id="codeForm" action="javascript:void(0);">
-		<div class="row">
-			<input value="" class="monospace" id="formulaText" placeholder="=abs(1)">
-			<button id="toBlocks" class="btn" type="submit">
-				To Blocks
-			</button>
-			<div class="btn-menu">
-				<span class="icon">&#8721;</span>
-				<div class="menu">
-					<div id="latex"></div>
+	<body>
+		<div id="content">
+			<dialog id="errorModal">
+				<form method="dialog">
+					<button class="btn-x"></button>
+					<div class="column" style="align-items:start">
+						<span style="font-size: 1.5em; margin-bottom:0.5em;">Error:</span>
+						<div id="errorText" class="monospace" ></div>
+					</div>
+				</form>
+			</dialog>
+			<form id="codeForm" action="javascript:void(0);">
+				<div class="row">
+					<input value="" class="monospace" id="formulaText" placeholder="=abs(1)">
+					<button id="toBlocks" class="btn" type="submit">
+						To Blocks
+					</button>
+					<div class="btn-menu">
+						<span class="icon" title="view as math">&#8721;</span>
+						<div class="menu hover">
+							<div id="latex"></div>
+						</div>
+					</div>
+					<div id="help-menu" class="btn-menu">
+						<span class="icon" title="help">?</span>
+						<div class="menu">
+							<ul>
+								<li>
+									<a href="https://github.com/tjbearse/sheet-block-editor/wiki/Basic-Use" target="_blank">
+										How To
+									</a>
+								</li>
+								<li>
+									<a href="https://github.com/tjbearse/sheet-block-editor/blob/main/LICENSE.txt" target="_blank">
+										License
+									</a>
+								</li>
+								<li>
+									<a href="https://github.com/tjbearse/sheet-block-editor" target="_blank">
+										Source Code
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	</form>
-	<div id='blocklyDiv'></div>
-  </div>
+			</form>
+			<div id='blocklyDiv'></div>
 
-	<script>
-	  window.MathJax = {
-		  startup: {
-			  typeset: false
-		  }
-	  }
-	</script>
-	<!-- TODO pull these in via templating -->
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</body>
+		</div>
+
+		<script>
+			window.MathJax = {
+				startup: {
+					typeset: false
+				}
+			}
+		</script>
+		<!-- TODO pull these in via templating -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</body>
 
 </html>

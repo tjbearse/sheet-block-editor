@@ -2,6 +2,7 @@
 referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a-list-of-commands-into-an-array-of-objects
 */
 %lex
+%option flex
 
 %%
 
@@ -27,12 +28,15 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 ":"                       return ':'
 ";"                       return ';'
 "$"                       return '$'
+"!"                       return '!'
 [Tt][Rr][Uu][Ee]          return 'TRUE'
 [Ff][Aa][Ll][Ss][Ee]      return 'FALSE'
-\"([^"]|\"\")*\"            yytext = yytext.slice(1,-1).replaceAll('""', '"'); return 'STRING'
+\"([^"]|\"\")*\"          yytext = yytext.slice(1,-1).replaceAll('""', '"'); return 'STRING'
+\'([^']|\'\')*\'          return 'SQ_STRING'
 [\w]+\s*(?=\()            return 'FUNC_NAME'
 [0-9]*\.[0-9]+            return 'FLOAT'
 [0-9]+\.?                 return 'INTEGER'
+[a-zA-Z]+[a-zA-Z0-9_]*\!  return 'NAKEDSHEET'
 [a-zA-Z]+                 return 'WORD'
 
 /lex
@@ -44,6 +48,7 @@ referenced https://stackoverflow.com/questions/48612450/using-jison-to-convert-a
 %left '^'
 %left UMINUS UPLUS
 %left UNMINUS
+%left REF
 
 %%
 start:
@@ -56,7 +61,8 @@ formula
   ;
 
 exp 
-	: numberOrRange
+	: number
+	| sheetRef
 	| function
 	| STRING -> { kind: 'value', value: $1 }
 	| '(' exp ')' -> $2
@@ -95,8 +101,15 @@ arguments
 	| ',' exp -> [null, $2] /* mixed blank args */
 	;
 
-/* these are together to resolve ambiguity between numbers and row based ranges */
-numberOrRange
+number
+	: FLOAT '%'                  -> { kind: 'value', value: Number($1) / 100 }
+	| INTEGER '%'                -> { kind: 'value', value: Number($1) / 100 }
+	| INTEGER                    -> { kind: 'value', value: Number($1) }
+	| FLOAT                      -> { kind: 'value', value: Number($1) }
+	;
+
+/* expanding leading row definitions here b/c of competition with number */
+range
 	: '$' INTEGER ':' row        -> { kind: 'range', range: $1 + $2 + $3 + $4 }
 	| '$' INTEGER ':' column row -> { kind: 'range', range: $1 + $2 + $3 + $4 + $5 }
 	| INTEGER ':' column row     -> { kind: 'range', range: $1 + $2 + $3 + $4 }
@@ -107,10 +120,12 @@ numberOrRange
 	| column row ':' column      -> { kind: 'range', range: $1 + $2 + $3 + $4 }
 	| column row ':' row         -> { kind: 'range', range: $1 + $2 + $3 + $4 }
 	| column row ':' column row  -> { kind: 'range', range: $1 + $2 + $3 + $4 + $5 }
-	| FLOAT '%'                  -> { kind: 'value', value: Number($1) / 100 }
-	| INTEGER '%'                -> { kind: 'value', value: Number($1) / 100 }
-	| INTEGER                    -> { kind: 'value', value: Number($1) }
-	| FLOAT                      -> { kind: 'value', value: Number($1) }
+	;
+
+sheetRef
+	: NAKEDSHEET range { $2.range = $1 + $2.range; $$ = $2 }
+	| SQ_STRING '!' range { $3.range = $1 + $2 + $3.range; $$ = $3 }
+	| range
 	;
 
 column

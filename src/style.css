@@ -43,6 +43,9 @@
 	font-size: 1.25em;
 	margin: 0 8px;
 }
+.btn-menu .icon {
+	cursor: pointer;
+}
 
 .btn-menu {
 	position: relative;
@@ -51,7 +54,15 @@
 .btn-menu:hover .menu {
 	display: block;
 }
-.menu::after {
+.menu {
+	display: none;
+	position: absolute;
+	z-index: 100;
+	top: 100%;
+	right: 4px;
+}
+
+.hover.menu::after {
 	position: absolute;
 	top: -5px;
 	right: 5px;
@@ -63,12 +74,10 @@
 	border-bottom: 5px solid #222;
 	content: "";
 }
-.menu {
+.hover.menu {
+	display: none;
 	min-width: 20px;
 	min-height: 20px;
-	display: none;
-	position: absolute;
-	z-index: 100;
 	background: #222;
 	border-radius: 5px;
 	color: #fff;

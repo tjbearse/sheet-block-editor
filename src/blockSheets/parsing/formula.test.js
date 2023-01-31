@@ -80,6 +80,7 @@ describe('values', () => {
 		expect(parser.parse("='sheet1'!A1")).toTreeEqual(mkRange("'sheet1'!A1"))
 		expect(parser.parse("='sheet 1'!A1")).toTreeEqual(mkRange("'sheet 1'!A1"))
 		expect(parser.parse("=sheet1!A1")).toTreeEqual(mkRange("sheet1!A1"))
+		expect(parser.parse("=abc!A1")).toTreeEqual(mkRange("abc!A1"))
 		expect(parser.parse("='sheet_ with @ \" '' symbols'!D33")).toTreeEqual(mkRange("'sheet_ with @ \" '' symbols'!D33"))
 	})
 
@@ -131,6 +132,7 @@ describe('functions', () => {
 		expect(parser.parse('=now()')).toTreeEqual(mkFunc('NOW', []))
 		expect(parser.parse('=now(  )')).toTreeEqual(mkFunc('NOW', []))
 		expect(parser.parse('= now() ')).toTreeEqual(mkFunc('NOW', []))
+		expect(parser.parse('=SUM1() ')).toTreeEqual(mkFunc('SUM1', []))
 	})
 
 

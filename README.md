@@ -3,11 +3,11 @@
 
 Sheet Block Editor is a block-based visual programming editor for Google Sheets. The editor can read a text formula and represent its parts as building blocks. These blocks can be edited and reconfigured then writen back out as text for use in a Google Sheet. Formulas can also be made with blocks from scratch. [Try it out](https://tjbearse.github.io/sheet-block-editor/)!
 
-For more detailed instructions on how to use it, see the [Basic Usage](https://github.com/tjbearse/sheet-block-editor/wiki/Basic-Use) on the wiki.
+For more detailed instructions on how to use this tool, see the [Basic Usage](https://github.com/tjbearse/sheet-block-editor/wiki/Basic-Use) on the wiki.
 
-Currently the editor is in an experimental state. The editor exists on its own [webpage](https://tjbearse.github.io/sheet-block-editor/) to be used alongside Google Sheets via copying and pasting. Adapting the editor to be an extension for Google Sheets is possible but not yet planned. Your enthusiastic support makes that a more likely reality. Additionally, there are some functionality limitations. See the list of [known feature gaps](https://github.com/tjbearse/sheet-block-editor/issues?q=is%3Aopen+is%3Aissue+label%3A%22unsupported+forumulas%22).
+This project is in a "usable prototype" state. The core functionality works but there are limitations and some rough edges. The editor exists on its own [webpage](https://tjbearse.github.io/sheet-block-editor/) to be used alongside Google Sheets via copying and pasting. There is also an app script build target that integrates an editor directly in Google Sheets. It should be possible to turn that into a Google Sheets extension for wider use. Pleae get in touch if that feature would be of interest to you.
 
-If you encounter bugs or would like to suggest an improvement please create an issue.
+If you encounter bugs or would like to suggest an improvement, I'd be happy hear from you via github issue. See also the list of [known feature gaps](https://github.com/tjbearse/sheet-block-editor/issues?q=is%3Aopen+is%3Aissue+label%3A%22unsupported+forumulas%22).
 
 
 ## Development
